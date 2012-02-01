@@ -70,8 +70,7 @@ public class RemainingTimeBeanTest {
 	 */
 	@Test
 	public void testGetRemainingTimeFiveHundredDay() {
-		RemainingTime rtime = remainingTimeBean.getRemainingTime(Long.valueOf(1000 * 60 * 60 * 24
-				* 550));
+		RemainingTime rtime = remainingTimeBean.getRemainingTime(1000 * 60 * 60 * 24 * 550l);
 		assertEquals(Character.valueOf('5'), rtime.getHundred());
 		assertEquals(Character.valueOf('5'), rtime.getDecade());
 		assertEquals(Character.valueOf('0'), rtime.getUnit());
