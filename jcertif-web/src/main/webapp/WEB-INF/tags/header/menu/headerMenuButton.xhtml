@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition>
+		<span class="header-menu-button">
+			<span class="header-menu-button-left"></span>
+			<span class="header-menu-button-center">
+				<span class="header-menu-button-text-layout">
+					<h:link styleClass="header-menu-button-text" value="#{text}" outcome="#{url}"/>
+				</span>
+			</span>
+			<span class="header-menu-button-right"></span>
+		</span>
+	</ui:composition>
+</body>
+</html>

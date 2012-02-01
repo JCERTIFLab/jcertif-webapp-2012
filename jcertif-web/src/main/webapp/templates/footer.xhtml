@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+
+	<ui:composition>
+		<div class="footer">
+			<span class="footer-copyright">#{msg['footer.copyright']}</span>
+			<span class="footer-menu">
+				<h:link value="#{msg['header.menu.home']}" outcome="/faces/home/home.xhtml"/>
+				<span>|</span>
+				<h:link value="#{msg['header.menu.join']}" outcome="/faces/join/join.xhtml"/>
+				<span>|</span>
+				<h:link value="#{msg['header.menu.calendar']}" outcome="/faces/calendar/calendar.xhtml"/>
+				<span>|</span>
+				<h:link value="#{msg['header.menu.speaker']}" outcome="/faces/speaker/speaker.xhtml"/>
+				<span>|</span>
+				<h:link value="#{msg['header.menu.contact']}" outcome="/faces/contact/contact.xhtml"/>
+			</span>
+		</div>
+	</ui:composition>
+
+</body>
+</html>

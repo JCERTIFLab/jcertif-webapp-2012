@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jc="http://jcertif.com/facelets">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition>
+		<div class="header">
+			<div class="header-title"></div>
+			<div class="header-menu">
+				<div class="header-menu-group-button">
+					<jc:headerMenuButton text="#{msg['header.menu.home']}" url="/faces/home/home.jsf"></jc:headerMenuButton>
+					<jc:headerMenuButton text="#{msg['header.menu.join']}" url="/faces/join/join.jsf"></jc:headerMenuButton>
+					<jc:headerMenuButton text="#{msg['header.menu.calendar']}" url="/faces/calendar/calendar.jsf"></jc:headerMenuButton>
+					<jc:headerMenuButton text="#{msg['header.menu.speaker']}" url="/faces/speaker/speaker.jsf"></jc:headerMenuButton>
+					<jc:headerMenuButton text="#{msg['header.menu.contact']}" url="/faces/contact/contact.jsf"></jc:headerMenuButton>
+				</div>
+			</div>
+		</div>
+	</ui:composition>
+</body>
+</html>

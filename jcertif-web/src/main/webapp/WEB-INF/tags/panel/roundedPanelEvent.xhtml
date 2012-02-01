@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+	xmlns:jc="http://jcertif.com/facelets">
+
+<ui:composition>
+	<div class="rounded-panel-event">
+
+		<div class="rounded-panel-event-header">
+			<span class="rounded-panel-event-header-img" />
+			<span class="rounded-panel-event-header-text-1"><h:outputLabel value="#{titleText1}" /></span> 
+			<span class="rounded-panel-event-header-text-2"><h:outputLabel value="#{titleText2}" /></span>
+		</div>
+		<h:graphicImage value="#{img}" styleClass="rounded-panel-event-body-img" />
+		<div class="rounded-panel-event-footer">
+			<span class="rounded-panel-event-footer-text">#{footerText}</span>
+			<span class="rounded-panel-event-footer-img" />
+		</div>
+
+	</div>
+</ui:composition>
+</html>

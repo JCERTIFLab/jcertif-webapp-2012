@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jc="http://jcertif.com/facelets">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="content">
+	
+	
+		<div class="home-banner">
+			<div class="home-banner-people"></div>
+			<div class="home-banner-text">#{msg['home.banner.text']}</div>
+		</div>
+		
+		<div class="home-body">
+		
+			<div class="home-body-conference">
+				<jc:roundedPanelEvent titleText1="#{msg['home.conference.title1']}" titleText2="#{msg['home.conference.title2']}" footerText="#{msg['home.conference.more']}" img="/resources/img/carousel/conference/0001.jpg"/>
+			</div>
+			<div class="home-body-university">
+				<jc:roundedPanelEvent titleText1="#{msg['home.university.title1']}" titleText2="#{msg['home.university.title2']}" footerText="#{msg['home.university.more']}" img="/resources/img/carousel/conference/0001.jpg"/>
+			</div>
+			<div class="home-body-right-content">
+				<ui:include src="/faces/home/remainingTime.xhtml" />
+				<br/>
+				<ui:include src="/faces/home/news.xhtml" />
+			</div>
+			
+		
+		</div>
+		</ui:define>
+</ui:composition>
+</html>
