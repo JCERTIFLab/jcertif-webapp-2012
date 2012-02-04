@@ -92,11 +92,11 @@ public class RoleParticipant {
 			return true;
 		}
 
-		if (!(obj instanceof TypeParticipant)) {
+		if (!(obj instanceof RoleParticipant)) {
 			return false;
 		}
 
-		final TypeParticipant other = (TypeParticipant) obj;
+		final RoleParticipant other = (RoleParticipant) obj;
 
 		return new EqualsBuilder().append(getCode(), other.getCode()).isEquals();
 	}

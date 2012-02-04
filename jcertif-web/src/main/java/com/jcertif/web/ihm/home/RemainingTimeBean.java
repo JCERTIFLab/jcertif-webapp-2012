@@ -23,6 +23,8 @@ import com.jcertif.web.service.RestService;
 @RequestScoped
 public class RemainingTimeBean {
 
+	private static final int UN_JOUR_EN_MILLISEC = 1000 * 60 * 60 * 24;
+
 	/** LOGGER **/
 	private static final Logger LOG = LoggerFactory.getLogger(RemainingTimeBean.class);
 
@@ -42,17 +44,14 @@ public class RemainingTimeBean {
 	 */
 	public Conference getConference() {
 		if (conference == null) {
-			long start = 0;
 			if (LOG.isDebugEnabled()) {
-				LOG.debug("[START] Retrieving Conference " + resourceService.getConferenceContext());
-				start = System.currentTimeMillis();
+				LOG.debug("[START] Retrieving Conference..."
+						+ resourceService.getConferenceContext());
 			}
 			conference = restService.getBuilder(resourceService.getConferenceContext()).get(
 					Conference.class);
 			if (LOG.isDebugEnabled()) {
-				LOG.debug("[END] Retrieving Conference " + (System.currentTimeMillis() - start)
-						+ " ms.");
-				start = System.currentTimeMillis();
+				LOG.debug("[END] Retrieving Conference");
 			}
 		}
 		return conference;
@@ -79,7 +78,8 @@ public class RemainingTimeBean {
 	 */
 	protected RemainingTime getRemainingTime(long remainingTimeMs) {
 		final RemainingTime remTime = new RemainingTime();
-		String remTimeString = String.valueOf(Math.round(remainingTimeMs / (1000 * 60 * 60 * 24)));
+		String remTimeString = String.valueOf(Math.round((double) remainingTimeMs
+				/ UN_JOUR_EN_MILLISEC));
 
 		if (remTimeString.length() >= 3) {
 			remTime.setHundred(remTimeString.charAt(remTimeString.length() - 3));
