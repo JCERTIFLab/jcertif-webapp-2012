@@ -9,6 +9,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.ValidationException;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.jcertif.web.model.RoleParticipant;
 import com.jcertif.web.model.TypeParticipant;
@@ -27,6 +30,7 @@ import com.jcertif.web.service.RestService;
 @RequestScoped
 public class JoinBean {
 
+	/** User **/
 	private User user;
 
 	/** REST Web Service **/
@@ -50,27 +54,51 @@ public class JoinBean {
 	}
 
 	/**
+	 * Save the user's data.
+	 * 
 	 * @param actionEvent
 	 *            a action event
 	 * @throws IOException
 	 *             if redirect error
 	 */
 	public void save(ActionEvent actionEvent) throws IOException {
-		if (!user.getEmail().equals(user.getConfirmemail())) {
-			FacesContext.getCurrentInstance().addMessage("join:confirm",
-					new FacesMessage("C'est mort"));
 
-		} else {
+		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+			validateUser();
 			restService.post(resourceService.getUserCreateContext(), user, User.class);
-			FacesContext
-					.getCurrentInstance()
-					.getExternalContext()
-					.redirect(
-							FacesContext.getCurrentInstance().getExternalContext()
-									.getRequestContextPath()
-									+ "/faces/join/confirmationJoin.jsf");
+			context.getExternalContext().redirect(
+					context.getExternalContext().getRequestContextPath()
+							+ "/faces/join/confirmationJoin.jsf");
+		} catch (ValidationException e) {
+			context.addMessage("join:confirm",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+		}
+	}
+
+	/**
+	 * Validate the user's data.
+	 */
+	protected void validateUser() {
+		// Email and Confirmation Email must be equals
+		if (!user.getEmail().equals(user.getConfirmemail())) {
+			throw new ValidationException(resourceService.getLib("join.confirmemail.invalidmsg"));
 		}
 
+		// Password and Confirmation Password must be equals
+		if (!user.getPasswd().equals(user.getConfirmpasswd())) {
+			throw new ValidationException(resourceService.getLib("join.confirmpassword.invalidmsg"));
+		}
+
+		// Role is required
+		if (StringUtils.isBlank(user.getRole())) {
+			throw new ValidationException(resourceService.getLib("join.role.reqmsg"));
+		}
+
+		// Type is required
+		if (StringUtils.isBlank(user.getTypeUser())) {
+			throw new ValidationException(resourceService.getLib("join.type.reqmsg"));
+		}
 	}
 
 	/**
