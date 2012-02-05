@@ -114,6 +114,16 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
+    
+    <!-- Error Page -->
+    <error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/exception.jsp</location>
+	</error-page>
+  <error-page>
+	  <error-code>404</error-code>
+	  <location>/404.jsp</location>
+  </error-page>
 
     <!-- Welcome files -->
     <welcome-file-list>

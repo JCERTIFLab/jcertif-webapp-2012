@@ -336,3 +336,10 @@ font-size: 11pt;
 	font-family: helvetica;
 	color: #85AA8A;
 }
+
+/**** ERROR ****/
+.error {
+	font-size: 18pt;
+	margin-top: 20px;
+	margin-left: 20px;
+}
