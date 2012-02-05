@@ -9,9 +9,7 @@ import javax.inject.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jcertif.web.model.Conference;
-import com.jcertif.web.service.ResourceService;
-import com.jcertif.web.service.RestService;
+import com.jcertif.web.service.ReferentielService;
 
 /**
  * Controller for remaining time.
@@ -23,47 +21,25 @@ import com.jcertif.web.service.RestService;
 @RequestScoped
 public class RemainingTimeBean {
 
-	private static final int UN_JOUR_EN_MILLISEC = 1000 * 60 * 60 * 24;
-
 	/** LOGGER **/
 	private static final Logger LOG = LoggerFactory.getLogger(RemainingTimeBean.class);
 
-	/** REST Web Service **/
+	private static final int UN_JOUR_EN_MILLISEC = 1000 * 60 * 60 * 24;
+
+	/** Référentiel service **/
 	@Inject
-	private RestService restService;
-
-	/** Resource Service **/
-	@Inject
-	private ResourceService resourceService;
-
-	/** Conference **/
-	private Conference conference;
-
-	/**
-	 * @return the conference
-	 */
-	public Conference getConference() {
-		if (conference == null) {
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("[START] Retrieving Conference..."
-						+ resourceService.getConferenceContext());
-			}
-			conference = restService.getBuilder(resourceService.getConferenceContext()).get(
-					Conference.class);
-			if (LOG.isDebugEnabled()) {
-				LOG.debug("[END] Retrieving Conference");
-			}
-		}
-		return conference;
-	}
+	private ReferentielService referentielService;
 
 	/**
 	 * @return the remaining time
 	 */
 	public RemainingTime getRemainingTime() {
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Get remaining time...");
+		}
 		Calendar today = Calendar.getInstance();
 
-		long tempsRestantms = getConference().getDateDebut().getTimeInMillis()
+		long tempsRestantms = referentielService.getConference().getDateDebut().getTimeInMillis()
 				- today.getTimeInMillis();
 
 		final RemainingTime jr = getRemainingTime(tempsRestantms);

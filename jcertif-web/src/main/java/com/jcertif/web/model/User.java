@@ -33,6 +33,7 @@ public class User {
 	private String telMobile;
 	private String ville;
 	private String pays;
+	private Long idConference;
 
 	public User() {
 		super();
@@ -193,6 +194,21 @@ public class User {
 	 */
 	public void setConfirmpasswd(String confirmpasswd) {
 		this.confirmpasswd = confirmpasswd;
+	}
+
+	/**
+	 * @return the idConference
+	 */
+	public Long getIdConference() {
+		return idConference;
+	}
+
+	/**
+	 * @param idConference
+	 *            the idConference to set
+	 */
+	public void setIdConference(Long idConference) {
+		this.idConference = idConference;
 	}
 
 }

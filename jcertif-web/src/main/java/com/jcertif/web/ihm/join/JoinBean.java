@@ -64,6 +64,10 @@ public class JoinBean {
 	public void save(ActionEvent actionEvent) throws IOException {
 
 		FacesContext context = FacesContext.getCurrentInstance();
+
+		// Update Conference for user
+		this.user.setIdConference(referentielService.getConference().getId());
+
 		try {
 			validateUser();
 			restService.post(resourceService.getUserCreateContext(), user, User.class);
