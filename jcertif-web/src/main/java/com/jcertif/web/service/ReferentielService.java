@@ -24,10 +24,10 @@ import com.sun.jersey.api.client.GenericType;
 @ApplicationScoped
 public class ReferentielService {
 
-	private final class TypeParticipantType extends GenericType<List<TypeParticipant>> {
+	private static final class TypeParticipantType extends GenericType<List<TypeParticipant>> {
 	}
 
-	private final class RoleParticipantType extends GenericType<List<RoleParticipant>> {
+	private static final class RoleParticipantType extends GenericType<List<RoleParticipant>> {
 	}
 
 	/** LOGGER **/
@@ -51,7 +51,6 @@ public class ReferentielService {
 	 */
 	public List<TypeParticipant> getTypesParticipantList() {
 		if (typeParticipants == null) {
-			System.out.println("getType");
 			typeParticipants = restService.getBuilder(
 					resourceService.getTypeParticipantListContext()).get(new TypeParticipantType());
 		}
@@ -63,7 +62,6 @@ public class ReferentielService {
 	 */
 	public List<RoleParticipant> getRolesParticipantList() {
 		if (roleParticipants == null) {
-			System.out.println("getRole");
 			roleParticipants = restService.getBuilder(
 					resourceService.getRoleParticipantListContext()).get(new RoleParticipantType());
 		}

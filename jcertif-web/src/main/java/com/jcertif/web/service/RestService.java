@@ -5,7 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.core.MediaType;
-import com.jcertif.web.model.TypeParticipant;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
@@ -35,12 +35,6 @@ public class RestService {
 	public WebResource.Builder getBuilder(String path) {
 		return client.resource(resourceService.getFacadeUrl()).path(path)
 				.accept(MediaType.APPLICATION_XML);
-	}
-
-	public List<TypeParticipant> getType(String path) {
-		return client.resource(resourceService.getFacadeUrl()).path(path)
-				.accept(MediaType.APPLICATION_XML).get(new GenericType<List<TypeParticipant>>() {
-				});
 	}
 
 	public <T> List<T> post(String path) {
