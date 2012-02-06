@@ -20,4 +20,8 @@
 		<tag-name>pageBanner</tag-name>
 		<source>tags/banner/pageBanner.xhtml</source>
 	</tag>
+	<tag>
+		<tag-name>socialPanel</tag-name>
+		<source>tags/panel/socialNetworkPanel.xhtml</source>
+	</tag>
 </facelet-taglib>

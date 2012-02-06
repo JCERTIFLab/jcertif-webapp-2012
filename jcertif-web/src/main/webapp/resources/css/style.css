@@ -201,6 +201,46 @@ font-size: 11pt;
 	
 }
 
+/*********** SOCIAL NETWORK PANEL ***********/
+.social-network-panel {
+	border: 1px solid #0071BC;
+	background-color: #d7dbf9; 
+	height: 30px;
+}
+
+.social-network-panel a {
+	font-family: Helvetica Light;
+	display: inline-block;
+	text-decoration: none;
+	color: #0071BC;
+	font-size: 10pt;
+}
+
+.social-network-panel a:visited {
+	font-family: Helvetica Light;
+	text-decoration: none;
+	display: inline-block;
+	color: #0071BC;
+	font-size: 10pt;
+}
+
+.social-network-panel-text {
+	
+	width:60%;
+	padding-left:5%;
+	padding-right: 5%;
+	padding-top:1%;
+	float: left;
+}
+
+.social-network-panel-img {
+	float: left;
+	padding-left:5%;
+	padding-right: 5%;
+	padding-top:1%;
+}
+
+
 
 
 /*********** HOME ***********/
@@ -264,6 +304,21 @@ font-size: 11pt;
 .home-remaining-time {
 	margin-bottom: 15px;
 	margin-left: 45px;
+}
+
+.home-social{
+	float : right;
+}
+
+.home-social-facebook {
+	width:150px;
+	float :left;
+}
+
+.home-social-twitter {
+	width:150px;
+	margin-left: 10px;
+	float : right;
 }
 
 /******** JOIN *********/
