@@ -103,6 +103,14 @@ public class JoinBean {
 		if (StringUtils.isBlank(user.getTypeUser())) {
 			throw new ValidationException(resourceService.getLib("join.type.reqmsg"));
 		}
+
+		// email must be unique
+		User existingUser = restService.getBuilder(
+				resourceService.getUserContext() + "/" + user.getEmail()).get(User.class);
+
+		if (existingUser.getId() != null) {
+			throw new ValidationException(resourceService.getLib("join.existingemail.msg"));
+		}
 	}
 
 	/**
