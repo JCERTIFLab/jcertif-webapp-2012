@@ -1,5 +1,6 @@
 package com.jcertif.web.ihm.home;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.faces.bean.RequestScoped;
@@ -71,5 +72,13 @@ public class RemainingTimeBean {
 
 		remTime.setUnit(remTimeString.charAt(remTimeString.length() - 1));
 		return remTime;
+	}
+
+	/**
+	 * @return conference formatted start date
+	 */
+	public String getFormattedStartDate() {
+		return new SimpleDateFormat("dd MMM yyyy").format(referentielService.getConference()
+				.getDateDebut().getTime());
 	}
 }
