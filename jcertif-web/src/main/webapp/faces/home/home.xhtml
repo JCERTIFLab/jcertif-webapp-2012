@@ -23,10 +23,10 @@
 		<div class="home-body">
 		
 			<div class="home-body-conference">
-				<jc:roundedPanelEvent titleText1="#{msg['home.conference.title1']}" titleText2="#{msg['home.conference.title2']}" footerText="#{msg['home.conference.more']}" img="/resources/img/carousel/conference/0001.jpg"/>
+				<jc:roundedPanelEvent titleText1="#{msg['home.conference.title1']}" titleText2="#{msg['home.conference.title2']}" footerText="#{msg['home.conference.more']}" imagesList="#{homeBean.imagesConference}"/>
 			</div>
 			<div class="home-body-university">
-				<jc:roundedPanelEvent titleText1="#{msg['home.university.title1']}" titleText2="#{msg['home.university.title2']}" footerText="#{msg['home.university.more']}" img="/resources/img/carousel/conference/0001.jpg"/>
+				<jc:roundedPanelEvent titleText1="#{msg['home.university.title1']}" titleText2="#{msg['home.university.title2']}" footerText="#{msg['home.university.more']}" imagesList="#{homeBean.imagesUniversity}"/>
 			</div>
 			<div class="home-body-right-content">
 				<ui:include src="/faces/home/remainingTime.xhtml" />

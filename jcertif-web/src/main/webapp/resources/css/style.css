@@ -123,6 +123,8 @@ body {
 	width: 280px;
 }
 
+.photoslider-mini{width: 280px;;height:200px;}
+
 .rounded-panel-event-header-img {
 	background-image: url('../resources/img/puce/puce_1.png');
 	padding-left: 15px;

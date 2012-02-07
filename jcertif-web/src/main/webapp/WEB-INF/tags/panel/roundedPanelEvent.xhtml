@@ -12,7 +12,19 @@
 			<span class="rounded-panel-event-header-text-1"><h:outputLabel value="#{titleText1}" /></span> 
 			<span class="rounded-panel-event-header-text-2"><h:outputLabel value="#{titleText2}" /></span>
 		</div>
-		<h:graphicImage value="#{img}" styleClass="rounded-panel-event-body-img" />
+		
+		
+		<div class="sliderkit photoslider-mini">
+			<div class="sliderkit-panels">
+				<c:forEach var="photo" items="#{imagesList}">
+					<div class="sliderkit-panel">
+						<a href="https://plus.google.com/photos/101033732619256173933/albums/5652497525273051649/5652498075363734530?banner=pwa"><h:graphicImage value="${photo}" /></a>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+		
+		
 		<div class="rounded-panel-event-footer">
 			<span class="rounded-panel-event-footer-text">#{footerText}</span>
 			<span class="rounded-panel-event-footer-img" />

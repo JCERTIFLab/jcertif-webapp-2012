@@ -19,6 +19,15 @@ function twitterCallback(data, textStatus) {
 		
 		$('#news').append('<div class="home-news-text">' + linkify(text) + '</div><br/>');
 	});
+	
+	// Photo slider > Minimal
+	$(".photoslider-mini").sliderkit({
+		auto:true,
+		autospeed:3000,
+		panelbtnshover:true,
+		circular:true,
+		fastchange:false
+	});
 }
 
 // Add link (<a></a>) for text 'http://..."
