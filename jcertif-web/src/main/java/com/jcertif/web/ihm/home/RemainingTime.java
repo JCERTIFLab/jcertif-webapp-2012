@@ -12,7 +12,7 @@ public class RemainingTime {
 	private Character hundred;
 	/** Dizaine **/
 	private Character decade;
-	/** Unité **/
+	/** UnitÃ© **/
 	private Character unit;
 
 	/**
