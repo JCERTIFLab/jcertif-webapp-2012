@@ -8,17 +8,18 @@
 	xmlns:jc="http://jcertif.com/facelets">
 
 <ui:composition>
+		<script language="Javascript"> 
+			$(document).ready(function() {
+				updateNews();
+			});
+		</script>
+
 	<jc:roundedPanel titleText1="Actualités">
 		<ui:define name="content">
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
+			<div id="news" class="home-news"></div>
+			
+			<!-- Astuce pour charger jquery.js utilisé par primefaces -->
+			<p:effect/>
 		</ui:define>
 	</jc:roundedPanel>
 </ui:composition>

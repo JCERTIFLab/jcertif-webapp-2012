@@ -321,6 +321,17 @@ font-size: 11pt;
 	float : right;
 }
 
+.home-news {
+	margin: 5px 5px 5px 5px;
+}
+
+.home-news-text {
+	font-family: helvetica light;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+
 /******** JOIN *********/
 
 .join-intro {
