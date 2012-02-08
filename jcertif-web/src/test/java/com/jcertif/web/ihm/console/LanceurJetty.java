@@ -13,7 +13,7 @@ public class LanceurJetty {
 	 */
 	public static void main(String[] args) throws Exception {
 
-		Server server = new Server();
+        	Server server = new Server();
 
 		Connector connector = new SelectChannelConnector();
 		connector.setPort(8080);
@@ -31,7 +31,7 @@ public class LanceurJetty {
 		server.start();
 
 	}
-
+ 
 	private static void createRealms(Server server) {
 		JAASUserRealm realm = new JAASUserRealm();
 		realm.setName("JaasRealm"); 
