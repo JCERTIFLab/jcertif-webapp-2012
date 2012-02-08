@@ -27,7 +27,7 @@ public class RemainingTimeBean {
 
 	private static final int UN_JOUR_EN_MILLISEC = 1000 * 60 * 60 * 24;
 
-	/** Référentiel service **/
+	/** RÃ©fÃ©rentiel service **/
 	@Inject
 	private ReferentielService referentielService;
 
