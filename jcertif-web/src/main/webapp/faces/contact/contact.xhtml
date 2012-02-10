@@ -7,32 +7,35 @@
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
 		<jc:pageBanner title="#{msg['contact.banner.text']}" />
-
-		<div class="contact-phone">
-			<jc:roundedPanel titleText1="#{msg['contact.phone.title']}">
-				<ui:define name="content">
-					<div class="contact-phone-content">
-						<div>#{msg['contact.phone.congo']}</div>
-						<div>#{msg['contact.phone.france']}</div>
-						<div>#{msg['contact.phone.canada']}</div>
+			<div>
+				<div class="cadre-phone-web">
+					<div class="contact-phone">
+						<jc:roundedPanel titleText1="#{msg['contact.phone.title']}">
+							<ui:define name="content">
+								<div class="contact-phone-content">
+									<div>#{msg['contact.phone.congo']}</div>
+									<div>#{msg['contact.phone.france']}</div>
+									<div>#{msg['contact.phone.canada']}</div>
+								</div>
+								
+							</ui:define>
+						</jc:roundedPanel>
 					</div>
-					
-				</ui:define>
-			</jc:roundedPanel>
-		</div>
-		<div class="contact-web">
-			<jc:roundedPanel titleText1="#{msg['contact.web.title']}">
-				<ui:define name="content">
-					<div class="contact-web-content">
-						<div>#{msg['contact.web.email']}</div>
-						<div>#{msg['contact.web.twitter']}</div>
+					<div class="contact-web">
+						<jc:roundedPanel titleText1="#{msg['contact.web.title']}">
+							<ui:define name="content">
+								<div class="contact-web-content">
+									<div>#{msg['contact.web.email']}</div>
+									<div>#{msg['contact.web.twitter']}</div>
+								</div>
+							</ui:define>
+						</jc:roundedPanel>
 					</div>
-				</ui:define>
-			</jc:roundedPanel>
-		</div>
-
-
-
+				</div>
+				<div class="cadre-map">
+					<p:gmap center="-4.28030000, 15.258900" zoom="12" type="HYBRID"  style="width: 550px;height:400px" />  
+				</div>
+			</div>
 
 	</ui:define>
 </ui:composition>
