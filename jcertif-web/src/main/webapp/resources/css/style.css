@@ -7,6 +7,8 @@ body {
 	margin: auto;
 }
 
+
+
 .main {
 	float: left;
 	background-color: #e6ecec;
@@ -18,14 +20,50 @@ body {
 
 /*********** HEADER ***********/
 .header {
-	
+	background-color: #e6ecec;
+}
+
+.header-marge {
+	height: 10px;
 }
 
 .header-title {
-	background-image: url('../resources/img/header/header_bandeau.png');
-	background-repeat: no-repeat;
-	height: 100px;
+	background-image: url('../resources/img/header/logo_jcertif_2012.png');
+	background-repeat: no-repeat; 
+	height: 80px;
 }
+
+.header-user {
+	text-align: right;
+	margin-right: 5px;
+	padding-top: 50px;
+}
+
+.header-logout {
+	text-align: right;
+	margin-right: 5px;
+}
+
+.header-logout a {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 11pt;
+	font-style: normal;
+	font-family: helvetica;
+	color:#BF0418;
+}
+
+.header-logout a:visited {
+	text-decoration: none;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 11pt;
+	font-style: normal;
+	font-family: helvetica;
+	color:#BF0418;
+}
+
+
 
 .header-menu {
 	clear: both;
@@ -248,9 +286,17 @@ font-size: 11pt;
 /*********** HOME ***********/
 .home-banner {
 	background-image: url('../resources/img/home/home_banner.png');
-	height: 250px;
+	height: 220px;
 	width: 100%;
 }
+
+.home-banner-people {
+	background-image: url('../resources/img/home/home_banner_people.png');
+	height: 190px;
+	background-repeat: no-repeat;
+	margin-top: 10px;
+}
+
 
 .home-banner-text {
 	color: white;
@@ -261,7 +307,6 @@ font-size: 11pt;
 	font-family: Helvetica;
 	font-size: 21pt;
 	font-weight: bold;
-	float: r;
 }
 
 

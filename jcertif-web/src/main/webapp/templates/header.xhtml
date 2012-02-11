@@ -2,15 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:jc="http://jcertif.com/facelets">
+	xmlns:jc="http://jcertif.com/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 <body>
 
 	<ui:composition>
 		<div class="header">
-			<div class="header-title"></div>
+			<div class="header-marge"/>
+			<div class="header-title">
+				<c:choose>
+					<c:when test="#{sessionScope.connectedUser != null}">
+						<div class="header-user">#{sessionScope.connectedUser.prenom} #{sessionScope.connectedUser.nom}</div>
+						<div class="header-logout">
+							<h:form><h:commandLink action="#{logoutBean.logout}" value="#{msg['header.logout.button']}" /></h:form>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="header-logout">
+					    	<h:link value="#{msg['header.login.button']}" outcome="/faces/connect/login"/>
+					    </div>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			
 			<div class="header-menu">
 				<div class="header-menu-group-button">
 					<jc:headerMenuButton text="#{msg['header.menu.home']}" url="/faces/home/home.jsf"></jc:headerMenuButton>

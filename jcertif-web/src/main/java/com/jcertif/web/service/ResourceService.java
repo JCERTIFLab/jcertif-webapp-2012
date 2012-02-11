@@ -23,6 +23,7 @@ public class ResourceService {
 	public static final String USER_CONTEXT = "facade.context.user";
 	public static final String TYPE_PARTIPANT_LIST_CONTEXT = "facade.context.typeparticipant.list";
 	public static final String CONFERENCE_CONTEXT = "facade.context.conference";
+	private static final String USER_CONNECT_CONTEXT = "facade.context.user.connect";
 
 	/**
 	 * @return the facade url
@@ -87,6 +88,10 @@ public class ResourceService {
 	 */
 	public String getLib(String key) {
 		return getLibProps().getString(key);
+	}
+
+	public String getConnectUserContext() {
+		return getWebappProps().getString(USER_CONNECT_CONTEXT);
 	}
 
 }
