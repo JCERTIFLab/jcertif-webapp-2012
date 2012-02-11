@@ -396,7 +396,7 @@ font-size: 11pt;
 
 .contact-web {
 	margin-top: 20px;
-	margin-left: 20px;
+	margin-left: 5px;
 	float: left;
 }
 
@@ -410,6 +410,15 @@ font-size: 11pt;
 	margin-bottom: 10px;
 }
 
+.cadre-map{
+	float: right; 
+	padding: 25px;  
+	width: 60%;
+}
+.cadre-phone-web{
+	float: left; 
+	width: 30%;
+}
 
 /********** FOOTER **********/
 .footer {
