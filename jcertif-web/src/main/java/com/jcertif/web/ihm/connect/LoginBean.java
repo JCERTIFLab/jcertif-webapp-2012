@@ -8,6 +8,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.jcertif.web.model.User;
 import com.jcertif.web.service.ResourceService;
 import com.jcertif.web.service.RestService;
@@ -47,20 +49,46 @@ public class LoginBean {
 	 */
 	public void connect() throws IOException {
 		FacesContext context = FacesContext.getCurrentInstance();
-		user = restService.getBuilder(
-				resourceService.getConnectUserContext() + "/" + user.getEmail() + "/"
-						+ user.getPasswd()).get(User.class);
-		System.out.println(resourceService.getConnectUserContext() + "/" + user.getEmail() + "/"
-				+ user.getPasswd());
-		if (user.getId() == null) {
-			context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					resourceService.getLib("login.unsuccess"), null));
+		if (StringUtils.isBlank(user.getPasswd())) {
+			context.addMessage("loginForm:password", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					resourceService.getLib("login.password.reqmsg"), null));
 		} else {
-			// Saving to session the connected user
-			context.getExternalContext().getSessionMap().put("connectedUser", user);
-			context.getExternalContext().redirect(
-					context.getExternalContext().getRequestContextPath() + "/faces/home/home.jsf");
+			user = restService.getBuilder(
+					resourceService.getConnectUserContext() + "/" + user.getEmail() + "/"
+							+ user.getPasswd()).get(User.class);
+			if (user.getId() == null) {
+				context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+						resourceService.getLib("login.unsuccess"), null));
+			} else {
+				// Saving to session the connected user
+				context.getExternalContext().getSessionMap().put("connectedUser", user);
+				context.getExternalContext().redirect(
+						context.getExternalContext().getRequestContextPath()
+								+ "/faces/home/home.jsf");
+			}
 		}
+
+	}
+
+	/**
+	 * Connect action.
+	 * 
+	 * @throws IOException
+	 */
+	public void reset() throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		User existingUser = restService.getBuilder(
+				resourceService.getUserContext() + "/" + user.getEmail()).get(User.class);
+		if (existingUser.getId() == null) {
+			context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					resourceService.getLib("login.reset.error"), null));
+		} else {
+			restService.getBuilder(
+					resourceService.getResetPassUserContext() + "/" + user.getEmail()).post();
+			context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_INFO,
+					resourceService.getLib("login.reset.success"), null));
+		}
+
 	}
 
 	/**

@@ -17,15 +17,17 @@
 					validatorMessage="#{msg['login.email.invalidmsg']}" />
 
 				<h:outputText value="#{msg['login.password']} *" />
-				<p:inputText id="password" value="#{loginBean.user.passwd}" type="password" required="true"
-					requiredMessage="#{msg['login.password.reqmsg']}" />
+				<p:inputText id="password" value="#{loginBean.user.passwd}" type="password"/>
 
 				<p:commandButton value="#{msg['login.button']}" update="loginForm"
 					actionListener="#{loginBean.connect}" />
 				<p:messages />
+				<h:commandLink action="#{loginBean.reset}" value="#{msg['login.resetpassword']}" update="loginForm" />
+				<h:outputLabel value="" />
 			</h:panelGrid>
 
 		</h:form>
+		
 	</ui:define>
 </ui:composition>
 </html>
