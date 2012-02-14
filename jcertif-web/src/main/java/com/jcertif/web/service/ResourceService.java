@@ -58,6 +58,13 @@ public class ResourceService {
 	}
 
 	/**
+	 * @return the role participant list context.
+	 */
+	public String getSponsorListContext() {
+		return getWebappProps().getString("facade.context.sponsor.list");
+	}
+
+	/**
 	 * @return the conference web service context
 	 */
 	public String getConferenceContext() {
@@ -69,6 +76,13 @@ public class ResourceService {
 	 */
 	public String getUserContext() {
 		return getWebappProps().getString("facade.context.user");
+	}
+
+	/**
+	 * @return the sponsor pictures url
+	 */
+	public String getSponsorPicsUrl() {
+		return getWebappProps().getString("pics.url.sponsor");
 	}
 
 	/**

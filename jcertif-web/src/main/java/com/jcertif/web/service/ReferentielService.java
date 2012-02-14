@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.web.model.Conference;
 import com.jcertif.web.model.RoleParticipant;
+import com.jcertif.web.model.Sponsor;
 import com.jcertif.web.model.TypeParticipant;
 import com.sun.jersey.api.client.GenericType;
 
@@ -30,6 +31,9 @@ public class ReferentielService {
 	private static final class RoleParticipantType extends GenericType<List<RoleParticipant>> {
 	}
 
+	private static final class SponsorType extends GenericType<List<Sponsor>> {
+	}
+
 	/** LOGGER **/
 	private static final Logger LOG = LoggerFactory.getLogger(ReferentielService.class);
 
@@ -42,6 +46,8 @@ public class ReferentielService {
 	private List<TypeParticipant> typeParticipants;
 
 	private List<RoleParticipant> roleParticipants;
+
+	private List<Sponsor> sponsors;
 
 	/** Conference **/
 	private Conference conference;
@@ -66,6 +72,18 @@ public class ReferentielService {
 					resourceService.getRoleParticipantListContext()).get(new RoleParticipantType());
 		}
 		return roleParticipants;
+
+	}
+
+	/**
+	 * @return the rolesParticipant
+	 */
+	public List<Sponsor> getSponsors() {
+		if (sponsors == null) {
+			sponsors = restService.getBuilder(resourceService.getSponsorListContext()).get(
+					new SponsorType());
+		}
+		return sponsors;
 
 	}
 
