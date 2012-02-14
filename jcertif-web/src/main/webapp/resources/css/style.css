@@ -384,12 +384,12 @@ font-size: 11pt;
 }
 
 .home-news {
-	margin: 5px 5px 5px 5px;
+	margin: 10px 10px 10px 10px;
 }
 
 .home-news-text {
-	font-family: helvetica light;
-	font-size: 10pt;
+	font-family: helvetica;
+	font-size: 9pt;
 	font-weight: bold;
 }
 
