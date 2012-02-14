@@ -127,6 +127,7 @@ body {
 	background-image: url('../resources/img/join/join_banner.png');
 	background-repeat: no-repeat;
 	height: 60px;
+	margin-top:10px;
 }
 
 .page-banner-text {
