@@ -14,6 +14,14 @@
 		<div class="header">
 			<div class="header-marge"/>
 			<div class="header-title">
+				<div class="header-title-date-event">
+					<span class="header-title-date-event-text1">
+						<h:outputText value="#{msg['header.date.event1']}" />
+					</span>
+					<span class="header-title-date-event-text2">
+						<h:outputText value="#{msg['header.date.event2']}" />
+					</span>
+				</div>
 				<c:choose>
 					<c:when test="#{sessionScope.connectedUser != null}">
 						<div class="header-user">#{sessionScope.connectedUser.prenom} #{sessionScope.connectedUser.nom}</div>
