@@ -86,6 +86,12 @@ public class ResourceService {
 	}
 
 	/**
+	 * @return the sponsor pictures url
+	 */
+	public String getSpeakerPhotoUrl() {
+		return getWebappProps().getString("photos.url.speaker");
+	}
+	/**
 	 * @param key
 	 *            a key
 	 * @return the value of this key
@@ -102,4 +108,10 @@ public class ResourceService {
 		return getWebappProps().getString("facade.context.user.resetpassword");
 	}
 
+	/**
+	 * @return speakers list context.
+	 */
+	public String getSpeakerListContext() {
+		return getWebappProps().getString("facade.context.speaker.list");
+	}
 }
