@@ -9,7 +9,30 @@
 
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
-		<jc:pageBanner title="Bientôt les présentateurs"/>
+		<jc:pageBanner title="#{msg['speaker.banner.title']}"/>
+		
+		 <br/>
+		<p:dataGrid var="speaker" value="#{speakerBean.speakers}" columns="1">  
+			
+			<div class="speaker-title">
+				<h:outputText value="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}" />
+			</div>
+            <div class="speaker-photo-bio">
+				<div  class="speaker-photo">
+				     <h:panelGrid columns="1" style="width:100%">    			 
+						<p:graphicImage value="#{speakerBean.speakerPhotoUrl}/#{speaker.photo}"/> 	
+					 </h:panelGrid>
+				</div>
+				<div class="speaker-bio">
+						<h:panelGrid columns="1" style="width:100%">  					  
+							<h:outputText value="#{speaker.bio}" /> 
+						</h:panelGrid>  
+				</div>
+				<br/>
+			</div>
+				 
+        </p:dataGrid> 
+		
 	</ui:define>
 </ui:composition>
 </html>
