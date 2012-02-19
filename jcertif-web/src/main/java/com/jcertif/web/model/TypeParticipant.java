@@ -35,7 +35,7 @@ public class TypeParticipant {
 	}
 
 	/**
-	 * Définit un identifiant.
+	 * DÃ©finit un identifiant.
 	 * 
 	 * @param id
 	 *            un identifiant
@@ -52,7 +52,7 @@ public class TypeParticipant {
 	}
 
 	/**
-	 * Définit le code de statut cedule.
+	 * DÃ©finit le code de statut cedule.
 	 * 
 	 * @param code
 	 *            un code de statut cedule
@@ -69,7 +69,7 @@ public class TypeParticipant {
 	}
 
 	/**
-	 * Définit la description.
+	 * Dï¿½finit la description.
 	 * 
 	 * @param description
 	 *            une description.
@@ -102,7 +102,8 @@ public class TypeParticipant {
 
 		final TypeParticipant other = (TypeParticipant) obj;
 
-		return new EqualsBuilder().append(getCode(), other.getCode()).isEquals();
+		return new EqualsBuilder().append(getCode(), other.getCode())
+				.isEquals();
 	}
 
 	/**
@@ -112,6 +113,5 @@ public class TypeParticipant {
 	public String toString() {
 		return description;
 	}
-	
-	
+
 }

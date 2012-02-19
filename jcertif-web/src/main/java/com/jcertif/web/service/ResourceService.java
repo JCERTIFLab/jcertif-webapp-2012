@@ -44,17 +44,50 @@ public class ResourceService {
 	}
 
 	/**
+	 * @return the type participant create context
+	 */
+	public String getTypeParticipantCreateContext() {
+		return getWebappProps().getString(
+				"facade.context.typeparticipant.create");
+	}
+
+	/**
+	 * @return the type participant update context
+	 */
+	public String getTypeParticipantUpdateContext() {
+		return getWebappProps().getString(
+				"facade.context.typeparticipant.update");
+	}
+
+	/**
+	 * @return the type participant delete context
+	 */
+	public String getTypeParticipantDeleteContext() {
+		return getWebappProps().getString(
+				"facade.context.typeparticipant.delete");
+	}
+
+	/**
+	 * @return the type participant get context
+	 */
+	public String getTypeParticipantGetContext() {
+		return getWebappProps().getString("facade.context.typeparticipant.get");
+	}
+
+	/**
 	 * @return the type participant list context
 	 */
 	public String getTypeParticipantListContext() {
-		return getWebappProps().getString("facade.context.typeparticipant.list");
+		return getWebappProps()
+				.getString("facade.context.typeparticipant.list");
 	}
 
 	/**
 	 * @return the role participant list context.
 	 */
 	public String getRoleParticipantListContext() {
-		return getWebappProps().getString("facade.context.roleparticipant.list");
+		return getWebappProps()
+				.getString("facade.context.roleparticipant.list");
 	}
 
 	/**
@@ -91,6 +124,7 @@ public class ResourceService {
 	public String getSpeakerPhotoUrl() {
 		return getWebappProps().getString("photos.url.speaker");
 	}
+
 	/**
 	 * @param key
 	 *            a key
