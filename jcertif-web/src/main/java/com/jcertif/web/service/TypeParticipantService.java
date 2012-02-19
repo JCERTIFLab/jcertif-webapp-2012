@@ -115,7 +115,7 @@ public class TypeParticipantService extends RestServiceJS {
 		try {
 			TypeParticipantContainer container = getBuilder(resourceService.getTypeParticipantListContext()).get(
 					TypeParticipantContainer.class);
-			if (Tools.isNotNull(container) && !Tools.isEmptyOrNull(container.typeParticipantList)) retListTypeParticipant
+			if (!Tools.isNull(container) && !Tools.isEmptyOrNull(container.typeParticipantList)) retListTypeParticipant
 					.addAll(container.typeParticipantList);
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
