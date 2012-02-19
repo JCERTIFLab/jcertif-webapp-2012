@@ -68,18 +68,20 @@ public class Tools {
 		return object == null;
 	}
 
+	public static boolean isNotNull(Object object) {
+		return object != null;
+	}
+
 	private static String getPrintableDate() {
 		logger.trace("Enter getPrintableDate()");
 		DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
-		df = DateFormat
-				.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM);
+		df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM);
 		logger.trace("Exit getPrintableDate()");
 		return "" + df.format(new Date());
 	}
 
 	public static void println(String sComment, String strToPrint) {
-		logger.trace("Enter println(String " + sComment + ", String "
-				+ strToPrint + ")");
+		logger.trace("Enter println(String " + sComment + ", String " + strToPrint + ")");
 		System.out.print(getPrintableDate());
 		if (!isEmptyOrNull(sComment)) System.out.print(" " + sComment);
 		if (!isEmptyOrNull(strToPrint)) System.out.print(" " + strToPrint);
@@ -95,8 +97,7 @@ public class Tools {
 
 	@SuppressWarnings("rawtypes")
 	public static void println(String sComment, List listToPrint) {
-		logger.trace("Enter println(String " + sComment + ", List "
-				+ listToPrint + ")");
+		logger.trace("Enter println(String " + sComment + ", List " + listToPrint + ")");
 		System.out.print(getPrintableDate());
 		if (!isEmptyOrNull(sComment)) System.out.print(" " + sComment);
 		if (!isEmptyOrNull(listToPrint)) {
@@ -105,7 +106,8 @@ public class Tools {
 			for (Object object : listToPrint) {
 				System.out.println("	" + object);
 			}
-		} else
+		}
+		else
 			System.out.println();
 		logger.trace("Exit println(String, List)");
 	}
@@ -119,8 +121,7 @@ public class Tools {
 
 	@SuppressWarnings("rawtypes")
 	public static void println(String sComment, Map mapToPrint) {
-		logger.trace("Enter println(String " + sComment + ", Map " + mapToPrint
-				+ ")");
+		logger.trace("Enter println(String " + sComment + ", Map " + mapToPrint + ")");
 		System.out.print(getPrintableDate());
 		if (!isEmptyOrNull(sComment)) System.out.print(" " + sComment);
 		if (!isEmptyOrNull(mapToPrint)) {
@@ -129,11 +130,11 @@ public class Tools {
 			Iterator it = mapToPrint.keySet().iterator();
 			while (it.hasNext()) {
 				Object object = it.next();
-				System.out.println("	" + (String) object + " : "
-						+ mapToPrint.get(object));
+				System.out.println("	" + (String) object + " : " + mapToPrint.get(object));
 			}
 
-		} else
+		}
+		else
 			System.out.println();
 		logger.trace("Exit println(String, Map)");
 	}
@@ -147,8 +148,7 @@ public class Tools {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static String[] split(String chaine, String separator) {
-		logger.trace("Enter split(String " + chaine + ", String " + separator
-				+ ")");
+		logger.trace("Enter split(String " + chaine + ", String " + separator + ")");
 		if (chaine != null) {
 			Vector vector = new Vector(0);
 			if (separator != null) {
@@ -160,27 +160,28 @@ public class Tools {
 					if (pos == 0) {
 						// start with separator
 						vector.add("");
-						currentChaine = currentChaine.substring(
-								separator.length(), currentChaine.length());
-					} else if (pos == -1) {
+						currentChaine = currentChaine.substring(separator.length(), currentChaine.length());
+					}
+					else if (pos == -1) {
 						// last field
 						vector.add(currentChaine);
 						currentChaine = "";
 						finished = true;
-					} else {
+					}
+					else {
 						// classic case
 						vector.add(currentChaine.substring(0, pos));
-						currentChaine = currentChaine.substring(
-								pos + separator.length(),
-								currentChaine.length());
+						currentChaine = currentChaine.substring(pos + separator.length(), currentChaine.length());
 					}
 				}
-			} else {
+			}
+			else {
 				vector.add(chaine);
 			}
 			logger.trace("Exit split(String , String )");
 			return (String[]) vector.toArray(new String[vector.size()]);
-		} else {
+		}
+		else {
 			logger.trace("Exit split(String , String )");
 			return null;
 		}
