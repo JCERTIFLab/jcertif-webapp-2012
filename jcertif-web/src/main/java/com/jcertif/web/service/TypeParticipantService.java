@@ -16,9 +16,10 @@ import com.sun.jersey.api.client.UniformInterfaceException;
  */
 public class TypeParticipantService extends RestServiceJS {
 
-	private static final class TypeParticipantType extends
-			GenericType<List<TypeParticipant>> {
+	private static final class TypeParticipantType extends GenericType<List<TypeParticipant>> {
 	}
+
+	private final ResourceService resourceService = new ResourceService();
 
 	/*
 	 * (non-Javadoc)
@@ -32,8 +33,7 @@ public class TypeParticipantService extends RestServiceJS {
 
 		TypeParticipant aTypeParticipant = (TypeParticipant) unTypeParticipant;
 		try {
-			getBuilder(getResourceService().getTypeParticipantCreateContext())
-					.post(TypeParticipant.class, aTypeParticipant);
+			getBuilder(getResourceService().getTypeParticipantCreateContext()).post(TypeParticipant.class, aTypeParticipant);
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
 		}
@@ -51,8 +51,7 @@ public class TypeParticipantService extends RestServiceJS {
 
 		TypeParticipant aTypeParticipant = (TypeParticipant) unTypeParticipant;
 		try {
-			getBuilder(getResourceService().getTypeParticipantUpdateContext())
-					.post(TypeParticipant.class, aTypeParticipant);
+			getBuilder(getResourceService().getTypeParticipantUpdateContext()).post(TypeParticipant.class, aTypeParticipant);
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
 		}
@@ -70,8 +69,7 @@ public class TypeParticipantService extends RestServiceJS {
 
 		TypeParticipant aTypeParticipant = (TypeParticipant) unTypeParticipant;
 		try {
-			getBuilder(getResourceService().getTypeParticipantDeleteContext())
-					.post(TypeParticipant.class, aTypeParticipant);
+			getBuilder(getResourceService().getTypeParticipantDeleteContext()).post(TypeParticipant.class, aTypeParticipant);
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
 		}
@@ -91,10 +89,8 @@ public class TypeParticipantService extends RestServiceJS {
 
 		TypeParticipant retTypeParticipant = new TypeParticipant();
 		try {
-			retTypeParticipant = getBuilder(
-					getResourceService().getTypeParticipantGetContext()
-							+ (new Long(aTypeParticipant.getId()))).get(
-					TypeParticipant.class);
+			retTypeParticipant = getBuilder(getResourceService().getTypeParticipantGetContext() + (new Long(aTypeParticipant.getId())))
+					.get(TypeParticipant.class);
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
 		}
@@ -113,13 +109,10 @@ public class TypeParticipantService extends RestServiceJS {
 
 		List<TypeParticipant> retListTypeParticipant = new ArrayList<TypeParticipant>();
 		try {
-			retListTypeParticipant = getBuilder(
-					getResourceService().getTypeParticipantListContext()).get(
-					new TypeParticipantType());
+			retListTypeParticipant = getBuilder(resourceService.getTypeParticipantListContext()).get(new TypeParticipantType());
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
 		}
 		return retListTypeParticipant;
 	}
-
 }
