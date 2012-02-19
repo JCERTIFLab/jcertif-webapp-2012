@@ -93,7 +93,7 @@ public class TypeParticipantService extends RestServiceJS {
 		try {
 			retTypeParticipant = getBuilder(
 					getResourceService().getTypeParticipantGetContext()
-							+ (new Long(aTypeParticipant.getId()))).post(
+							+ (new Long(aTypeParticipant.getId()))).get(
 					TypeParticipant.class);
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
