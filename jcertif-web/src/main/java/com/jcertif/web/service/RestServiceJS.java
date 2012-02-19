@@ -52,7 +52,7 @@ public abstract class RestServiceJS {
 	/**
 	 * @return the resourceService
 	 */
-	public ResourceService getResourceService() {
+	protected ResourceService getResourceService() {
 		return resourceService;
 	}
 
