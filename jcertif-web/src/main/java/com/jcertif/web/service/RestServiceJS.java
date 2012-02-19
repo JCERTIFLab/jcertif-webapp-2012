@@ -5,7 +5,6 @@ package com.jcertif.web.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.core.MediaType;
 
@@ -22,9 +21,9 @@ import com.sun.jersey.api.json.JSONConfiguration;
  */
 @Named
 public abstract class RestServiceJS {
+
 	private final Client client;
 
-	@Inject
 	private final ResourceService resourceService;
 
 	/**
@@ -42,8 +41,7 @@ public abstract class RestServiceJS {
 	public RestServiceJS() {
 		super();
 		ClientConfig clientConfig = new DefaultClientConfig();
-		clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING,
-				Boolean.TRUE);
+		clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
 		client = Client.create(clientConfig);
 		resourceService = new ResourceService();
 		clearErr();
@@ -57,8 +55,7 @@ public abstract class RestServiceJS {
 	}
 
 	protected WebResource.Builder getBuilder(String path) {
-		return client.resource(resourceService.getFacadeUrl()).path(path)
-				.accept(MediaType.APPLICATION_JSON);
+		return client.resource(resourceService.getFacadeUrl()).path(path).accept(MediaType.APPLICATION_JSON);
 	}
 
 	protected void clearErr() {
@@ -77,8 +74,7 @@ public abstract class RestServiceJS {
 		else {
 			// Cette recherche du code de la réponse du webService est à
 			// éprouver
-			String[] strArray = Tools.split(errMessage,
-					"returned a response status of");
+			String[] strArray = Tools.split(errMessage, "returned a response status of");
 			if (strArray.length != 2) errCode = -1;// Dans ce cas, la variable
 			// errMessage contient le
 			// message complet et la
