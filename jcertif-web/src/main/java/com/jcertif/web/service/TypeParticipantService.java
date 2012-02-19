@@ -6,8 +6,10 @@ package com.jcertif.web.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import com.jcertif.web.model.TypeParticipant;
-import com.sun.jersey.api.client.GenericType;
+import com.jcertif.web.utils.Tools;
 import com.sun.jersey.api.client.UniformInterfaceException;
 
 /**
@@ -16,7 +18,9 @@ import com.sun.jersey.api.client.UniformInterfaceException;
  */
 public class TypeParticipantService extends RestServiceJS {
 
-	private static final class TypeParticipantType extends GenericType<List<TypeParticipant>> {
+	private static class TypeParticipantContainer {
+		@JsonProperty("typeParticipant")
+		public List<TypeParticipant> typeParticipantList;
 	}
 
 	private final ResourceService resourceService = new ResourceService();
@@ -109,10 +113,14 @@ public class TypeParticipantService extends RestServiceJS {
 
 		List<TypeParticipant> retListTypeParticipant = new ArrayList<TypeParticipant>();
 		try {
-			retListTypeParticipant = getBuilder(resourceService.getTypeParticipantListContext()).get(new TypeParticipantType());
+			TypeParticipantContainer container = getBuilder(resourceService.getTypeParticipantListContext()).get(
+					TypeParticipantContainer.class);
+			if (Tools.isNotNull(container) && !Tools.isEmptyOrNull(container.typeParticipantList)) retListTypeParticipant
+					.addAll(container.typeParticipantList);
 		} catch (UniformInterfaceException uieEx) {
 			setErrMessage(uieEx.getMessage());
 		}
 		return retListTypeParticipant;
 	}
+
 }
