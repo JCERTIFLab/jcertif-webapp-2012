@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +15,6 @@ import com.jcertif.web.model.RoleParticipant;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.model.Sponsor;
 import com.jcertif.web.model.TypeParticipant;
-import com.sun.jersey.api.client.GenericType;
 
 /**
  * Referentiel service.
@@ -26,16 +26,24 @@ import com.sun.jersey.api.client.GenericType;
 @ApplicationScoped
 public class ReferentielService {
 
-	private static final class TypeParticipantType extends GenericType<List<TypeParticipant>> {
+	private static class TypeParticipantContainer {
+		@JsonProperty("typeParticipant")
+		private List<TypeParticipant> list;
 	}
 
-	private static final class RoleParticipantType extends GenericType<List<RoleParticipant>> {
+	private static class RoleParticipantContainer {
+		@JsonProperty("roleParticipant")
+		private List<RoleParticipant> list;
 	}
 
-	private static final class SponsorType extends GenericType<List<Sponsor>> {
+	private static class SponsorContainer {
+		@JsonProperty("sponsor")
+		private List<Sponsor> list;
 	}
 
-	private static final class SpeakerType extends GenericType<List<Speaker>> {
+	private static class SpeakerContainer {
+		@JsonProperty("speaker")
+		private List<Speaker> list;
 	}
 
 	/** LOGGER **/
@@ -52,7 +60,7 @@ public class ReferentielService {
 	private List<RoleParticipant> roleParticipants;
 
 	private List<Sponsor> sponsors;
-	
+
 	private List<Speaker> speakers;
 
 	/** Conference **/
@@ -64,7 +72,8 @@ public class ReferentielService {
 	public List<TypeParticipant> getTypesParticipantList() {
 		if (typeParticipants == null) {
 			typeParticipants = restService.getBuilder(
-					resourceService.getTypeParticipantListContext()).get(new TypeParticipantType());
+					resourceService.getTypeParticipantListContext()).get(
+					TypeParticipantContainer.class).list;
 		}
 		return typeParticipants;
 	}
@@ -75,7 +84,8 @@ public class ReferentielService {
 	public List<RoleParticipant> getRolesParticipantList() {
 		if (roleParticipants == null) {
 			roleParticipants = restService.getBuilder(
-					resourceService.getRoleParticipantListContext()).get(new RoleParticipantType());
+					resourceService.getRoleParticipantListContext()).get(
+					RoleParticipantContainer.class).list;
 		}
 		return roleParticipants;
 
@@ -87,19 +97,19 @@ public class ReferentielService {
 	public List<Sponsor> getSponsors() {
 		if (sponsors == null) {
 			sponsors = restService.getBuilder(resourceService.getSponsorListContext()).get(
-					new SponsorType());
+					SponsorContainer.class).list;
 		}
 		return sponsors;
 
 	}
-	
+
 	/**
 	 * @return the speaker
 	 */
 	public List<Speaker> getSpeakers() {
 		if (speakers == null) {
 			speakers = restService.getBuilder(resourceService.getSpeakerListContext()).get(
-					new SpeakerType());
+					SpeakerContainer.class).list;
 		}
 		return speakers;
 
@@ -122,8 +132,5 @@ public class ReferentielService {
 		}
 		return conference;
 	}
-	
-
-
 
 }

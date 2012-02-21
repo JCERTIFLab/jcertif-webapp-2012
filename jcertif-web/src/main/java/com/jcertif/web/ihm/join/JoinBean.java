@@ -108,7 +108,7 @@ public class JoinBean {
 		User existingUser = restService.getBuilder(
 				resourceService.getUserContext() + "/" + user.getEmail()).get(User.class);
 
-		if (existingUser.getId() != null) {
+		if (existingUser != null && existingUser.getId() != null) {
 			throw new ValidationException(resourceService.getLib("join.existingemail.msg"));
 		}
 	}
