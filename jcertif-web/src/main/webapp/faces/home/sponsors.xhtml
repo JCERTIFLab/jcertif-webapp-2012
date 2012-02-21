@@ -9,7 +9,7 @@
 
 <ui:composition>
 <div class="home-sponsor">
-	<jc:roundedPanel titleText1="Sponsor" styleClass="home-sponsor-panel">
+	<jc:roundedPanel titleText1="#{msg['home.sponsor.title']}" styleClass="home-sponsor-panel">
 		<ui:define name="content">
 			
 		<c:forEach var="sponsor" items="#{sponsorBean.sponsors}">
