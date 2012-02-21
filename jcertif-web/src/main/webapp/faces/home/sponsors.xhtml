@@ -8,12 +8,20 @@
 	xmlns:jc="http://jcertif.com/facelets">
 
 <ui:composition>
-	<div class="home-sponsor">
+<div class="home-sponsor">
+	<jc:roundedPanel titleText1="Sponsor" styleClass="home-sponsor-panel">
+		<ui:define name="content">
+			
 		<c:forEach var="sponsor" items="#{sponsorBean.sponsors}">
 			<h:outputLink target="_blank" value="#{sponsor.siteWeb}">
 				<h:graphicImage url="#{sponsorBean.picsUrl}/#{sponsor.photo}" width="80" />
 			</h:outputLink>
 		</c:forEach>
-	</div>
+	
+		</ui:define>
+	</jc:roundedPanel>
+
+</div>
+	
 </ui:composition>
 </html>
