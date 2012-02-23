@@ -16,7 +16,6 @@
 		<source.version>1.6</source.version>
 		<project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
     
-    
 		<openwebbeans.version>1.1.0</openwebbeans.version>
 	</properties>
 
