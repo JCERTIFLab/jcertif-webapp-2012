@@ -59,7 +59,7 @@ public class ReferentielService {
 
 	private List<RoleParticipant> roleParticipants;
 
-	private List<Sponsor> sponsors;
+	private List<Sponsor> sponsors2011;
 
 	private List<Speaker> speakers;
 
@@ -95,11 +95,11 @@ public class ReferentielService {
 	 * @return the rolesParticipant
 	 */
 	public List<Sponsor> getSponsors() {
-		if (sponsors == null) {
-			sponsors = restService.getBuilder(resourceService.getSponsorListContext()).get(
+		if (sponsors2011 == null) {
+			sponsors2011 = restService.getBuilder(resourceService.getSponsorListContext()).get(
 					SponsorContainer.class).list;
 		}
-		return sponsors;
+		return sponsors2011;
 
 	}
 
@@ -131,6 +131,14 @@ public class ReferentielService {
 			}
 		}
 		return conference;
+	}
+
+	public List<Sponsor> getSponsors2011() {
+		if (sponsors2011 == null) {
+			sponsors2011 = restService.getBuilder(resourceService.getSponsor2011ListContext()).get(
+					SponsorContainer.class).list;
+		}
+		return sponsors2011;
 	}
 
 }

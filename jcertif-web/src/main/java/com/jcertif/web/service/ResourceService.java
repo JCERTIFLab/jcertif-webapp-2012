@@ -47,24 +47,21 @@ public class ResourceService {
 	 * @return the type participant create context
 	 */
 	public String getTypeParticipantCreateContext() {
-		return getWebappProps().getString(
-				"facade.context.typeparticipant.create");
+		return getWebappProps().getString("facade.context.typeparticipant.create");
 	}
 
 	/**
 	 * @return the type participant update context
 	 */
 	public String getTypeParticipantUpdateContext() {
-		return getWebappProps().getString(
-				"facade.context.typeparticipant.update");
+		return getWebappProps().getString("facade.context.typeparticipant.update");
 	}
 
 	/**
 	 * @return the type participant delete context
 	 */
 	public String getTypeParticipantDeleteContext() {
-		return getWebappProps().getString(
-				"facade.context.typeparticipant.delete");
+		return getWebappProps().getString("facade.context.typeparticipant.delete");
 	}
 
 	/**
@@ -78,16 +75,14 @@ public class ResourceService {
 	 * @return the type participant list context
 	 */
 	public String getTypeParticipantListContext() {
-		return getWebappProps()
-				.getString("facade.context.typeparticipant.list");
+		return getWebappProps().getString("facade.context.typeparticipant.list");
 	}
 
 	/**
 	 * @return the role participant list context.
 	 */
 	public String getRoleParticipantListContext() {
-		return getWebappProps()
-				.getString("facade.context.roleparticipant.list");
+		return getWebappProps().getString("facade.context.roleparticipant.list");
 	}
 
 	/**
@@ -147,5 +142,9 @@ public class ResourceService {
 	 */
 	public String getSpeakerListContext() {
 		return getWebappProps().getString("facade.context.speaker.list");
+	}
+
+	public String getSponsor2011ListContext() {
+		return getWebappProps().getString("facade.context.sponsor.2011.list");
 	}
 }

@@ -1,7 +1,6 @@
 
 // Update news panel
 function updateNews() {
-
 	$.ajax({
 				url : "http://twitter.com/statuses/user_timeline/bonbhel.json?callback=twitterCallback&count=4",
 				dataType : 'JSONP', // for cross domain
@@ -21,12 +20,17 @@ function twitterCallback(data, textStatus) {
 	});
 	
 	// Photo slider > Minimal
+	startSlider();
+}
+
+//Start Slider
+function startSlider() {
 	$(".photoslider-mini").sliderkit({
 		auto:true,
 		autospeed:3000,
 		panelbtnshover:true,
 		circular:true,
-		fastchange:false
+		fastchange:true
 	});
 }
 

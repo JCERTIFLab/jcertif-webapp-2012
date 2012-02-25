@@ -14,11 +14,11 @@
 		</div>
 		
 		
-		<div class="sliderkit photoslider-mini">
+		<div class="sliderkit photoslider-mini #{sliderStyleClass}">
 			<div class="sliderkit-panels">
 				<c:forEach var="photo" items="#{imagesList}">
 					<div class="sliderkit-panel">
-						<a href="https://plus.google.com/photos/101033732619256173933/albums/5652497525273051649/5652498075363734530?banner=pwa" target="_blank"><h:graphicImage value="${photo}" /></a>
+						<h:link outcome="#{footerLink}"><h:graphicImage styleClass="#{imgStyleClass}" value="${photo}" /></h:link>
 					</div>
 				</c:forEach>
 			</div>
@@ -26,7 +26,7 @@
 		
 		
 		<div class="rounded-panel-event-footer">
-			<span class="rounded-panel-event-footer-text">#{footerText}</span>
+			<span class="rounded-panel-event-footer-text"><h:link outcome="#{footerLink}">#{footerText}</h:link></span>
 			<span class="rounded-panel-event-footer-img" />
 		</div>
 

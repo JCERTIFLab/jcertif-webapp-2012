@@ -32,6 +32,13 @@ public class SponsorBean {
 		return referentielService.getSponsors();
 	}
 
+	/**
+	 * @return images location for conference
+	 */
+	public List<Sponsor> getSponsors2011() {
+		return referentielService.getSponsors2011();
+	}
+
 	public String getPicsUrl() {
 		return resService.getSponsorPicsUrl();
 	}

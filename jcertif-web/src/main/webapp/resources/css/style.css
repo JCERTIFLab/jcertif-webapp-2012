@@ -7,6 +7,16 @@ body {
 	margin: auto;
 }
 
+a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+	display: inline-block;
+}
+
 
 
 .main {
@@ -176,7 +186,11 @@ body {
 	width: 280px;
 }
 
-.photoslider-mini{width: 280px;;height:200px;}
+.photoslider-mini{
+	width: 280px;
+	height:200px;
+	display: block;
+}
 
 .rounded-panel-event-header-img {
 	background-image: url('../resources/img/puce/puce_1.png');
@@ -218,7 +232,6 @@ body {
 
 /********* ROUNDED PANEL COMPONENT **********/ 
 .rounded-panel {
-	width: 310px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #59875F;
@@ -371,6 +384,10 @@ font-size: 11pt;
 	margin-left: 45px;
 }
 
+.home-panel-width {
+	width: 310px;
+}
+
 .home-social{
 	float : right;
 	margin-bottom: 5px;
@@ -388,6 +405,7 @@ font-size: 11pt;
 }
 
 .home-news {
+	width: 280px;
 	margin: 10px 10px 10px 10px;
 }
 
@@ -405,6 +423,29 @@ font-size: 11pt;
 .home-sponsor-panel {
 	width: 885px;
 	padding-bottom: 40px;
+}
+
+.conference-2011-sponsor-panel {
+	padding-bottom: 40px;
+}
+
+.body-galleria-2011 {
+	margin: 10px 150px 10px 150px;
+}
+
+.university-2011-body-slider {
+
+}
+.university-2011-body-panel {
+
+}
+
+.university-2011-body-slider-img {
+	width: 900px;
+}
+
+.university-2011-body-formateur {
+	margin: 10px 10px 10px 10px;
 }
 
 /******** JOIN *********/
