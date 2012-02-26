@@ -1,5 +1,6 @@
 package com.jcertif.web.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -15,6 +16,7 @@ import com.jcertif.web.model.RoleParticipant;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.model.Sponsor;
 import com.jcertif.web.model.TypeParticipant;
+import com.jcertif.web.model.User;
 
 /**
  * Referentiel service.
@@ -49,6 +51,9 @@ public class ReferentielService {
 	/** LOGGER **/
 	private static final Logger LOG = LoggerFactory.getLogger(ReferentielService.class);
 
+	private String[] speakers2011Email = new String[] { "arun.p.gupta@oracle.com",
+			"matayobweta@gmail.com", "bonbhel@gmail.com", "rossi.oddet@gmail.com", };
+
 	@Inject
 	private ResourceService resourceService;
 
@@ -62,6 +67,8 @@ public class ReferentielService {
 	private List<Sponsor> sponsors2011;
 
 	private List<Speaker> speakers;
+
+	private List<Speaker> speakers2011;
 
 	/** Conference **/
 	private Conference conference;
@@ -141,4 +148,17 @@ public class ReferentielService {
 		return sponsors2011;
 	}
 
+	public List<Speaker> getSpeakers2011() {
+		if (speakers2011 == null) {
+			speakers2011 = new ArrayList<Speaker>();
+
+			for (String email : speakers2011Email) {
+				speakers2011.add(new Speaker(restService.getBuilder(
+						resourceService.getUserContext() + "/" + email).get(User.class)));
+
+			}
+
+		}
+		return speakers2011;
+	}
 }

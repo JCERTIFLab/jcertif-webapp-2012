@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+	xmlns:jc="http://jcertif.com/facelets">
+
+<h:head>
+
+</h:head>
+
+<ui:composition>
+		<h:panelGrid columns="3">
+				<h:graphicImage value="/resources/img/logo/java_logo.png" styleClass="cours-2011-logo" />
+				
+				<h:panelGrid columns="1">
+					<h:outputText value="#{msg['2011.university.course.java.intro']}" />
+					<h:outputText value="#{msg['2011.university.course.java.tp.sujet']}" />
+					<h:outputText value="#{msg['2011.university.course.java.tp.sources']}" />
+				</h:panelGrid>
+				<h:panelGrid columns="1">
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/java/scjp_j2se7.pdf" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/java/calculatrice_jcertif.pdf" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/java/calculatrice_jcertif_sources.zip" target="_blank">Télécharger</h:outputLink>
+				</h:panelGrid>
+				<h:graphicImage value="/resources/img/logo/android_logo.png" styleClass="cours-2011-logo" />
+				
+				<h:panelGrid columns="1">
+					<h:outputText value="#{msg['2011.university.course.android.part1']}" />
+					<h:outputText value="#{msg['2011.university.course.android.part2']}" />
+					<h:outputText value="#{msg['2011.university.course.android.part3']}" />
+					<h:outputText value="#{msg['2011.university.course.android.part4']}" />
+					<h:outputText value="#{msg['2011.university.course.android.part5']}" />
+					<h:outputText value="#{msg['2011.university.course.android.part6']}" />
+					<h:outputText value="#{msg['2011.university.course.android.part7']}" />
+				</h:panelGrid>
+				<h:panelGrid columns="1">
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part1_activity_services.zip" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part2_contenu_geo.zip" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part3_stockage_widgets.zip" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part4_interface_graphiques_1.zip" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part5_interface_graphiques_2.zip" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part6_interface_graphique_3.zip" target="_blank">Télécharger</h:outputLink>
+					<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part7_graphiques_2d_3d.zip" target="_blank">Télécharger</h:outputLink>
+				</h:panelGrid>
+			</h:panelGrid>
+	
+
+</ui:composition>
+</html>

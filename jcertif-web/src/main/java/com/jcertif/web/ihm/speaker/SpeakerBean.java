@@ -13,8 +13,9 @@ import com.jcertif.web.service.RestService;
 
 /**
  * SpeakerBean
+ * 
  * @author Mamadou
- *
+ * 
  */
 @Named
 @RequestScoped
@@ -43,6 +44,13 @@ public class SpeakerBean {
 	 */
 	public List<Speaker> getSpeakers() {
 		return referentielService.getSpeakers();
+	}
+
+	/**
+	 * @return the speakers
+	 */
+	public List<Speaker> getSpeakers2011() {
+		return referentielService.getSpeakers2011();
 	}
 
 	public String getSpeakerPhotoUrl() {

@@ -2,28 +2,38 @@ package com.jcertif.web.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 /**
  * Classe Speaker
+ * 
  * @author Mamadou
- *
+ * 
  */
 @XmlRootElement
-public class Speaker  {
+public class Speaker {
 
 	private Long id;
 
 	private String prenom;
 
 	private String nom;
-	
+
 	private String photo;
 
 	private String bio;
-	
+
 	private String compagnie;
 
-	
+	public Speaker() {
+	}
+
+	public Speaker(User user) {
+		prenom = user.getPrenom();
+		nom = user.getNom();
+		photo = user.getPhoto();
+		compagnie = user.getCompagnie();
+		bio = user.getBio();
+	}
+
 	/**
 	 * @return the compagnie
 	 */
@@ -32,7 +42,8 @@ public class Speaker  {
 	}
 
 	/**
-	 * @param compagnie the compagnie to set
+	 * @param compagnie
+	 *            the compagnie to set
 	 */
 	public void setCompagnie(String compagnie) {
 		this.compagnie = compagnie;
@@ -46,7 +57,8 @@ public class Speaker  {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -60,7 +72,8 @@ public class Speaker  {
 	}
 
 	/**
-	 * @param prenom the prenom to set
+	 * @param prenom
+	 *            the prenom to set
 	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
@@ -74,7 +87,8 @@ public class Speaker  {
 	}
 
 	/**
-	 * @param nom the nom to set
+	 * @param nom
+	 *            the nom to set
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -88,7 +102,8 @@ public class Speaker  {
 	}
 
 	/**
-	 * @param photo the photo to set
+	 * @param photo
+	 *            the photo to set
 	 */
 	public void setPhoto(String photo) {
 		this.photo = photo;
@@ -102,12 +117,11 @@ public class Speaker  {
 	}
 
 	/**
-	 * @param bio the bio to set
+	 * @param bio
+	 *            the bio to set
 	 */
 	public void setBio(String bio) {
 		this.bio = bio;
 	}
-
-
 
 }

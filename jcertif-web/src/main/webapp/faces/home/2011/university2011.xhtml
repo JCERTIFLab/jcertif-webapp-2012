@@ -13,68 +13,19 @@
 		
 		<jc:pageBanner title="#{msg['2011.university.banner.text']}" />
 
-		<div class="university-2011-body">
+		<div id="university-2011-body">
+			
 			<div class="body-galleria-2011">
 				<p:galleria  value="#{homeBean.imagesUniversity}" var="image">
 					<p:graphicImage value="#{image}"/>
 				</p:galleria>
 			</div>
 			<br/>
-			
-			<jc:roundedPanel titleText1="#{msg['2011.university.trainer.title']}">
-				<ui:define name="content">
-					<h:panelGrid columns="2">
-						<h:graphicImage url="#{speakerBean.speakerPhotoUrl}/arun.png" styleClass="university-2011-body-formateur" />
-						<h:outputText value="#{msg['2011.university.arun.text']}" styleClass="university-2011-body-formateur" />
-						<h:graphicImage url="#{speakerBean.speakerPhotoUrl}/stanyslas.jpg" styleClass="university-2011-body-formateur" />
-						<h:outputText value="#{msg['2011.university.stanyslas.text']}" styleClass="university-2011-body-formateur" />
-						<h:graphicImage url="#{speakerBean.speakerPhotoUrl}/Max.png" styleClass="university-2011-body-formateur" />
-						<h:outputText value="#{msg['2011.university.max.text']}" styleClass="university-2011-body-formateur" />
-						<h:graphicImage url="#{speakerBean.speakerPhotoUrl}/rossi.jpg" styleClass="university-2011-body-formateur" />
-						<h:outputText value="#{msg['2011.university.rossi.text']}" styleClass="university-2011-body-formateur" />
-					</h:panelGrid>
-				</ui:define>
-			</jc:roundedPanel>
+			<jc:speakers speakers="#{speakerBean.speakers2011}"/>
 			<br/>
-			<jc:roundedPanel titleText1="#{msg['2011.university.course.title']}">
-				<ui:define name="content">
-					<h:panelGrid columns="3">
-						<h:graphicImage value="/resources/img/logo/java_logo.jpg" styleClass="university-2011-body-formateur" />
-						
-						<h:panelGrid columns="1">
-							<h:outputText value="#{msg['2011.university.course.java.intro']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.java.tp.sujet']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.java.tp.sources']}" styleClass="university-2011-body-formateur" />
-						</h:panelGrid>
-						<h:panelGrid columns="1">
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/java/scjp_j2se7.pdf" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/java/calculatrice_jcertif.pdf" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/java/calculatrice_jcertif_sources.zip" target="_blank">Télécharger</h:outputLink>
-						</h:panelGrid>
-						<h:graphicImage value="/resources/img/logo/android_logo.gif" styleClass="university-2011-body-formateur" />
-						
-						<h:panelGrid columns="1">
-							<h:outputText value="#{msg['2011.university.course.android.part1']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.android.part2']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.android.part3']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.android.part4']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.android.part5']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.android.part6']}" styleClass="university-2011-body-formateur" />
-							<h:outputText value="#{msg['2011.university.course.android.part7']}" styleClass="university-2011-body-formateur" />
-						</h:panelGrid>
-						<h:panelGrid columns="1">
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part1_activity_services.zip" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part2_contenu_geo.zip" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part3_stockage_widgets.zip" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part4_interface_graphiques_1.zip" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part5_interface_graphiques_2.zip" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part6_interface_graphique_3.zip" target="_blank">Télécharger</h:outputLink>
-							<h:outputLink  value="#{facesContext.externalContext.requestContextPath}/resources/doc/2011/android/part7_graphiques_2d_3d.zip" target="_blank">Télécharger</h:outputLink>
-						</h:panelGrid>
-					</h:panelGrid>
-				</ui:define>
-			</jc:roundedPanel>
-		 
+			<div id="cours2011">
+				<ui:include src="cours2011.xhtml" />
+			</div>
 		</div>
 
 

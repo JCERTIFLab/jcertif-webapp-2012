@@ -11,34 +11,34 @@
 <body>
 
 	<ui:composition>
-		<div class="header">
-			<div class="header-marge"/>
-			<div class="header-title">
-				<div class="header-title-date-event">
-					<span class="header-title-date-event-text1">
+		<div id="header">
+			<div id="header-marge"/>
+			<div id="header-title">
+				<div id="header-title-date-event">
+					<span id="header-title-date-event-text1">
 						<h:outputText value="#{msg['header.date.event1']}" />
 					</span>
-					<span class="header-title-date-event-text2">
+					<span id="header-title-date-event-text2">
 						<h:outputText value="#{msg['header.date.event2']}" />
 					</span>
 				</div>
 				<c:choose>
 					<c:when test="#{sessionScope.connectedUser != null}">
-						<div class="header-user">#{sessionScope.connectedUser.prenom} #{sessionScope.connectedUser.nom}</div>
-						<div class="header-logout">
+						<div id="header-user">#{sessionScope.connectedUser.prenom} #{sessionScope.connectedUser.nom}</div>
+						<div id="header-logout">
 							<h:form><h:commandLink action="#{logoutBean.logout}" value="#{msg['header.logout.button']}" /></h:form>
 						</div>
 					</c:when>
 					<c:otherwise>
-						<div class="header-logout">
+						<div id="header-logout">
 					    	<h:link value="#{msg['header.login.button']}" outcome="/faces/connect/login"/>
 					    </div>
 					</c:otherwise>
 				</c:choose>
 			</div>
 			
-			<div class="header-menu">
-				<div class="header-menu-group-button">
+			<div id="header-menu">
+				<div id="header-menu-group-button">
 					<jc:headerMenuButton text="#{msg['header.menu.home']}" url="/faces/home/home.jsf"></jc:headerMenuButton>
 					<jc:headerMenuButton text="#{msg['header.menu.join']}" url="/faces/join/join.jsf"></jc:headerMenuButton>
 					<jc:headerMenuButton text="#{msg['header.menu.calendar']}" url="/faces/calendar/calendar.jsf"></jc:headerMenuButton>

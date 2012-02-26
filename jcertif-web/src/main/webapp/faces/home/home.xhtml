@@ -15,21 +15,21 @@
 	<ui:define name="content">
 	
 	
-		<div class="home-banner">
-			<div class="home-banner-people"></div>
-			<div class="home-banner-text">#{msg['home.banner.text']}</div>
+		<div id="home-banner">
+			<div id="home-banner-people"></div>
+			<div id="home-banner-text">#{msg['home.banner.text']}</div>
 			
 		</div>
 		
-		<div class="home-body">
+		<div id="home-body">
 		
-			<div class="home-body-conference">
+			<div id="home-body-conference">
 				<jc:roundedPanelEvent footerLink="/faces/home/2011/conference2011.xhtml" titleText1="#{msg['home.conference.title1']}" titleText2="#{msg['home.conference.title2']}" footerText="#{msg['home.conference.more']}" imagesList="#{homeBean.imagesConference}"/>
 			</div>
-			<div class="home-body-university">
+			<div id="home-body-university">
 				<jc:roundedPanelEvent footerLink="/faces/home/2011/university2011.xhtml" titleText1="#{msg['home.university.title1']}" titleText2="#{msg['home.university.title2']}" footerText="#{msg['home.university.more']}" imagesList="#{homeBean.imagesUniversity}"/>
 			</div>
-			<div class="home-body-right-content">
+			<div id="home-body-right-content">
 				<ui:include src="/faces/home/remainingTime.xhtml" />
 				<br/>
 				<ui:include src="/faces/home/news.xhtml" />

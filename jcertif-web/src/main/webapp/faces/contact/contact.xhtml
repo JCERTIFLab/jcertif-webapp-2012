@@ -8,11 +8,11 @@
 	<ui:define name="content">
 		<jc:pageBanner title="#{msg['contact.banner.text']}" />
 			<div>
-				<div class="cadre-phone-web">
-					<div class="contact-phone">
+				<div id="cadre-phone-web">
+					<div id="contact-phone">
 						<jc:roundedPanel titleText1="#{msg['contact.phone.title']}">
 							<ui:define name="content">
-								<div class="contact-phone-content">
+								<div id="contact-phone-content">
 									<div>#{msg['contact.phone.congo']}</div>
 									<div>#{msg['contact.phone.france']}</div>
 									<div>#{msg['contact.phone.canada']}</div>
@@ -21,10 +21,10 @@
 							</ui:define>
 						</jc:roundedPanel>
 					</div>
-					<div class="contact-web">
+					<div id="contact-web">
 						<jc:roundedPanel titleText1="#{msg['contact.web.title']}">
 							<ui:define name="content">
-								<div class="contact-web-content">
+								<div id="contact-web-content">
 									<div>#{msg['contact.web.email']}</div>
 									<div>#{msg['contact.web.twitter']}</div>
 								</div>
@@ -32,7 +32,7 @@
 						</jc:roundedPanel>
 					</div>
 				</div>
-				<div class="cadre-map">
+				<div id="cadre-map">
 					<p:gmap center="-4.28030000, 15.258900" zoom="2" type="HYBRID"  model="#{contactBean.simpleModel}"  style="width: 550px;height:400px" />  
 				</div>
 			</div>

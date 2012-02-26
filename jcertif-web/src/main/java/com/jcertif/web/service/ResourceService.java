@@ -144,6 +144,13 @@ public class ResourceService {
 		return getWebappProps().getString("facade.context.speaker.list");
 	}
 
+	/**
+	 * @return speakers list context.
+	 */
+	public String getSpeakerListContext2011() {
+		return getWebappProps().getString("facade.context.speaker.2011.list");
+	}
+
 	public String getSponsor2011ListContext() {
 		return getWebappProps().getString("facade.context.sponsor.2011.list");
 	}

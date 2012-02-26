@@ -5,12 +5,12 @@
 	xmlns:jc="http://jcertif.com/facelets">
 
 <ui:composition>
-	<div class="rounded-panel #{styleClass}">
+	<div id="rounded-panel" class="#{styleClass}">
 
-		<div class="rounded-panel-header">
-			<span class="rounded-panel-header-img" />
-			<span class="rounded-panel-header-text-1"><h:outputLabel value="#{titleText1}" /></span> 
-			<span class="rounded-panel-header-text-2"><h:outputLabel value="#{titleText2}" /></span>
+		<div id="rounded-panel-header">
+			<span id="rounded-panel-header-img" />
+			<span id="rounded-panel-header-text-1"><h:outputLabel value="#{titleText1}" /></span> 
+			<span id="rounded-panel-header-text-2"><h:outputLabel value="#{titleText2}" /></span>
 		</div>
 		
 		<ui:insert name="content"/>

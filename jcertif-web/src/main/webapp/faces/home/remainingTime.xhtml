@@ -11,7 +11,7 @@
 	<c:set var="jours" value="#{remainingTimeBean.remainingTime}" />
 	<jc:roundedPanel titleText1="#{msg['home.remainingtime.text1']} " titleText2="#{remainingTimeBean.formattedStartDate}">
 		<ui:define name="content">
-			<div class="home-remaining-time">
+			<div id="home-remaining-time">
 				<span class="home-remaining-time-number">${jours.hundred}</span>
 				<span class="home-remaining-time-number">${jours.decade}</span>
 				<span class="home-remaining-time-number">${jours.unit}</span>

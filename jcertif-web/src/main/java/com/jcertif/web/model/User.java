@@ -34,6 +34,7 @@ public class User {
 	private String ville;
 	private String pays;
 	private Long idConference;
+	private String bio;
 
 	public User() {
 		super();
@@ -209,6 +210,21 @@ public class User {
 	 */
 	public void setIdConference(Long idConference) {
 		this.idConference = idConference;
+	}
+
+	/**
+	 * @return the bio
+	 */
+	public String getBio() {
+		return bio;
+	}
+
+	/**
+	 * @param bio
+	 *            the bio to set
+	 */
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 
 }

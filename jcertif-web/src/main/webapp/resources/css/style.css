@@ -29,46 +29,46 @@ a:visited {
 }
 
 /*********** HEADER ***********/
-.header {
+#header {
 	background-color: #e6ecec;
 }
 
-.header-marge {
+#header-marge {
 	height: 10px;
 }
 
-.header-title {
+#header-title {
 	background-image: url('../resources/img/header/logo_jcertif_2012.png');
 	background-repeat: no-repeat; 
 	height: 80px;
 }
 
-.header-title-date-event {
+#header-title-date-event {
 	text-align: right;
 	padding-right: 5px;
 	font-size: 21px;
 }
 
-.header-title-date-event-text1 {
+#header-title-date-event-text1 {
 	color: #00A61D;
 }
 
-.header-title-date-event-text2 {
+#header-title-date-event-text2 {
 	color: #BF0418;
 }
 
-.header-user {
+#header-user {
 	text-align: right;
 	margin-right: 5px;
 	padding-top: 50px;
 }
 
-.header-logout {
+#header-logout {
 	text-align: right;
 	margin-right: 5px;
 }
 
-.header-logout a {
+#header-logout a {
 	display: inline-block;
 	text-decoration: none;
 	font-size: 11pt;
@@ -77,7 +77,7 @@ a:visited {
 	color:#BF0418;
 }
 
-.header-logout a:visited {
+#header-logout a:visited {
 	text-decoration: none;
 	display: inline-block;
 	text-decoration: none;
@@ -89,7 +89,7 @@ a:visited {
 
 
 
-.header-menu {
+#header-menu {
 	clear: both;
 	background-image: url('../resources/img/header/header_bg_menu.png');
 	background-repeat: repeat-x;
@@ -192,38 +192,38 @@ a:visited {
 	display: block;
 }
 
-.rounded-panel-event-header-img {
+#rounded-panel-event-header-img {
 	background-image: url('../resources/img/puce/puce_1.png');
 	padding-left: 15px;
 	padding-bottom:4px;
 	background-repeat: no-repeat;
 }
 
-.rounded-panel-event-header-text-1 {
+#rounded-panel-event-header-text-1 {
 	vertical-align:middle;
 	font-size: 15pt;
 	color: #00A61D;
 }
 
-.rounded-panel-event-header-text-2 {
+#rounded-panel-event-header-text-2 {
 	vertical-align:middle;
 	font-size: 15pt;
 	color: #BF0418;
 	
 }
 
-.rounded-panel-event-footer {
+#rounded-panel-event-footer {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 55%;
 }
 
-.rounded-panel-event-footer-text {
+#rounded-panel-event-footer-text {
 	font-size: 11pt;
 	color: #BF0418;
 }
 
-.rounded-panel-event-footer-img {
+#rounded-panel-event-footer-img {
 	background-image: url('../resources/img/puce/puce_2.png');
 	padding-left: 15px;
 	padding-bottom:5px;
@@ -231,7 +231,7 @@ a:visited {
 }
 
 /********* ROUNDED PANEL COMPONENT **********/ 
-.rounded-panel {
+#rounded-panel {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #59875F;
@@ -243,26 +243,26 @@ a:visited {
 	font-family: helvetica;
 }
 
-.rounded-panel-header {
+#rounded-panel-header {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	padding-left: 10px;
 }
 
-.rounded-panel-header-img {
+#rounded-panel-header-img {
 	background-image: url('../resources/img/puce/puce_3.png');
 	padding-left: 30px;
 	padding-bottom:15px;
 	background-repeat: no-repeat;
 }
 
-.rounded-panel-header-text-1 {
+#rounded-panel-header-text-1 {
 		vertical-align:middle;
 font-size: 11pt;
 	color: #00A61D ;
 }
 
-.rounded-panel-header-text-2 {
+#rounded-panel-header-text-2 {
 	vertical-align:middle;
 	font-size: 11pt;
 	color: #85AA8A;
@@ -270,13 +270,13 @@ font-size: 11pt;
 }
 
 /*********** SOCIAL NETWORK PANEL ***********/
-.social-network-panel {
+#social-network-panel {
 	border: 1px solid #0071BC;
 	background-color: #d7dbf9; 
 	height: 30px;
 }
 
-.social-network-panel a {
+#social-network-panel a {
 	font-family: Helvetica Light;
 	display: inline-block;
 	text-decoration: none;
@@ -284,7 +284,7 @@ font-size: 11pt;
 	font-size: 10pt;
 }
 
-.social-network-panel a:visited {
+#social-network-panel a:visited {
 	font-family: Helvetica Light;
 	text-decoration: none;
 	display: inline-block;
@@ -292,7 +292,7 @@ font-size: 11pt;
 	font-size: 10pt;
 }
 
-.social-network-panel-text {
+#social-network-panel-text {
 	
 	width:60%;
 	padding-left:5%;
@@ -301,7 +301,7 @@ font-size: 11pt;
 	float: left;
 }
 
-.social-network-panel-img {
+#social-network-panel-img {
 	float: left;
 	padding-left:5%;
 	padding-right: 5%;
@@ -312,14 +312,14 @@ font-size: 11pt;
 
 
 /*********** HOME ***********/
-.home-banner {
+#home-banner {
 	background-image: url('../resources/img/home/home_banner.png');
 	height: 220px;
 	width: 100%;
 	margin-top: 10px;
 }
 
-.home-banner-people {
+#home-banner-people {
 	background-image: url('../resources/img/home/home_banner_people.png');
 	height: 190px;
 	width:400px;
@@ -330,7 +330,7 @@ font-size: 11pt;
 }
 
 
-.home-banner-text {
+#home-banner-text {
 	color: white;
 	font-family: Helvetica;
 	font-size: 20pt;
@@ -341,22 +341,22 @@ font-size: 11pt;
 }
 
 
-.home-body {
+#home-body {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-.home-body-conference {
+#home-body-conference {
 	float: left;
 	margin-left: 5px;
 }
 
-.home-body-university {
+#home-body-university {
 	float: left;
 	margin-left: 5px;
 }
 
-.home-body-right-content {
+#home-body-right-content {
 	float: left;
 	margin-left: 5px;
 }
@@ -379,7 +379,7 @@ font-size: 11pt;
 	
 }
 
-.home-remaining-time {
+#home-remaining-time {
 	margin-bottom: 15px;
 	margin-left: 45px;
 }
@@ -388,17 +388,17 @@ font-size: 11pt;
 	width: 310px;
 }
 
-.home-social{
+#home-social{
 	float : right;
 	margin-bottom: 5px;
 }
 
-.home-social-facebook {
+#home-social-facebook {
 	width:150px;
 	float :left;
 }
 
-.home-social-twitter {
+#home-social-twitter {
 	width:150px;
 	margin-left: 10px;
 	float : right;
@@ -444,8 +444,12 @@ font-size: 11pt;
 	width: 900px;
 }
 
-.university-2011-body-formateur {
-	margin: 10px 10px 10px 10px;
+.cours-2011-logo {
+	width: 100px;
+}
+
+#cours2011 {
+	margin-left: 150px;
 }
 
 /******** JOIN *********/
@@ -456,35 +460,35 @@ font-size: 11pt;
 }
 
 /******* CONTACT ********/
-.contact-phone {
+#contact-phone {
 	margin-left: 5px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	float: left;
 }
 
-.contact-web {
+#contact-web {
 	margin-top: 20px;
 	margin-left: 5px;
 	float: left;
 }
 
-.contact-phone-content {
+#contact-phone-content {
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
 
-.contact-web-content {
+#contact-web-content {
 	margin-left: 5px;
 	margin-bottom: 10px;
 }
 
-.cadre-map{
+#cadre-map{
 	float: right; 
 	padding: 25px;  
 	width: 60%;
 }
-.cadre-phone-web{
+#cadre-phone-web{
 	float: left; 
 	width: 30%;
 }
@@ -509,7 +513,7 @@ font-size: 11pt;
 }
 
 /********** FOOTER **********/
-.footer {
+#footer {
 	background-image: url('../resources/img/footer/footer_bg.png');
 	background-repeat: repeat-x;
 	height: 70px;
@@ -521,15 +525,15 @@ font-size: 11pt;
 	clear:both;
 }
 
-.footer-copyright {
+#footer-copyright {
 	font-size: 9pt;
 }
 
-.footer-menu {
+#footer-menu {
 	padding-left: 20%;
 }
 
-.footer-menu a {
+#footer-menu a {
 	display: inline-block;
 	text-decoration: none;
 	font-size: 11pt;
@@ -537,7 +541,7 @@ font-size: 11pt;
 	font-family: helvetica;
 }
 
-.footer-menu a:visited {
+#footer-menu a:visited {
 	text-decoration: none;
 	display: inline-block;
 	text-decoration: none;

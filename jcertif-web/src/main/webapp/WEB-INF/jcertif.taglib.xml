@@ -24,4 +24,8 @@
 		<tag-name>socialPanel</tag-name>
 		<source>tags/panel/socialNetworkPanel.xhtml</source>
 	</tag>
+	<tag>
+		<tag-name>speakers</tag-name>
+		<source>tags/panel/speakers.xhtml</source>
+	</tag>
 </facelet-taglib>
