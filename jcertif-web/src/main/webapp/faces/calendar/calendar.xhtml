@@ -18,47 +18,19 @@
 			<br></br>
 			<div>
 			<p:panel style="width: 90%; margin: auto;">
-
-				<p:schedule value="#{agendaBean.eventModel}" widgetVar="myschedule">
-
-					<p:ajax event="dateSelect" listener="#{agendaBean.onDateSelect}"
-						update="eventDetails" oncomplete="eventDialog.show()" />
-					<p:ajax event="eventSelect" listener="#{agendaBean.onEventSelect}"
-						update="eventDetails" oncomplete="eventDialog.show()" />
-					<p:ajax event="eventMove" listener="#{agendaBean.onEventMove}"
-						update="messages" />
-					<p:ajax event="eventResize" listener="#{agendaBean.onEventResize}"
-						update="messages" />
-
+				<p:schedule value="#{agendaBean.eventModel}" widgetVar="myschedule"
+							locale="fr" timeFormat="H:mm" timeZone="GMT" view="agendaWeek"
+							editable="true" initialDate="#{agendaBean.dateDebutSchedule}">
+					<p:ajax event="eventSelect" listener="#{agendaBean.onEventSelect}" 
+							update="eventDetails" oncomplete="eventDialog.show()" />
 				</p:schedule>
-
 				<p:dialog widgetVar="eventDialog" header="Event Details"
-					showEffect="clip" hideEffect="clip">
-					<h:panelGrid id="eventDetails" columns="2">
-						<h:outputLabel for="title" value="Title:" />
-						<p:inputText id="title" value="#{agendaBean.event.title}"
-							required="true" />
-
-						<h:outputLabel for="from" value="From:" />
-						<p:inputMask id="from" value="#{agendaBean.event.startDate}"
-							mask="99/99/9999">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</p:inputMask>
-
-						<h:outputLabel for="to" value="To:" />
-						<p:inputMask id="to" value="#{agendaBean.event.endDate}"
-							mask="99/99/9999">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</p:inputMask>
-
-						<h:outputLabel for="allDay" value="All Day:" />
-						<h:selectBooleanCheckbox id="allDay"
-							value="#{agendaBean.event.allDay}" />
-
-						<p:commandButton type="reset" value="Reset" />
-						<p:commandButton value="Save"
-							actionListener="#{agendaBean.addEvent}"
-							oncomplete="myschedule.update();eventDialog.hide();" />
+					      showEffect="clip" hideEffect="clip" >
+					<h:panelGrid id="eventDetails" columns="1">
+						<h:outputText value="#{agendaBean.event.salle}"/>
+						<h:outputText value="#{agendaBean.event.sommaire}" />
+						<h:outputText value="#{agendaBean.event.description}" />
+						<h:outputText value="#{agendaBean.event.motCle}" />
 					</h:panelGrid>
 				</p:dialog>
 			</p:panel>

@@ -154,4 +154,11 @@ public class ResourceService {
 	public String getSponsor2011ListContext() {
 		return getWebappProps().getString("facade.context.sponsor.2011.list");
 	}
+	
+	/**
+	 * @return events list context.
+	 */
+	public String getEventListContext() {
+		return getWebappProps().getString("facade.context.event.list");
+	}
 }

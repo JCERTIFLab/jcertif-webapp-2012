@@ -6,7 +6,7 @@ function updateNews() {
 				dataType : 'JSONP', // for cross domain
 				error : function() {
 					
-				},
+				}
 			});
 
 }
@@ -50,3 +50,30 @@ function linkify(text){
     }
     return text;
 }
+
+PrimeFaces.locales ['fr'] = {
+	    closeText: 'Fermer',
+	    prevText: 'Précédent',
+	    nextText: 'Suivant',
+	    monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ],
+	    monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Déc' ],
+	    dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+	    dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+	    dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+	    weekHeader: 'Semaine',
+	    firstDay: 1,
+	    isRTL: false,
+	    showMonthAfterYear: false,
+	    yearSuffix:'',
+	    timeOnlyTitle: 'Choisir l\'heure',
+	    timeText: 'Heure',
+	    hourText: 'Heures',
+	    minuteText: 'Minutes',
+	    secondText: 'Secondes',
+	    currentText: 'Maintenant',
+	    ampm: false,
+	    month: 'Mois',
+	    week: 'Semaine',
+	    day: 'Jour',
+	    allDayText: 'Toute la journée'
+	};
