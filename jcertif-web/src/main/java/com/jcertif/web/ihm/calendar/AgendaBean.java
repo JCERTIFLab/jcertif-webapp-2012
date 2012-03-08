@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -23,23 +23,23 @@ import com.jcertif.web.service.ReferentielService;
 
 /**
  * @author Mamadou
- *
+ * 
  */
 @Named
-@RequestScoped
+@SessionScoped
 public class AgendaBean implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3243371323747830221L;
 
-	private ScheduleModel eventModel = new DefaultScheduleModel();;
+	private ScheduleModel eventModel;
 
 	/** Referentiel Service **/
 	@Inject
 	private ReferentielService referentielService;
 
-	private Date dateDebutSchedule ;
+	private Date dateDebutSchedule;
 
 	private Event event;
 
@@ -55,16 +55,17 @@ public class AgendaBean implements Serializable {
 	 */
 	public Date getDateDebutSchedule() {
 		Date dateTmp;
-		for(Event event: referentielService.getEvents()){
+		for (Event event : referentielService.getEvents()) {
 			dateTmp = event.getDateDebut().getTime();
-			if(dateDebutSchedule == null || dateTmp.before(dateDebutSchedule))
+			if (dateDebutSchedule == null || dateTmp.before(dateDebutSchedule))
 				dateDebutSchedule = dateTmp;
 		}
 		return dateDebutSchedule;
 	}
 
 	/**
-	 * @param dateDebutSchedule the dateDebutSchedule to set
+	 * @param dateDebutSchedule
+	 *            the dateDebutSchedule to set
 	 */
 	public void setDateDebutSchedule(Date dateDebutSchedule) {
 		this.dateDebutSchedule = dateDebutSchedule;
@@ -74,20 +75,26 @@ public class AgendaBean implements Serializable {
 	 * @return the eventModel
 	 */
 	public ScheduleModel getEventModel() {
-		for(Event event: this.getEvents()){
-			eventModel.addEvent(new DefaultScheduleEvent(event.getNom(), event.getDateDebut().getTime(), event.getDateFin().getTime()));
+		if (eventModel == null) {
+			eventModel = new DefaultScheduleModel();
+			for (Event event : this.getEvents()) {
+				eventModel.addEvent(new DefaultScheduleEvent(event.getNom(), event.getDateDebut()
+						.getTime(), event.getDateFin().getTime()));
+			}
 		}
+
 		return eventModel;
 	}
 
 	public AgendaBean() {
+		super();
 	}
 
 	public void onEventSelect(ScheduleEntrySelectEvent selectEvent) {
 		Date dateTmp;
-		for(Event ev: referentielService.getEvents()){
+		for (Event ev : referentielService.getEvents()) {
 			dateTmp = selectEvent.getScheduleEvent().getStartDate();
-			if(dateTmp.equals(ev.getDateDebut().getTime())){
+			if (dateTmp.equals(ev.getDateDebut().getTime())) {
 				setEvent(ev);
 			}
 		}
@@ -101,7 +108,8 @@ public class AgendaBean implements Serializable {
 	}
 
 	/**
-	 * @param event the event to set
+	 * @param event
+	 *            the event to set
 	 */
 	public void setEvent(Event event) {
 		this.event = event;
