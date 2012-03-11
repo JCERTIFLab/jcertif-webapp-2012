@@ -493,20 +493,26 @@ font-size: 11pt;
 	width: 30%;
 }
 
-/******* Speaker ********/
-.speaker-title {
+/** RUBRIQUE **/
+
+.rubrique-title {
 	width:98%; 
 	margin:5px 5px 5px 5px; 
 	padding: 5px 5px 5px 5px; 
 	background-color: #eeeeee;	
 }
+
+.rubrique-text {
+	width:98%; margin:5px 5px 5px 5px;
+}
+
+/******* Speaker ********/
+
 .speaker-bio {
 	float:right;
 	width:85%
 }
-.speaker-photo-bio {
-	width:98%; margin:5px 5px 5px 5px;
-}
+
 .speaker-photo {
 	float:left;
 	width:10%;

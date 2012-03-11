@@ -169,4 +169,8 @@ public class ResourceService {
 	public String getSujetListContext() {
 		return getWebappProps().getString("facade.context.sujet.list");
 	}
+
+	public String getFaqListContext() {
+		return getWebappProps().getString("facade.context.faq.list");
+	}
 }

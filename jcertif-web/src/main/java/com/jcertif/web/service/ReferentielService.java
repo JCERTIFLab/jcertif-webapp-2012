@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jcertif.web.model.Conference;
 import com.jcertif.web.model.Event;
+import com.jcertif.web.model.Faq;
 import com.jcertif.web.model.RoleParticipant;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.model.Sponsor;
@@ -60,6 +61,11 @@ public class ReferentielService {
 		private List<Event> list;
 	}
 
+	private static class FaqContainer {
+		@JsonProperty("faq")
+		private List<Faq> list;
+	}
+
 	/** LOGGER **/
 	private static final Logger LOG = LoggerFactory.getLogger(ReferentielService.class);
 
@@ -85,6 +91,8 @@ public class ReferentielService {
 	private List<Event> events;
 
 	private List<Sujet> sujets;
+
+	private List<Faq> faqs;
 
 	/** Conference **/
 	private Conference conference;
@@ -198,6 +206,14 @@ public class ReferentielService {
 		}
 		return sujets;
 
+	}
+
+	public List<Faq> getFaqs() {
+		if (faqs == null) {
+			faqs = restService.getBuilder(resourceService.getFaqListContext()).get(
+					FaqContainer.class).list;
+		}
+		return faqs;
 	}
 
 }
