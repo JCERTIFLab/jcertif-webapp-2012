@@ -9,9 +9,9 @@
 	
 		<jc:pageBanner title="#{msg['join.banner.title']}"/>
 		
-		<div class="join-intro">#{msg['join.intro']}</div>
+		<div class="form-intro">#{msg['join.intro']}</div>
 		<br/>
-		<h:form title="Inscription" id="join">
+		<h:form id="join">
 			<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
 				<h:outputText value="#{msg['join.email']} *" />
 				<p:inputText id="email" value="#{joinBean.user.email}" required="true" requiredMessage="#{msg['join.email.reqmsg']}" validatorMessage="#{msg['join.email.invalidmsg']}"/>

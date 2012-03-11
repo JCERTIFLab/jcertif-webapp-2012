@@ -16,6 +16,7 @@ import com.jcertif.web.model.Event;
 import com.jcertif.web.model.RoleParticipant;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.model.Sponsor;
+import com.jcertif.web.model.Sujet;
 import com.jcertif.web.model.TypeParticipant;
 import com.jcertif.web.model.User;
 
@@ -32,6 +33,11 @@ public class ReferentielService {
 	private static class TypeParticipantContainer {
 		@JsonProperty("typeParticipant")
 		private List<TypeParticipant> list;
+	}
+
+	private static class SujetContainer {
+		@JsonProperty("sujet")
+		private List<Sujet> list;
 	}
 
 	private static class RoleParticipantContainer {
@@ -53,7 +59,7 @@ public class ReferentielService {
 		@JsonProperty("event")
 		private List<Event> list;
 	}
-	
+
 	/** LOGGER **/
 	private static final Logger LOG = LoggerFactory.getLogger(ReferentielService.class);
 
@@ -75,8 +81,10 @@ public class ReferentielService {
 	private List<Speaker> speakers;
 
 	private List<Speaker> speakers2011;
-	
+
 	private List<Event> events;
+
+	private List<Sujet> sujets;
 
 	/** Conference **/
 	private Conference conference;
@@ -176,13 +184,20 @@ public class ReferentielService {
 	public List<Event> getEvents() {
 
 		if (events == null) {
-			events = restService.getBuilder(resourceService.getEventListContext())
-			.get(EventContainer.class).list;
+			events = restService.getBuilder(resourceService.getEventListContext()).get(
+					EventContainer.class).list;
 		}
 
 		return events;
 	}
-	
 
+	public List<Sujet> getSujets() {
+		if (sujets == null) {
+			sujets = restService.getBuilder(resourceService.getSujetListContext()).get(
+					SujetContainer.class).list;
+		}
+		return sujets;
+
+	}
 
 }

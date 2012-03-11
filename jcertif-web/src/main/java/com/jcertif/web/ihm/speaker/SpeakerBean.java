@@ -9,7 +9,6 @@ import javax.inject.Named;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
-import com.jcertif.web.service.RestService;
 
 /**
  * SpeakerBean
@@ -23,10 +22,6 @@ public class SpeakerBean {
 
 	@Inject
 	private ResourceService resService;
-
-	/** REST Web Service **/
-	@Inject
-	private RestService restService;
 
 	/** Referentiel Service **/
 	@Inject
