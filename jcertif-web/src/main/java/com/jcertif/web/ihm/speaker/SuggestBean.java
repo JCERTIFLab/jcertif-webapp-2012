@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -73,6 +74,14 @@ public class SuggestBean {
 				context.getExternalContext().getRequestContextPath()
 						+ "/faces/speaker/confirmationSuggest.jsf");
 
+	}
+
+	public void redirectToLogin(ComponentSystemEvent evt) throws IOException {
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().redirect(
+				context.getExternalContext().getRequestContextPath()
+						+ "/faces/connect/login.jsf?returnUrl="
+						+ context.getExternalContext().getRequestServletPath());
 	}
 
 	public List<Sujet> getSujets() {

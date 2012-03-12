@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
-	xmlns:jc="http://jcertif.com/facelets">
+	xmlns:jc="http://jcertif.com/facelets" xmlns:jsp="http://java.sun.com/JSP/Page">
 
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
@@ -45,7 +45,9 @@
 				</h:form>
 			</c:when>
 			<c:otherwise>
-				<div class="form-intro">#{msg['suggest.loginrequired']}</div>
+				<f:view>
+					<f:event listener="#{suggestBean.redirectToLogin}" type="preRenderView"></f:event>
+				</f:view>
 			</c:otherwise>
 
 		</c:choose>

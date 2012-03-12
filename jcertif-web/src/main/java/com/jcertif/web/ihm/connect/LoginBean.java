@@ -56,15 +56,18 @@ public class LoginBean {
 			user = restService.getBuilder(
 					resourceService.getConnectUserContext() + "/" + user.getEmail() + "/"
 							+ user.getPasswd()).get(User.class);
-			if (user.getId() == null) {
+			if (user == null || user.getId() == null) {
 				context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 						resourceService.getLib("login.unsuccess"), null));
 			} else {
 				// Saving to session the connected user
 				context.getExternalContext().getSessionMap().put("connectedUser", user);
+				String returnUrl = "/faces/home/home.jsf";
+				if (context.getExternalContext().getFlash().containsKey("returnUrl")) {
+					returnUrl = (String) context.getExternalContext().getFlash().get("returnUrl");
+				}
 				context.getExternalContext().redirect(
-						context.getExternalContext().getRequestContextPath()
-								+ "/faces/home/home.jsf");
+						context.getExternalContext().getRequestContextPath() + returnUrl);
 			}
 		}
 

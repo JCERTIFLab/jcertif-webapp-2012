@@ -7,6 +7,16 @@
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
 		<jc:pageBanner title="#{msg['login.banner.title']}" />
+		
+		<c:if test="#{param['returnUrl'] != null}">
+			<c:set var="returnUrl" value="#{param['returnUrl']}" scope="flash"></c:set>
+			
+			<c:if test="#{param['returnUrl'] == '/faces/speaker/suggest.jsf'}">
+				<h:outputLabel value="#{msg['suggest.loginrequired']}" />
+			</c:if>
+		
+		</c:if>
+		
 
 		<h:form id="loginForm">
 			<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
