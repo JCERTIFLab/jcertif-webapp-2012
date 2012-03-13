@@ -19,27 +19,25 @@
 			<div>
 			<p:panel style="width: 90%; margin: auto;">
 				<p:schedule value="#{agendaBean.eventModel}" widgetVar="myschedule"
-							locale="fr" timeFormat="H:mm" timeZone="GMT" view="agendaWeek"
-							editable="true" initialDate="#{agendaBean.dateDebutSchedule}">
+							locale="fr" timeFormat="HH:mm" timeZone="GMT" 
+							view="basicWeek" axisFormat="dd-mm-yyyy"
+							resizable="false" draggable="false"
+							leftHeaderTemplate="null" rightHeaderTemplate="null"
+							editable="fale" initialDate="#{agendaBean.dateDebutSchedule}">
 					<p:ajax event="eventSelect" listener="#{agendaBean.onEventSelect}" 
 							update="eventDetails" oncomplete="eventDialog.show()" />
 				</p:schedule>
-				<p:dialog widgetVar="eventDialog" header="#{msg['agenda.banner.title']}"
-					      showEffect="clip" hideEffect="clip" >
-											
-					<h:panelGrid id="eventDetails" columns="2">	
-							
+				<p:dialog widgetVar="eventDialog" header="#{msg['agenda.banner.title']}" showEffect="clip" hideEffect="clip" style="width:100px;">											
+					<h:panelGrid id="eventDetails" columns="2" style="width:600px;">								
 								 <h:panelGrid columns="1" style="width:100%">    			 
 									<p:graphicImage value="#{agendaBean.speakerPhotoUrl}/#{agendaBean.speaker.photo}"/> 	
-								 </h:panelGrid>
-							
+								 </h:panelGrid>						
 								<h:panelGrid columns="1" style="width:100%">  							
 									<h:outputText value="#{msg['agenda.dialog.salle']}: #{agendaBean.event.salle}"/>
 									<h:outputText value="#{agendaBean.event.sommaire}" />
 									<h:outputText value="#{agendaBean.event.description}" />
 									<h:outputText value="#{agendaBean.event.motCle}" />
-								</h:panelGrid>										 
-						
+								</h:panelGrid>										 						
 					</h:panelGrid>
 			</p:dialog>
 			</p:panel>
