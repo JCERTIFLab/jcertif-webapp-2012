@@ -9,7 +9,7 @@
 
 <ui:composition>
 	<c:set var="jours" value="#{remainingTimeBean.remainingTime}" />
-	<jc:roundedPanel titleText1="#{msg['home.remainingtime.text1']} " titleText2="#{remainingTimeBean.formattedStartDate}">
+	<jc:roundedPanel titleText1="#{msg['home.remainingtime.text1']} " titleText2="#{remainingTimeBean.formattedStartDate}" styleClass="home-panel-width">
 		<ui:define name="content">
 			<div id="home-remaining-time">
 				<span class="home-remaining-time-number">${jours.hundred}</span>
