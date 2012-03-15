@@ -95,6 +95,14 @@ a:visited {
 	color: #BF0418;
 }
 
+#header-logo-eapps {
+	background-image: url('../resources/img/logo/eapps.gif');
+	background-repeat: no-repeat;
+	float: right;
+	height: 30px;
+	width: 105px;
+}
+
 #header-menu {
 	clear: both;
 	background-image: url('../resources/img/header/header_bg_menu.png');
