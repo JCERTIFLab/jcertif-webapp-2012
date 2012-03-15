@@ -1,5 +1,13 @@
-html, body {height: 100%;} {height: 100%;}
+html,body {
+	height: 100%;
+}
 
+{
+height
+:
+ 
+100%;
+}
 body {
 	font-family: helvetica;
 	font-size: 11pt;
@@ -12,20 +20,21 @@ a {
 	text-decoration: none;
 }
 
+a img {
+	border: none
+}
+
 a:visited {
 	text-decoration: none;
 	display: inline-block;
 }
-
-
 
 .main {
 	float: left;
 	background-color: #e6ecec;
 	width: 100%;
 	min-height: 100%;
-	overflow:auto;
-
+	overflow: auto;
 }
 
 /*********** HEADER ***********/
@@ -39,7 +48,7 @@ a:visited {
 
 #header-title {
 	background-image: url('../resources/img/header/logo_jcertif_2012.png');
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 	height: 80px;
 }
 
@@ -73,7 +82,7 @@ a:visited {
 	font-size: 11pt;
 	font-style: normal;
 	font-family: helvetica;
-	color:#BF0418;
+	color: #BF0418;
 }
 
 #header-logout a:visited {
@@ -83,10 +92,8 @@ a:visited {
 	font-size: 11pt;
 	font-style: normal;
 	font-family: helvetica;
-	color:#BF0418;
+	color: #BF0418;
 }
-
-
 
 #header-menu {
 	clear: both;
@@ -150,7 +157,7 @@ a:visited {
 	background-image: url('../resources/img/join/join_banner.png');
 	background-repeat: no-repeat;
 	height: 60px;
-	margin-top:10px;
+	margin-top: 10px;
 }
 
 .page-banner-text {
@@ -158,10 +165,10 @@ a:visited {
 	color: white;
 	padding-left: 5px;
 	font-weight: bold;
-	font-family:American Typewriter
+	font-family: American Typewriter
 }
 
-/********* ROUNDED EVENT PANEL COMPONENT **********/ 
+/********* ROUNDED EVENT PANEL COMPONENT **********/
 .rounded-panel-event {
 	width: 280px;
 	border-style: solid;
@@ -185,30 +192,29 @@ a:visited {
 	width: 280px;
 }
 
-.photoslider-mini{
+.photoslider-mini {
 	width: 280px;
-	height:200px;
+	height: 200px;
 	display: block;
 }
 
 #rounded-panel-event-header-img {
 	background-image: url('../resources/img/puce/puce_1.png');
 	padding-left: 15px;
-	padding-bottom:4px;
+	padding-bottom: 4px;
 	background-repeat: no-repeat;
 }
 
 #rounded-panel-event-header-text-1 {
-	vertical-align:middle;
+	vertical-align: middle;
 	font-size: 15pt;
 	color: #00A61D;
 }
 
 #rounded-panel-event-header-text-2 {
-	vertical-align:middle;
+	vertical-align: middle;
 	font-size: 15pt;
 	color: #BF0418;
-	
 }
 
 #rounded-panel-event-footer {
@@ -225,11 +231,11 @@ a:visited {
 #rounded-panel-event-footer-img {
 	background-image: url('../resources/img/puce/puce_2.png');
 	padding-left: 15px;
-	padding-bottom:5px;
+	padding-bottom: 5px;
 	background-repeat: no-repeat;
 }
 
-/********* ROUNDED PANEL COMPONENT **********/ 
+/********* ROUNDED PANEL COMPONENT **********/
 #rounded-panel {
 	border-style: solid;
 	border-width: 1px;
@@ -251,27 +257,26 @@ a:visited {
 #rounded-panel-header-img {
 	background-image: url('../resources/img/puce/puce_3.png');
 	padding-left: 30px;
-	padding-bottom:15px;
+	padding-bottom: 15px;
 	background-repeat: no-repeat;
 }
 
 #rounded-panel-header-text-1 {
-		vertical-align:middle;
-font-size: 11pt;
-	color: #00A61D ;
+	vertical-align: middle;
+	font-size: 11pt;
+	color: #00A61D;
 }
 
 #rounded-panel-header-text-2 {
-	vertical-align:middle;
+	vertical-align: middle;
 	font-size: 11pt;
 	color: #85AA8A;
-	
 }
 
 /*********** SOCIAL NETWORK PANEL ***********/
 #social-network-panel {
 	border: 1px solid #0071BC;
-	background-color: #d7dbf9; 
+	background-color: #d7dbf9;
 	height: 30px;
 }
 
@@ -292,23 +297,19 @@ font-size: 11pt;
 }
 
 #social-network-panel-text {
-	
-	width:60%;
-	padding-left:5%;
+	width: 60%;
+	padding-left: 5%;
 	padding-right: 5%;
-	padding-top:1%;
+	padding-top: 1%;
 	float: left;
 }
 
 #social-network-panel-img {
 	float: left;
-	padding-left:5%;
+	padding-left: 5%;
 	padding-right: 5%;
-	padding-top:1%;
+	padding-top: 1%;
 }
-
-
-
 
 /*********** HOME ***********/
 #home-banner {
@@ -321,13 +322,12 @@ font-size: 11pt;
 #home-banner-people {
 	background-image: url('../resources/img/home/home_banner_people.png');
 	height: 190px;
-	width:400px;
-	margin-left:30px;
+	width: 400px;
+	margin-left: 30px;
 	background-repeat: no-repeat;
 	float: left;
 	margin-top: 40px;
 }
-
 
 #home-banner-text {
 	color: white;
@@ -335,10 +335,9 @@ font-size: 11pt;
 	font-size: 20pt;
 	font-weight: bold;
 	float: left;
-	width:450px;
+	width: 450px;
 	margin-top: 60px;
 }
-
 
 #home-body {
 	margin-top: 10px;
@@ -361,11 +360,11 @@ font-size: 11pt;
 }
 
 .home-remaining-time-number {
-	border-style: solid; 
-	border-color: #e6eeef;; 
+	border-style: solid;
+	border-color: #e6eeef;;
 	border-width: 1px;
 	font-size: 16pt;
-	color:red;
+	color: red;
 	background-color: #e6ecec;
 	font-weight: bold;
 	padding: 3px 3px 3px 3px;
@@ -375,7 +374,6 @@ font-size: 11pt;
 	font-size: 14pt;
 	color: #000000;
 	font-weight: bold;
-	
 }
 
 #home-remaining-time {
@@ -387,20 +385,20 @@ font-size: 11pt;
 	width: 310px;
 }
 
-#home-social{
-	float : right;
+#home-social {
+	float: right;
 	margin-bottom: 5px;
 }
 
 #home-social-facebook {
-	width:150px;
-	float :left;
+	width: 150px;
+	float: left;
 }
 
 #home-social-twitter {
-	width:150px;
+	width: 150px;
 	margin-left: 10px;
-	float : right;
+	float: right;
 }
 
 .home-news {
@@ -415,7 +413,7 @@ font-size: 11pt;
 }
 
 .home-sponsor {
-	clear:both;
+	clear: both;
 	margin-left: 5px;
 }
 
@@ -433,10 +431,11 @@ font-size: 11pt;
 }
 
 .university-2011-body-slider {
-
+	
 }
-.university-2011-body-panel {
 
+.university-2011-body-panel {
+	
 }
 
 .university-2011-body-slider-img {
@@ -452,7 +451,6 @@ font-size: 11pt;
 }
 
 /******** FORM *********/
-
 .form-intro {
 	color: #700D1D;
 	padding-left: 5px;
@@ -482,39 +480,39 @@ font-size: 11pt;
 	margin-bottom: 10px;
 }
 
-#cadre-map{
-	float: right; 
-	padding: 25px;  
+#cadre-map {
+	float: right;
+	padding: 25px;
 	width: 60%;
 }
-#cadre-phone-web{
-	float: left; 
+
+#cadre-phone-web {
+	float: left;
 	width: 30%;
 }
 
 /** RUBRIQUE **/
-
 .rubrique-title {
-	width:98%; 
-	margin:5px 5px 5px 5px; 
-	padding: 5px 5px 5px 5px; 
-	background-color: #eeeeee;	
+	width: 98%;
+	margin: 5px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+	background-color: #eeeeee;
 }
 
 .rubrique-text {
-	width:98%; margin:5px 5px 5px 5px;
+	width: 98%;
+	margin: 5px 5px 5px 5px;
 }
 
 /******* Speaker ********/
-
 .speaker-bio {
-	float:right;
-	width:85%
+	float: right;
+	width: 85%
 }
 
 .speaker-photo {
-	float:left;
-	width:10%;
+	float: left;
+	width: 10%;
 }
 
 /********** FOOTER **********/
@@ -527,7 +525,7 @@ font-size: 11pt;
 	color: #85AA8A;
 	position: relative;
 	margin-top: -70px; /* negative value of footer height */
-	clear:both;
+	clear: both;
 }
 
 #footer-copyright {
