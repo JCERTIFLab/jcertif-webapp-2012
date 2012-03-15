@@ -44,4 +44,8 @@ public class RestService {
 				.accept(MediaType.APPLICATION_JSON).post(boClass, requestEntity);
 	}
 
+	public void postString(String path, String value) {
+		client.resource(resourceService.getFacadeUrl()).path(path).post(value);
+	}
+
 }

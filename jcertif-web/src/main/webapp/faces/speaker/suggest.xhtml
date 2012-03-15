@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
-	xmlns:jc="http://jcertif.com/facelets" xmlns:jsp="http://java.sun.com/JSP/Page">
+	xmlns:jc="http://jcertif.com/facelets">
 
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
@@ -23,13 +23,17 @@
 							requiredMessage="#{msg['suggest.desc.reqmsg']}" rows="10" cols="60" />
 
 						<h:outputText value="#{msg['suggest.subject']} *" />
-						<p:selectManyCheckbox value="#{suggestBean.selectedSujets}" layout="pageDirection">
+						<p:selectManyCheckbox value="#{suggestBean.selectedSujets}" layout="pageDirection" required="true" requiredMessage="#{msg['suggest.subject.reqmsg']}">
 							<f:selectItems value="#{suggestBean.sujets}" />
 						</p:selectManyCheckbox>
 
 						<h:outputText value="#{msg['suggest.summary']} *" />
 						<p:inputTextarea id="summary" value="#{suggestBean.suggest.summary}" required="true"
 							requiredMessage="#{msg['suggest.summary.reqmsg']}" rows="5" cols="60" />
+						
+						<h:outputText value="#{msg['suggest.bio']} *" />
+						<p:inputTextarea id="bio" value="#{suggestBean.bio}" required="true"
+							requiredMessage="#{msg['suggest.bio.reqmsg']}" rows="5" cols="60" />
 
 						<h:outputText value="#{msg['suggest.needs']}" />
 						<p:inputText value="#{suggestBean.suggest.needs}" size="57" />

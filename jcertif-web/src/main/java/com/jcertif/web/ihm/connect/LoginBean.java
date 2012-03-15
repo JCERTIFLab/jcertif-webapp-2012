@@ -11,6 +11,7 @@ import javax.inject.Named;
 import org.apache.commons.lang.StringUtils;
 
 import com.jcertif.web.model.User;
+import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
 import com.jcertif.web.service.RestService;
 
@@ -34,6 +35,9 @@ public class LoginBean {
 	@Inject
 	private ResourceService resourceService;
 
+	@Inject
+	private ReferentielService refservice;
+
 	/**
 	 * A constructor.
 	 */
@@ -53,15 +57,16 @@ public class LoginBean {
 			context.addMessage("loginForm:password", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					resourceService.getLib("login.password.reqmsg"), null));
 		} else {
-			user = restService.getBuilder(
+			User findedUser = restService.getBuilder(
 					resourceService.getConnectUserContext() + "/" + user.getEmail() + "/"
-							+ user.getPasswd()).get(User.class);
-			if (user == null || user.getId() == null) {
+							+ user.getPasswd() + "/" + refservice.getConference().getId()).get(
+					User.class);
+			if (findedUser == null || findedUser.getId() == null) {
 				context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 						resourceService.getLib("login.unsuccess"), null));
 			} else {
 				// Saving to session the connected user
-				context.getExternalContext().getSessionMap().put("connectedUser", user);
+				context.getExternalContext().getSessionMap().put("connectedUser", findedUser);
 				String returnUrl = "/faces/home/home.jsf";
 				if (context.getExternalContext().getFlash().containsKey("returnUrl")) {
 					returnUrl = (String) context.getExternalContext().getFlash().get("returnUrl");
@@ -81,7 +86,8 @@ public class LoginBean {
 	public void reset() throws IOException {
 		FacesContext context = FacesContext.getCurrentInstance();
 		User existingUser = restService.getBuilder(
-				resourceService.getUserContext() + "/" + user.getEmail()).get(User.class);
+				resourceService.getUserContext() + "/" + user.getEmail() + "/"
+						+ refservice.getConference().getId()).get(User.class);
 		if (existingUser.getId() == null) {
 			context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					resourceService.getLib("login.reset.error"), null));

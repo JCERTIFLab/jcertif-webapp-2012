@@ -34,10 +34,9 @@
 				<p:messages />
 				<h:commandLink action="#{loginBean.reset}" value="#{msg['login.resetpassword']}" update="loginForm" />
 				<h:outputLabel value="" />
-				<h:link outcome="/faces/join/join.xhtml" value="#{msg['login.join']}"/>
-				<h:outputLabel value="" />
+				
 			</h:panelGrid>
-
+<h:link outcome="/faces/join/join.xhtml" value="#{msg['login.join']}"/>
 		</h:form>
 		
 

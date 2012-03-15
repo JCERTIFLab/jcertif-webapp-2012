@@ -173,4 +173,8 @@ public class ResourceService {
 	public String getFaqListContext() {
 		return getWebappProps().getString("facade.context.faq.list");
 	}
+
+	public String getUserUpdateBioContext() {
+		return getWebappProps().getString("facade.context.user.update.bio");
+	}
 }

@@ -41,6 +41,8 @@ public class SuggestBean {
 
 	private List<String> selectedSujets;
 
+	private String bio;
+
 	public SuggestBean() {
 		suggest = new Suggest();
 	}
@@ -65,11 +67,14 @@ public class SuggestBean {
 		// Update user
 		User connectedUser = (User) context.getExternalContext().getSessionMap()
 				.get("connectedUser");
+		connectedUser.setBio(bio);
 		List<Long> participantIds = new ArrayList<Long>();
 		participantIds.add(connectedUser.getId());
 		suggest.setParticipantIds(participantIds);
 
 		restService.post(resourceService.getSuggestCreateContext(), suggest, Suggest.class);
+		restService.postString(resourceService.getUserUpdateBioContext() + "/" + connectedUser.getEmail()
+				+ "/" + connectedUser.getIdConference(), bio);
 		context.getExternalContext().redirect(
 				context.getExternalContext().getRequestContextPath()
 						+ "/faces/speaker/confirmationSuggest.jsf");
@@ -118,6 +123,21 @@ public class SuggestBean {
 	 */
 	public void setSelectedSujets(List<String> selectedSujets) {
 		this.selectedSujets = selectedSujets;
+	}
+
+	/**
+	 * @return the bio
+	 */
+	public String getBio() {
+		return bio;
+	}
+
+	/**
+	 * @param bio
+	 *            the bio to set
+	 */
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 
 }
