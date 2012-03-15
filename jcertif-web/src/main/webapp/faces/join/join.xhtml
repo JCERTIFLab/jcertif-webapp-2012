@@ -12,7 +12,7 @@
 		<div class="form-intro">#{msg['join.intro']}</div>
 		<br/>
 		<h:form id="join">
-			<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">
+			<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid" >
 				<h:outputText value="#{msg['join.email']} *" />
 				<p:inputText id="email" value="#{joinBean.user.email}" required="true" requiredMessage="#{msg['join.email.reqmsg']}" validatorMessage="#{msg['join.email.invalidmsg']}"/>
 				
@@ -32,14 +32,14 @@
 				<p:inputText value="#{joinBean.user.nom}" required="true" requiredMessage="#{msg['join.lastname.reqmsg']}"/>
 
 				<h:outputText value="#{msg['join.role']}" />
-				<p:selectOneMenu value="#{joinBean.user.role}" size="1">
-					<f:selectItem itemLabel="Select One" itemValue="" />
+				<p:selectOneMenu value="#{joinBean.user.role}" effect="fold">
+					<f:selectItem itemLabel="#{msg['select.one']}" itemValue="" />
 					<f:selectItems value="#{joinBean.rolesParticipant}" var="selectedRole" itemLabel="#{selectedRole.description}" itemValue="#{selectedRole.code}" />
 				</p:selectOneMenu>
 
 				<h:outputText value="#{msg['join.type']}" />
-				<p:selectOneMenu value="#{joinBean.user.typeUser}" size="1">
-					<f:selectItem itemLabel="Select One" itemValue="" />
+				<p:selectOneMenu value="#{joinBean.user.typeUser}" effect="fold" >
+					<f:selectItem itemLabel="#{msg['select.one']}" itemValue="" />
 					<f:selectItems value="#{joinBean.typesParticipant}" var="selectedType" itemLabel="#{selectedType.description}" itemValue="#{selectedType.code}" />
 				</p:selectOneMenu>
 
