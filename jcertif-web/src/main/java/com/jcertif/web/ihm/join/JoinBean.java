@@ -106,7 +106,8 @@ public class JoinBean {
 
 		// email must be unique
 		User existingUser = restService.getBuilder(
-				resourceService.getUserContext() + "/" + user.getEmail()).get(User.class);
+				resourceService.getUserContext() + "/" + user.getEmail() + "/"
+						+ referentielService.getConference().getId()).get(User.class);
 
 		if (existingUser != null && existingUser.getId() != null) {
 			throw new ValidationException(resourceService.getLib("join.existingemail.msg"));
