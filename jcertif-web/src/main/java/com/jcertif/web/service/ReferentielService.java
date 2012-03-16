@@ -177,8 +177,10 @@ public class ReferentielService {
 			speakers2011 = new ArrayList<Speaker>();
 
 			for (String email : speakers2011Email) {
-				speakers2011.add(new Speaker(restService.getBuilder(
-						resourceService.getUserContext() + "/" + email).get(User.class)));
+				speakers2011
+						.add(new Speaker(restService.getBuilder(
+								resourceService.getUserContext() + "/" + email + "/" + "1").get(
+								User.class)));
 
 			}
 

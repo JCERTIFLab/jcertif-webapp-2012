@@ -103,6 +103,26 @@ a:visited {
 	width: 105px;
 }
 
+#header-locale{
+	clear: both;
+	float: right;
+}
+
+#header-locale-fr {
+	background-image: url('../resources/img/lang/french.gif');
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 30px;
+}
+
+#header-locale-en {
+	background-image: url('../resources/img/lang/english.gif');
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 30px;
+	margin-left: 5px;
+}
+
 #header-menu {
 	clear: both;
 	background-image: url('../resources/img/header/header_bg_menu.png');

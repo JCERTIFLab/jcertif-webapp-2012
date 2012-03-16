@@ -1,10 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:jc="http://jcertif.com/facelets"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:jc="http://jcertif.com/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
@@ -12,32 +9,44 @@
 
 	<ui:composition>
 		<div id="header">
-			<div id="header-marge"/>
+			<div id="header-marge" />
 			<div id="header-title">
 				<div id="header-title-date-event">
-					<span id="header-title-date-event-text1">
-						<h:outputText value="#{msg['header.date.event1']}" />
-					</span>
-					<span id="header-title-date-event-text2">
-						<h:outputText value="#{msg['header.date.event2']}" />
+					<span id="header-title-date-event-text1"> <h:outputText
+							value="#{msg['header.date.event1']}" />
+					</span> <span id="header-title-date-event-text2"> <h:outputText
+							value="#{msg['header.date.event2']}" />
 					</span>
 				</div>
 				<c:choose>
 					<c:when test="#{sessionScope.connectedUser != null}">
-						<div id="header-user">#{sessionScope.connectedUser.prenom} #{sessionScope.connectedUser.nom}</div>
+						<div id="header-user">#{sessionScope.connectedUser.prenom}
+							#{sessionScope.connectedUser.nom}</div>
 						<div id="header-logout">
-							<h:form><h:commandLink action="#{logoutBean.logout}" value="#{msg['header.logout.button']}" /></h:form>
+							<h:form>
+								<h:commandLink action="#{logoutBean.logout}" value="#{msg['header.logout.button']}" />
+							</h:form>
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div id="header-logout">
-					    	<h:link value="#{msg['header.login.button']}" outcome="/faces/connect/login"/>
-					    </div>
+							<h:link value="#{msg['header.login.button']}" outcome="/faces/connect/login" />
+						</div>
 					</c:otherwise>
 				</c:choose>
-				<h:outputLink id="header-logo-eapps" target="_blank" value="http://www.eapps.com/applications/java-hosting.php"></h:outputLink>
+				<h:outputLink id="header-logo-eapps" target="_blank"
+					value="http://www.eapps.com/applications/java-hosting.php"></h:outputLink>
+				<div id="header-locale">
+				<h:form id="localeForm" prependId="false">
+					<h:commandLink id="header-locale-fr" actionListener="#{localeBean.changeLocale}"
+						immediate="true" />
+					<h:commandLink id="header-locale-en" actionListener="#{localeBean.changeLocale}"
+						immediate="true" />
+				</h:form>
+				</div>
+
 			</div>
-			
+
 			<div id="header-menu">
 				<div id="header-menu-group-button">
 					<jc:headerMenuButton text="#{msg['header.menu.home']}" url="/faces/home/home.jsf"></jc:headerMenuButton>
