@@ -22,7 +22,6 @@ import com.jcertif.web.model.Event;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
-import com.jcertif.web.service.RestService;
 
 /**
  * @author Mamadou
@@ -103,7 +102,7 @@ public class AgendaBean implements Serializable {
 	}
 	
 	public String getSpeakerPhotoUrl() {
-		return resService.getSpeakerPhotoUrl();
+		return resService.getImgPicsUrl();
 	}
 
 	public void onEventSelect(ScheduleEntrySelectEvent selectEvent) {

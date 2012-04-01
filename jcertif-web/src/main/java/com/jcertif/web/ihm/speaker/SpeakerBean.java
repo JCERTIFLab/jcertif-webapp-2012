@@ -49,7 +49,7 @@ public class SpeakerBean {
 	}
 
 	public String getSpeakerPhotoUrl() {
-		return resService.getSpeakerPhotoUrl();
+		return resService.getImgPicsUrl();
 	}
 
 }

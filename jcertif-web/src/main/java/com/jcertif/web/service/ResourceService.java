@@ -109,15 +109,8 @@ public class ResourceService {
 	/**
 	 * @return the sponsor pictures url
 	 */
-	public String getSponsorPicsUrl() {
-		return getWebappProps().getString("pics.url.sponsor");
-	}
-
-	/**
-	 * @return the sponsor pictures url
-	 */
-	public String getSpeakerPhotoUrl() {
-		return getWebappProps().getString("photos.url.speaker");
+	public String getImgPicsUrl() {
+		return getWebappProps().getString("pics.img.url");
 	}
 
 	/**
@@ -176,5 +169,13 @@ public class ResourceService {
 
 	public String getUserUpdateBioContext() {
 		return getWebappProps().getString("facade.context.user.update.bio");
+	}
+	
+	public String getAndroidDoc2011(){
+		return getWebappProps().getString("pics.url.doc.2011.android");
+	}
+	
+	public String getJavaDoc2011(){
+		return getWebappProps().getString("pics.url.doc.2011.java");
 	}
 }

@@ -40,7 +40,7 @@ public class SponsorBean {
 	}
 
 	public String getPicsUrl() {
-		return resService.getSponsorPicsUrl();
+		return resService.getImgPicsUrl();
 	}
 
 }

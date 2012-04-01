@@ -18,7 +18,7 @@
 			<div class="sliderkit-panels">
 				<c:forEach var="photo" items="#{imagesList}">
 					<div class="sliderkit-panel">
-						<h:link outcome="#{footerLink}"><h:graphicImage styleClass="#{imgStyleClass}" value="${photo}" /></h:link>
+						<h:link outcome="#{footerLink}"><h:graphicImage styleClass="#{imgStyleClass}" value="${photo}" alt="#{footerLink}" /></h:link>
 					</div>
 				</c:forEach>
 			</div>
