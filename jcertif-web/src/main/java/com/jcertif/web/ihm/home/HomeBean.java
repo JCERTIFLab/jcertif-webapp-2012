@@ -4,11 +4,13 @@
 package com.jcertif.web.ihm.home;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import com.jcertif.web.service.ResourceService;
 
 /**
  * @author rossi.oddet
@@ -18,37 +20,41 @@ import javax.inject.Named;
 @RequestScoped
 public class HomeBean {
 
-	private static final String CONF_REP = "/resources/img/carousel/conference/";
-	private static final String UNIV_REP = "/resources/img/carousel/university/";
-	private static final String[] CONF_PHOTOS = new String[] { "0001.jpg", "0002.jpg", "0003.jpg",
-			"0004.jpg", };
-	private static final String[] UNIV_PHOTOS = new String[] { "0001.jpg", "0002.jpg", "0003.jpg",
-			"0004.jpg", };
+	private static final int NB_DIGIT = 3;
+	private static final String PHOTO_EXT = ".JPG";
+	private static final int NB_PHOTOS_MAX = 50;
+
+	@Inject
+	private ResourceService resourceService;
 
 	/**
 	 * @return images location for conference
 	 */
 	public List<String> getImagesConference() {
-		List<String> photos = new ArrayList<String>();
+		return buildPhotosList(resourceService.getPhotoConfEvent2011Url(),NB_PHOTOS_MAX);
+	}
 
-		for (String photo : Arrays.asList(CONF_PHOTOS)) {
-			photos.add(CONF_REP + photo);
+	private List<String> buildPhotosList(String baseUrl, int max) {
+		List<String> photos = new ArrayList<String>();
+		
+		for (int i = 0; i < max; i++) {
+			photos.add(baseUrl + "/" + formatFileName(i, NB_DIGIT) + PHOTO_EXT);
 		}
 
 		return photos;
+	}
+	
+	private String formatFileName(final int indice, final int nbDigit) {
+		String formattedFileName = String.valueOf(indice);
+		while(formattedFileName.length() < nbDigit) formattedFileName = "0" + formattedFileName;
+		return formattedFileName;
 	}
 
 	/**
 	 * @return images location for university
 	 */
 	public List<String> getImagesUniversity() {
-		List<String> photos = new ArrayList<String>();
-
-		for (String photo : Arrays.asList(UNIV_PHOTOS)) {
-			photos.add(UNIV_REP + photo);
-		}
-
-		return photos;
+		return buildPhotosList(resourceService.getPhotoUnivEvent2011Url(),NB_PHOTOS_MAX);
 
 	}
 

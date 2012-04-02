@@ -178,4 +178,13 @@ public class ResourceService {
 	public String getJavaDoc2011(){
 		return getWebappProps().getString("pics.url.doc.2011.java");
 	}
+
+	public String getPhotoUnivEvent2011Url() {
+		return getWebappProps().getString("pics.url.img.2011.univ");
+	}
+
+	public String getPhotoConfEvent2011Url() {
+		return getWebappProps().getString("pics.url.img.2011.conf");
+	}
+
 }
