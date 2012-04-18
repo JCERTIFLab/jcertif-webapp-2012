@@ -9,6 +9,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * Rest Web Service.
@@ -17,6 +18,7 @@ import com.sun.jersey.api.json.JSONConfiguration;
  * 
  */
 @Named
+@ApplicationScoped
 public class RestService {
 
 	private Client client;

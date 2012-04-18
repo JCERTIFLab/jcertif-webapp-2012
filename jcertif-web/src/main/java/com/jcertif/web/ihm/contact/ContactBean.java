@@ -13,6 +13,7 @@ import org.primefaces.model.map.Marker;
 
 import com.jcertif.web.model.Faq;
 import com.jcertif.web.service.ReferentielService;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * ContactBean
@@ -21,7 +22,7 @@ import com.jcertif.web.service.ReferentielService;
  * 
  */
 @Named
-@RequestScoped
+@ApplicationScoped
 public class ContactBean {
 
 	private MapModel simpleModel;

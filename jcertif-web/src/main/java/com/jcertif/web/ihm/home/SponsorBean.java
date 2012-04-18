@@ -9,13 +9,14 @@ import javax.inject.Named;
 import com.jcertif.web.model.Sponsor;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * @author rossi.oddet
  * 
  */
 @Named
-@RequestScoped
+@ApplicationScoped
 public class SponsorBean {
 
 	/** Referentiel Service **/

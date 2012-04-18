@@ -19,6 +19,7 @@ import com.jcertif.web.model.User;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
 import com.jcertif.web.service.RestService;
+import javax.enterprise.context.SessionScoped;
 
 /**
  * Join Bean.
@@ -27,7 +28,7 @@ import com.jcertif.web.service.RestService;
  * 
  */
 @Named
-@RequestScoped
+@javax.faces.bean.SessionScoped
 public class JoinBean {
 
 	/** User **/

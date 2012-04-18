@@ -11,18 +11,19 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.jcertif.web.service.ResourceService;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * @author rossi.oddet
  * 
  */
 @Named
-@RequestScoped
+@ApplicationScoped
 public class HomeBean {
 
 	private static final int NB_DIGIT = 3;
 	private static final String PHOTO_EXT = ".JPG";
-	private static final int NB_PHOTOS_MAX = 50;
+	private static final int NB_PHOTOS_MAX = 10;
 
 	@Inject
 	private ResourceService resourceService;

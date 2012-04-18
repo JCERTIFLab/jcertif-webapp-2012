@@ -1,16 +1,13 @@
 package com.jcertif.web.ihm.home;
 
+import com.jcertif.web.service.ReferentielService;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.jcertif.web.service.ReferentielService;
 
 /**
  * Controller for remaining time.
@@ -19,7 +16,7 @@ import com.jcertif.web.service.ReferentielService;
  * 
  */
 @Named
-@RequestScoped
+@SessionScoped
 public class RemainingTimeBean {
 
 	/** LOGGER **/

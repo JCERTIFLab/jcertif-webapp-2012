@@ -9,6 +9,7 @@ import javax.inject.Named;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * SpeakerBean
@@ -17,7 +18,7 @@ import com.jcertif.web.service.ResourceService;
  * 
  */
 @Named
-@RequestScoped
+@ApplicationScoped
 public class SpeakerBean {
 
 	@Inject
