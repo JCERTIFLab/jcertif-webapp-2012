@@ -31,8 +31,6 @@ public class SponsorBean {
 	 * @return images location for conference
 	 */
 	public List<Sponsor> getSponsors() {
-		List<Sponsor> sponsors = referentielService.getSponsors();
-		Collections.sort(sponsors, new SponsorComparator());
 		return referentielService.getSponsors();
 	}
 

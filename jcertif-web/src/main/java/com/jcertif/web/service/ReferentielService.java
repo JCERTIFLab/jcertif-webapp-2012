@@ -1,6 +1,7 @@
 package com.jcertif.web.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -17,6 +18,7 @@ import com.jcertif.web.model.Faq;
 import com.jcertif.web.model.RoleParticipant;
 import com.jcertif.web.model.Speaker;
 import com.jcertif.web.model.Sponsor;
+import com.jcertif.web.model.SponsorComparator;
 import com.jcertif.web.model.Sujet;
 import com.jcertif.web.model.TypeParticipant;
 import com.jcertif.web.model.User;
@@ -97,6 +99,8 @@ public class ReferentielService {
 	/** Conference **/
 	private Conference conference;
 
+	private List<Sponsor> sponsors2012;
+
 	/**
 	 * @return the typesParticipant
 	 */
@@ -126,11 +130,12 @@ public class ReferentielService {
 	 * @return the rolesParticipant
 	 */
 	public List<Sponsor> getSponsors() {
-		if (sponsors2011 == null) {
-			sponsors2011 = restService.getBuilder(resourceService.getSponsorListContext()).get(
+		if (sponsors2012 == null) {
+			sponsors2012 = restService.getBuilder(resourceService.getSponsorListContext()).get(
 					SponsorContainer.class).list;
+			Collections.sort(sponsors2012, new SponsorComparator());
 		}
-		return sponsors2011;
+		return sponsors2012;
 
 	}
 
