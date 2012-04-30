@@ -8,7 +8,11 @@
 
 	<ui:composition>
 		<div id="footer">
-			<span id="footer-copyright">#{msg['footer.copyright']}</span>
+			
+			<span id="footer-copyright">
+				<span>#{msg['footer.copyright']}</span> 
+				<a href="http://general-partner.com/" target="_blank"><h:graphicImage value="/resources/img/logo/gp.png" height="90" style="vertical-align:middle;"/></a>
+			</span>
 			<span id="footer-menu">
 				<h:link value="#{msg['header.menu.home']}" outcome="/faces/home/home.xhtml"/>
 				<span>|</span>

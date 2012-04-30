@@ -14,7 +14,7 @@ public class Sponsor {
 	private String nom;
 	private String codeType;
 	private String codeRole;
-	private String codeNiveauPartenariat;
+	private Long idNiveauPartenariat;
 	private String presentation;
 	private String siteWeb;
 	private Long idConference;
@@ -88,18 +88,17 @@ public class Sponsor {
 	}
 
 	/**
-	 * @return the codeNiveauPartenariat
+	 * @return the idNiveauPartenariat
 	 */
-	public String getCodeNiveauPartenariat() {
-		return codeNiveauPartenariat;
+	public Long getIdNiveauPartenariat() {
+		return idNiveauPartenariat;
 	}
 
 	/**
-	 * @param codeNiveauPartenariat
-	 *            the codeNiveauPartenariat to set
+	 * @param idNiveauPartenariat the idNiveauPartenariat to set
 	 */
-	public void setCodeNiveauPartenariat(String codeNiveauPartenariat) {
-		this.codeNiveauPartenariat = codeNiveauPartenariat;
+	public void setIdNiveauPartenariat(Long idNiveauPartenariat) {
+		this.idNiveauPartenariat = idNiveauPartenariat;
 	}
 
 	/**

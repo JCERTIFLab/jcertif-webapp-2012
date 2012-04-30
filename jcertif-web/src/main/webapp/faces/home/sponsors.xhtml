@@ -13,9 +13,9 @@
 		<ui:define name="content">
 			
 		<c:forEach var="sponsor" items="#{sponsorBean.sponsors}">
-			<h:outputLink target="_blank" value="#{sponsor.siteWeb}">
+			<a target="_blank" href="#{sponsor.siteWeb}">
 				<h:graphicImage url="#{sponsorBean.picsUrl}/#{sponsor.photo}" width="80" alt="#{sponsor.nom}" />
-			</h:outputLink>
+			</a>
 		</c:forEach>
 	
 		</ui:define>

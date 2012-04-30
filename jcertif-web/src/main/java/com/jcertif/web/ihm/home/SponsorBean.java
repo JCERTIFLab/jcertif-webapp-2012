@@ -1,12 +1,13 @@
 package com.jcertif.web.ihm.home;
 
+import java.util.Collections;
 import java.util.List;
 
-import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.jcertif.web.model.Sponsor;
+import com.jcertif.web.model.SponsorComparator;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
 import javax.enterprise.context.ApplicationScoped;
@@ -30,6 +31,8 @@ public class SponsorBean {
 	 * @return images location for conference
 	 */
 	public List<Sponsor> getSponsors() {
+		List<Sponsor> sponsors = referentielService.getSponsors();
+		Collections.sort(sponsors, new SponsorComparator());
 		return referentielService.getSponsors();
 	}
 

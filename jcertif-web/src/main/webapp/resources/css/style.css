@@ -544,12 +544,11 @@ a:visited {
 #footer {
 	background-image: url('../resources/img/footer/footer_bg.png');
 	background-repeat: repeat-x;
-	height: 70px;
-	padding-top: 40px;
+	height: 100px;
 	clear: both;
 	color: #85AA8A;
 	position: relative;
-	margin-top: -70px; /* negative value of footer height */
+	margin-top: -100px; /* negative value of footer height */
 	clear: both;
 }
 
@@ -558,7 +557,7 @@ a:visited {
 }
 
 #footer-menu {
-	padding-left: 20%;
+	padding-left: 40%;
 }
 
 #footer-menu a {
