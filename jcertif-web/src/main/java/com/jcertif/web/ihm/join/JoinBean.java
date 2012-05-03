@@ -1,9 +1,10 @@
 package com.jcertif.web.ihm.join;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -19,7 +20,6 @@ import com.jcertif.web.model.User;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
 import com.jcertif.web.service.RestService;
-import javax.enterprise.context.SessionScoped;
 
 /**
  * Join Bean.
@@ -28,8 +28,10 @@ import javax.enterprise.context.SessionScoped;
  * 
  */
 @Named
-@javax.faces.bean.SessionScoped
-public class JoinBean {
+@SessionScoped
+public class JoinBean implements Serializable {
+	
+	private static final long serialVersionUID = 3243371323747830221L;
 
 	/** User **/
 	private User user;
