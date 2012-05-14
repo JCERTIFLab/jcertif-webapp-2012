@@ -19,8 +19,8 @@
 							requiredMessage="#{msg['suggest.title.reqmsg']}" size="57" />
 
 						<h:outputText value="#{msg['suggest.desc']} *" />
-						<p:inputTextarea id="desc" value="#{suggestBean.suggest.description}" required="true"
-							requiredMessage="#{msg['suggest.desc.reqmsg']}" rows="10" cols="60" />
+						<p:inputTextarea id="desc" value="#{suggestBean.suggest.summary}" required="true"
+							requiredMessage="#{msg['suggest.desc.reqmsg']}" rows="5" cols="60" maxlength="255"  />
 
 						<h:outputText value="#{msg['suggest.subject']} *" />
 						<p:selectManyCheckbox value="#{suggestBean.selectedSujets}" layout="pageDirection" required="true" requiredMessage="#{msg['suggest.subject.reqmsg']}">
@@ -28,8 +28,8 @@
 						</p:selectManyCheckbox>
 
 						<h:outputText value="#{msg['suggest.summary']} *" />
-						<p:inputTextarea id="summary" value="#{suggestBean.suggest.summary}" required="true"
-							requiredMessage="#{msg['suggest.summary.reqmsg']}" rows="5" cols="60" />
+						<p:inputTextarea id="summary" value="#{suggestBean.suggest.description}" required="true"
+							requiredMessage="#{msg['suggest.summary.reqmsg']}" rows="10" cols="60" maxlength="1000"/>
 						
 						<h:outputText value="#{msg['suggest.bio']} *" />
 						<p:inputTextarea id="bio" value="#{suggestBean.bio}" required="true"

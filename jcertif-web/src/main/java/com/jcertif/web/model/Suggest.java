@@ -2,6 +2,7 @@ package com.jcertif.web.model;
 
 import java.util.List;
 
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -19,9 +20,13 @@ public class Suggest extends AbstractBO {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@Size(max = 255)
 	private String title;
+	@Size(max = 1000)
 	private String description;
+	@Size(max = 255)
 	private String summary;
+	@Size(max = 255)
 	private String needs;
 	private String keyword;
 	private Long conferenceId;
