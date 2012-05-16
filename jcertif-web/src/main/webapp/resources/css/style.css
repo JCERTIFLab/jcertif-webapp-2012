@@ -544,11 +544,13 @@ a:visited {
 #footer {
 	background-image: url('../resources/img/footer/footer_bg.png');
 	background-repeat: repeat-x;
-	height: 100px;
+	height: 70px;
+	padding-top: 40px;
+	padding-left: 5px;
 	clear: both;
 	color: #85AA8A;
 	position: relative;
-	margin-top: -100px; /* negative value of footer height */
+	margin-top: -70px; /* negative value of footer height */
 	clear: both;
 }
 
@@ -560,7 +562,7 @@ a:visited {
 	padding-left: 40%;
 }
 
-#footer-menu a {
+#footer a {
 	display: inline-block;
 	text-decoration: none;
 	font-size: 11pt;
@@ -569,7 +571,7 @@ a:visited {
 	color: #85AA8A;
 }
 
-#footer-menu a:visited {
+#footer a:visited {
 	text-decoration: none;
 	display: inline-block;
 	text-decoration: none;
