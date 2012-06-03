@@ -93,7 +93,8 @@ public class LoginBean {
 					resourceService.getLib("login.reset.error"), null));
 		} else {
 			restService.getBuilder(
-					resourceService.getResetPassUserContext() + "/" + user.getEmail()).post();
+					resourceService.getResetPassUserContext() + "/" + user.getEmail() + "/"
+                            + refservice.getConference().getId()).post();
 			context.addMessage("loginForm", new FacesMessage(FacesMessage.SEVERITY_INFO,
 					resourceService.getLib("login.reset.success"), null));
 		}
