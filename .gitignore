@@ -1,1 +1,7 @@
 target/
+.idea/
+jcertif-web.iml
+.settings
+.cache
+.project
+.classpath
