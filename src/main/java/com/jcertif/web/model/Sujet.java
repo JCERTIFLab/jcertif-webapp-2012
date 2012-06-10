@@ -21,7 +21,7 @@ public class Sujet extends AbstractBO {
 	private Long id;
 
 	/**
-	 * Libellé du sujet.
+	 * Libelle du sujet.
 	 */
 
 	private String libelle;
@@ -33,7 +33,7 @@ public class Sujet extends AbstractBO {
 	private String description;
 
 	/**
-	 * Contructeur par défaut.
+	 * Contructeur par defaut.
 	 */
 	public Sujet() {
 		super();
@@ -43,7 +43,7 @@ public class Sujet extends AbstractBO {
 	 * Un constructeur.
 	 * 
 	 * @param libelle
-	 *            un libellé
+	 *            un libelle
 	 * @param description
 	 *            une description
 	 */
@@ -69,7 +69,7 @@ public class Sujet extends AbstractBO {
 	}
 
 	/**
-	 * @return le libellé du sujet
+	 * @return le libelle du sujet
 	 */
 	public String getLibelle() {
 		return libelle;
@@ -77,7 +77,7 @@ public class Sujet extends AbstractBO {
 
 	/**
 	 * @param libelle
-	 *            un libellé
+	 *            un libelle
 	 */
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;

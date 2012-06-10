@@ -1,5 +1,6 @@
 package com.jcertif.web.service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -31,7 +32,7 @@ import com.jcertif.web.model.User;
  */
 @Named
 @ApplicationScoped
-public class ReferentielService {
+public class ReferentielService implements Serializable {
 
 	private static class TypeParticipantContainer {
 		@JsonProperty("typeParticipant")

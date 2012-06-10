@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+      xmlns:jc="http://jcertif.com/facelets">
+
+<ui:composition template="/templates/template.xhtml">
+    <ui:define name="content">
+
+        <c:choose>
+
+            <c:when test="#{sessionScope.connectedUser != null}">
+                <jc:pageBanner title="#{msg['profile.banner.title']}"/>
+
+                <div class="form-intro">#{msg['profile.intro']}</div>
+                <br/>
+
+                <p:growl id="growl" showDetail="true" showSummary="false" life="3000"/>
+
+
+                <h:form id="profile">
+                    <h:panelGrid columns="2" columnClasses="label,value">
+                        <h:outputText value="#{msg['join.email']} *"/>
+                        <h:outputText value="#{profileBean.user.email}"/>
+
+                        <h:outputText value="#{msg['join.password']} *"/>
+                        <p:commandButton value="Change password" onclick="modifyPassDialog.show();" type="button"/>
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2">
+                        <h:panelGrid columns="2">
+
+                            <h:outputText value="#{msg['join.firstname']} *"/>
+                            <p:inputText value="#{profileBean.user.prenom}" required="true"
+                                         requiredMessage="#{msg['join.firstname.reqmsg']}"/>
+
+                            <h:outputText value="#{msg['join.lastname']} *"/>
+                            <p:inputText value="#{profileBean.user.nom}" required="true"
+                                         requiredMessage="#{msg['join.lastname.reqmsg']}"/>
+
+                            <h:outputText value="#{msg['join.role']} *"/>
+                            <p:selectOneMenu value="#{profileBean.user.role}" effect="fold">
+                                <f:selectItem itemLabel="#{msg['select.one']}" itemValue=""/>
+                                <f:selectItems value="#{profileBean.rolesParticipant}" var="selectedRole"
+                                               itemLabel="#{selectedRole.description}"
+                                               itemValue="#{selectedRole.code}"/>
+                            </p:selectOneMenu>
+
+                            <h:outputText value="#{msg['join.type']} *"/>
+                            <p:selectOneMenu value="#{profileBean.user.typeUser}" effect="fold">
+                                <f:selectItem itemLabel="#{msg['select.one']}" itemValue=""/>
+                                <f:selectItems value="#{profileBean.typesParticipant}" var="selectedType"
+                                               itemLabel="#{selectedType.description}"
+                                               itemValue="#{selectedType.code}"/>
+                            </p:selectOneMenu>
+
+                            <h:outputText value="#{msg['join.company']}"/>
+                            <p:inputText value="#{profileBean.user.compagnie}"/>
+
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{msg['join.website']}"/>
+                            <p:inputText value="#{profileBean.user.siteWeb}"/>
+
+                            <h:outputText value="#{msg['join.homephone']}"/>
+                            <p:inputText value="#{profileBean.user.telFixe}"/>
+
+                            <h:outputText value="#{msg['join.mobilephone']}"/>
+                            <p:inputText value="#{profileBean.user.telMobile}"/>
+
+                            <h:outputText value="#{msg['join.city']}"/>
+                            <p:inputText value="#{profileBean.user.ville}"/>
+
+                            <h:outputText value="#{msg['join.country']}"/>
+                            <p:inputText value="#{profileBean.user.pays}"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <p:commandButton value="#{msg['profile.save']}" update="profile"
+                                             actionListener="#{profileBean.save}"/>
+                            <p:messages/>
+                        </h:panelGrid>
+
+                    </h:panelGrid>
+
+                </h:form>
+
+                <p:dialog header="#{msg['profile.changepassword.header']}" widgetVar="modifyPassDialog" modal="true">
+
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{msg['profile.changepassword.oldpassword']}"/>
+                            <p:inputText value="#{profileBean.oldPassword}" type="password" required="true"
+                                         requiredMessage="#{msg['profile.changepassword.oldpassword.reqmsg']}"/>
+                            <h:outputText value="#{msg['profile.changepassword.newpassword']}"/>
+                            <p:inputText value="#{profileBean.newPassword}" type="password" required="true"
+                                         requiredMessage="#{msg['profile.changepassword.newPassword.reqmsg']}"/>
+                            <h:outputText value="#{msg['profile.changepassword.confirmnewpassword']}"/>
+                            <p:inputText value="#{profileBean.confirmNewPassword}" type="password" required="true"
+                                         requiredMessage="#{msg['profile.changepassword.confirmNewPassword.reqmsg']}"/>
+                            <p:commandButton id="changePassBtn" value="#{msg['profile.changepassword.button']}"
+                                             actionListener="#{profileBean.saveNewPassword}" update=":growl"
+                                             oncomplete="modifyPasswordCallBack(xhr, status, args);"/>
+                        </h:panelGrid>
+                    </h:form>
+
+                </p:dialog>
+            </c:when>
+            <c:otherwise>
+                <f:view>
+                    <f:event listener="#{profileBean.redirectToLogin}" type="preRenderView"></f:event>
+                </f:view>
+            </c:otherwise>
+        </c:choose>
+
+
+    </ui:define>
+</ui:composition>
+</html>

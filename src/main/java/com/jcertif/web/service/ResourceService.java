@@ -1,5 +1,6 @@
 package com.jcertif.web.service;
 
+import java.io.Serializable;
 import java.util.ResourceBundle;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -13,7 +14,7 @@ import javax.inject.Named;
  */
 @Named
 @ApplicationScoped
-public class ResourceService {
+public class ResourceService implements Serializable {
 
 	/**
 	 * @return the facade url
@@ -28,6 +29,13 @@ public class ResourceService {
 	public String getUserCreateContext() {
 		return getWebappProps().getString("facade.context.user.create");
 	}
+
+    /**
+     * @return the user create context
+     */
+    public String getUserUpdateContext() {
+        return getWebappProps().getString("facade.context.user.update");
+    }
 
 	/**
 	 * @return the webapp resource bundle
@@ -129,6 +137,10 @@ public class ResourceService {
 	public String getResetPassUserContext() {
 		return getWebappProps().getString("facade.context.user.resetpassword");
 	}
+
+    public String getModifyPassUserContext() {
+        return getWebappProps().getString("facade.context.user.modifypassword");
+    }
 
 	/**
 	 * @return speakers list context.

@@ -69,7 +69,7 @@ public class TypeParticipant {
 	}
 
 	/**
-	 * D�finit la description.
+	 * Definit la description.
 	 * 
 	 * @param description
 	 *            une description.

@@ -31,7 +31,7 @@ public class RoleParticipant {
 	}
 
 	/**
-	 * Définit un identifiant.
+	 * Definit un identifiant.
 	 * 
 	 * @param id
 	 *            un identifiant
@@ -48,7 +48,7 @@ public class RoleParticipant {
 	}
 
 	/**
-	 * Définit le code de statut cedule.
+	 * Definit le code de statut cedule.
 	 * 
 	 * @param code
 	 *            un code de statut cedule
@@ -65,7 +65,7 @@ public class RoleParticipant {
 	}
 
 	/**
-	 * Définit la description.
+	 * Definit la description.
 	 * 
 	 * @param description
 	 *            une description.
