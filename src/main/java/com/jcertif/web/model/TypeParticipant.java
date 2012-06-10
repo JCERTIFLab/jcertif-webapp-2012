@@ -5,12 +5,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.io.Serializable;
+
 /**
  * @author rossi.oddet
  * 
  */
 @XmlRootElement
-public class TypeParticipant {
+public class TypeParticipant implements Serializable {
 
 	/**
 	 * Identifiant.

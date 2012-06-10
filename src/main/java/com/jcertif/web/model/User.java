@@ -5,13 +5,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author rossi.oddet
  * 
  */
 @XmlRootElement
-public class User {
+public class User implements Serializable {
 
 	private Long id;
 	private String civilite;

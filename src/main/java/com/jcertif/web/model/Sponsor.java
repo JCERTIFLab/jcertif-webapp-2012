@@ -1,6 +1,7 @@
 package com.jcertif.web.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * BO Sponsor.
@@ -8,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rossi.oddet
  */
 @XmlRootElement
-public class Sponsor {
+public class Sponsor implements Serializable {
 
 	private Long id;
 	private String nom;
