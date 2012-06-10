@@ -22,14 +22,16 @@
 					<c:when test="#{sessionScope.connectedUser != null}">
 						<div id="header-user">#{sessionScope.connectedUser.prenom}
 							#{sessionScope.connectedUser.nom}</div>
-						<div id="header-logout">
+                        <div class="header-logout">
 							<h:form>
-								<h:commandLink action="#{logoutBean.logout}" value="#{msg['header.logout.button']}" />
+                                <h:commandLink action="/faces/profile/profile.jsf" value="#{msg['header.profile.edit']}" />
+								<br/>
+                                <h:commandLink action="#{logoutBean.logout}" value="#{msg['header.logout.button']}" />
 							</h:form>
 						</div>
 					</c:when>
 					<c:otherwise>
-						<div id="header-logout">
+						<div class="header-logout">
 							<h:link value="#{msg['header.login.button']}" outcome="/faces/connect/login" />
 						</div>
 					</c:otherwise>

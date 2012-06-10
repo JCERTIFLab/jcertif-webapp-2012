@@ -34,19 +34,19 @@ public class JoinBean implements Serializable {
 	private static final long serialVersionUID = 3243371323747830221L;
 
 	/** User **/
-	private User user;
+	protected User user;
 
 	/** REST Web Service **/
 	@Inject
-	private RestService restService;
+	protected RestService restService;
 
 	/** Resource Service **/
 	@Inject
-	private ResourceService resourceService;
+	protected ResourceService resourceService;
 
 	/** Referentiel Service **/
 	@Inject
-	private ReferentielService referentielService;
+	protected ReferentielService referentielService;
 
 	/**
 	 * A default constructor.

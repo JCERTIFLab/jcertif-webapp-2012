@@ -3,7 +3,7 @@ package com.jcertif.web.model;
 import java.io.Serializable;
 
 /**
- * Classe m�re de tous les BO. Le but est de creer des contraintes sur les BO.
+ * Classe mere de tous les BO. Le but est de creer des contraintes sur les BO.
  * 
  * @author rossi.oddet
  * 

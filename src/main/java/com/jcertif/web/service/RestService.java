@@ -10,6 +10,7 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
 import javax.enterprise.context.ApplicationScoped;
+import java.io.Serializable;
 
 /**
  * Rest Web Service.
@@ -19,7 +20,7 @@ import javax.enterprise.context.ApplicationScoped;
  */
 @Named
 @ApplicationScoped
-public class RestService {
+public class RestService implements Serializable{
 
 	private Client client;
 

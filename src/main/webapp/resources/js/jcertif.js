@@ -51,6 +51,14 @@ function linkify(text){
     return text;
 }
 
+function modifyPasswordCallBack(xhr, status, args) {
+    if(args.validationFailed || !args.newPasswordOK) {
+        jQuery('#dialog').effect("modifyPassDialog", { times:3 }, 100);
+    } else {
+        modifyPassDialog.hide();
+    }
+}
+
 PrimeFaces.locales ['fr'] = {
 	    closeText: 'Fermer',
 	    prevText: 'Precedent',
