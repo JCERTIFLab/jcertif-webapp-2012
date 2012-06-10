@@ -5,8 +5,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.io.Serializable;
+
 @XmlRootElement
-public class RoleParticipant {
+public class RoleParticipant implements Serializable {
 
 	/**
 	 * Identifiant.

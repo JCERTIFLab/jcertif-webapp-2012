@@ -1,6 +1,7 @@
 package com.jcertif.web.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Classe Speaker
@@ -9,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * 
  */
 @XmlRootElement
-public class Speaker {
+public class Speaker implements Serializable {
 
 	private Long id;
 

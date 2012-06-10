@@ -1,13 +1,14 @@
 package com.jcertif.web.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * TODO
  * User: rossi.oddet
  */
 @XmlRootElement
-public class ModifyPassword {
+public class ModifyPassword implements Serializable {
 
     private String email;
     private String oldPassword;
