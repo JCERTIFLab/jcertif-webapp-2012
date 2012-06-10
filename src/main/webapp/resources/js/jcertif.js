@@ -51,12 +51,20 @@ function linkify(text){
     return text;
 }
 
+function modifyPasswordCallBack(xhr, status, args) {
+    if(args.validationFailed || !args.newPasswordOK) {
+        jQuery('#dialog').effect("modifyPassDialog", { times:3 }, 100);
+    } else {
+        modifyPassDialog.hide();
+    }
+}
+
 PrimeFaces.locales ['fr'] = {
 	    closeText: 'Fermer',
-	    prevText: 'Précédent',
+	    prevText: 'Precedent',
 	    nextText: 'Suivant',
-	    monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ],
-	    monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Déc' ],
+	    monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ],
+	    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec' ],
 	    dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
 	    dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
 	    dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
@@ -75,5 +83,5 @@ PrimeFaces.locales ['fr'] = {
 	    month: 'Mois',
 	    week: 'Semaine',
 	    day: 'Jour',
-	    allDayText: 'Toute la journée'
+	    allDayText: 'Toute la journee'
 	};
