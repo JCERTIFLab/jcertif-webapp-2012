@@ -52,7 +52,9 @@
 			<div id="header-menu">
 				<div id="header-menu-group-button">
 					<jc:headerMenuButton text="#{msg['header.menu.home']}" url="/faces/home/home.jsf"></jc:headerMenuButton>
-					<jc:headerMenuButton text="#{msg['header.menu.join']}" url="/faces/join/join.jsf"></jc:headerMenuButton>
+                    <c:if test="#{sessionScope.connectedUser == null}">
+                        <jc:headerMenuButton text="#{msg['header.menu.join']}" url="/faces/join/join.jsf"></jc:headerMenuButton>
+                    </c:if>
 					<jc:headerMenuButton text="#{msg['header.menu.suggest']}" url="/faces/speaker/suggest.jsf"></jc:headerMenuButton>
 					<jc:headerMenuButton text="#{msg['header.menu.calendar']}" url="/faces/calendar/calendar.jsf"></jc:headerMenuButton>
 					<jc:headerMenuButton text="#{msg['header.menu.speaker']}" url="/faces/speaker/speaker.jsf"></jc:headerMenuButton>
