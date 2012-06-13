@@ -5,3 +5,4 @@ jcertif-web.iml
 .cache
 .project
 .classpath
+classes/
