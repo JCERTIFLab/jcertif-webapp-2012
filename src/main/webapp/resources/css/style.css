@@ -367,7 +367,26 @@ a:visited {
 	margin-bottom: 10px;
 }
 
+.home-rubrique-title {
+    background-image: url('../resources/img/header/header_bg_menu.png');
+    background-repeat: repeat-x;
+    height: 55px;
+    color: #700D1D;
+    font-size: 24px;
+    font-family: helvetica;
+    font-style: normal;
+    padding-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.home-rubrique-text {
+    margin-left: 5px;
+
+}
+
 #home-body-conference {
+    clear: both;
 	float: left;
 	margin-left: 5px;
 }
@@ -377,9 +396,14 @@ a:visited {
 	margin-left: 5px;
 }
 
+#home-editorial-content {
+    float: left;
+    width: 560px;
+}
+
 #home-body-right-content {
-	float: left;
-	margin-left: 5px;
+	float: right;
+	margin-right: 5px;
 }
 
 .home-remaining-time-number {
