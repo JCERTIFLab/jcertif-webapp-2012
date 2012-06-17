@@ -24,25 +24,34 @@
 		<div id="home-body">
             <div id="home-editorial-content">
                 <ui:include src="editorial.xhtml"/>
+                <div id="home-body-conference">
+                    <jc:roundedPanelEvent footerLink="/faces/home/2011/conference2011.xhtml" titleText1="#{msg['home.conference.title1']}" titleText2="#{msg['home.conference.title2']}" footerText="#{msg['home.conference.more']}" photo="#{homeBean.imageConference}"/>
+                </div>
+                <div id="home-body-university">
+                    <jc:roundedPanelEvent footerLink="/faces/home/2011/university2011.xhtml" titleText1="#{msg['home.university.title1']}" titleText2="#{msg['home.university.title2']}" footerText="#{msg['home.university.more']}" photo="#{homeBean.imageUniversity}"/>
+                </div>
             </div>
             <div id="home-body-right-content">
+                <div id="home-body-remaining-time">
                 <ui:include src="/faces/home/remainingTime.xhtml" />
+                </div>
                 <br/>
-
-                <ui:include src="/faces/home/socialNetwork.xhtml" />
+                <div id="home-body-news">
+                    <ui:include src="/faces/home/news.xhtml" />
+                </div>
+                <br/>
+                <div id="home-body-social">
+                    <ui:include src="/faces/home/socialNetwork.xhtml" />
+                </div>
             </div>
 
 
 
-			<div id="home-body-conference">
-				<jc:roundedPanelEvent footerLink="/faces/home/2011/conference2011.xhtml" titleText1="#{msg['home.conference.title1']}" titleText2="#{msg['home.conference.title2']}" footerText="#{msg['home.conference.more']}" photo="#{homeBean.imageConference}"/>
-			</div>
-			<div id="home-body-university">
-				<jc:roundedPanelEvent footerLink="/faces/home/2011/university2011.xhtml" titleText1="#{msg['home.university.title1']}" titleText2="#{msg['home.university.title2']}" footerText="#{msg['home.university.more']}" photo="#{homeBean.imageUniversity}"/>
-			</div>
-            <div style="float: right;">
-                <ui:include src="/faces/home/news.xhtml" />
-            </div>
+
+
+
+
+
 
 
             <br/>

@@ -2,35 +2,28 @@
 // Update news panel
 function updateNews() {
 	$.ajax({
-				url : "http://twitter.com/statuses/user_timeline/bonbhel.json?callback=twitterCallback&count=4",
+				url : 'http://search.twitter.com/search.json?q=jcertif',
 				dataType : 'JSONP', // for cross domain
-				error : function() {
-					
-				}
+                jsonpCallback : 'twitterCallback'
 			});
 
 }
 
 // Callback method for twitter
 function twitterCallback(data, textStatus) {
+    var max_tweet = 7;
 	$.each(data, function(i, tweet) {
-		var text = tweet.text;
-		
-		$('#news').append('<div class="home-news-text">' + linkify(text) + '</div><br/>');
-	});
-	
-	// Photo slider > Minimal
-	startSlider();
-}
+        if(i == "results"){
+            var index = 0;
+            $.each(tweet,function(key,value){
+                if(index < max_tweet){
+                    $('#news').append('<div><div class="home-news-img">'
+                        + '<a href="http://twitter.com/#!/' + value.from_user + '"><img src="' + value.profile_image_url +'" alt=""/></a></div><div class="home-news-text">'  + linkify(value.text) + '</div></div><br/>');
+                }
+                index++;
+            });
 
-//Start Slider
-function startSlider() {
-	$(".photoslider-mini").sliderkit({
-		auto:true,
-		autospeed:3000,
-		panelbtnshover:true,
-		circular:true,
-		fastchange:true
+        }
 	});
 }
 

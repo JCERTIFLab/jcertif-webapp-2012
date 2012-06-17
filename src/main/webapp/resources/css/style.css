@@ -377,7 +377,6 @@ a:visited {
     font-style: normal;
     padding-top: 5px;
     margin-left: 5px;
-    margin-right: 5px;
 }
 
 .home-rubrique-text {
@@ -393,17 +392,24 @@ a:visited {
 
 #home-body-university {
 	float: left;
-	margin-left: 5px;
+    margin-left: 4px;
 }
 
 #home-editorial-content {
     float: left;
-    width: 560px;
+    width: 573px;
 }
 
 #home-body-right-content {
 	float: right;
-	margin-right: 5px;
+}
+
+#home-body-remaining-time {
+    margin-left: 5px;
+}
+
+#home-body-social {
+    margin-left: 5px;
 }
 
 .home-remaining-time-number {
@@ -450,10 +456,23 @@ a:visited {
 	float: right;
 }
 
+#home-body-news {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+
+}
 .home-news {
 	width: 280px;
 	margin: 10px 10px 10px 10px;
 }
+
+.home-news-img {
+    float: left;
+    padding-right: 5px;
+}
+
 
 .home-news-text {
 	font-family: helvetica;
