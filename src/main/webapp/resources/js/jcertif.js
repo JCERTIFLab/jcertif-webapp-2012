@@ -2,7 +2,7 @@
 // Update news panel
 function updateNews() {
 	$.ajax({
-				url : 'http://search.twitter.com/search.json?q=jcertif',
+                    url : 'http://search.twitter.com/search.json?q=jcertif',
 				dataType : 'JSONP', // for cross domain
                 jsonpCallback : 'twitterCallback'
 			});
@@ -17,7 +17,7 @@ function twitterCallback(data, textStatus) {
             var index = 0;
             $.each(tweet,function(key,value){
                 if(index < max_tweet){
-                    $('#news').append('<div><div class="home-news-img">'
+                    $('#news').append('<div style="clear: both;"><div class="home-news-img">'
                         + '<a href="http://twitter.com/#!/' + value.from_user + '"><img src="' + value.profile_image_url +'" alt=""/></a></div><div class="home-news-text">'  + linkify(value.text) + '</div></div><br/>');
                 }
                 index++;
