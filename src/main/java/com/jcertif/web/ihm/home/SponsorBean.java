@@ -1,6 +1,7 @@
 package com.jcertif.web.ihm.home;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,7 +21,8 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class SponsorBean {
 
-	/** Referentiel Service **/
+    public static final int NIVEAU_PARTENARIAT_MINIMUM = 3;
+
 	@Inject
 	private ReferentielService referentielService;
 
@@ -31,6 +33,14 @@ public class SponsorBean {
 	 * @return images location for conference
 	 */
 	public List<Sponsor> getSponsors() {
+        List<Sponsor> sponsors = referentielService.getSponsors();
+
+        Iterator<Sponsor> itSponsors = sponsors.iterator();
+        while(itSponsors.hasNext()){
+            if(itSponsors.next().getIdNiveauPartenariat() > NIVEAU_PARTENARIAT_MINIMUM) {
+                itSponsors.remove();
+            }
+        }
 		return referentielService.getSponsors();
 	}
 
