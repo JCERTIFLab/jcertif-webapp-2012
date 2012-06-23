@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jc="http://jcertif.com/facelets">
+
+<ui:composition>
+
+    <p:dialog header="#{msg['agenda.dialog.session.header']}" widgetVar="sessionDlg" modal="true" width="800">
+        <h:panelGrid id="sessionDetails" columns="2">
+            <h:form>
+                <ui:param name="event" value="#{agendaBean.selectedSession}"/>
+                <h2><h:outputText value="#{event.nom}"/></h2>
+                <div class="rubrique-title">#{msg['agenda.dialog.session.timing']}</div>
+                <div class="rubrique-text">#{agendaBean.format(event.dateDebut.time)} - #{agendaBean.format(event.dateFin.time)}</div>
+                <br/>
+                <div class="rubrique-title">#{msg['agenda.dialog.session.sommaire']}</div>
+                <div class="rubrique-text">#{event.sommaire}</div>
+                <br/>
+                <div class="rubrique-title">#{msg['agenda.dialog.session.desc']}</div>
+                <div class="rubrique-text">#{event.description}</div>
+                <br/>
+                <div class="rubrique-title">#{msg['agenda.dialog.session.keyword']}</div>
+                <div class="rubrique-text">#{event.motCle}</div>
+                <br/>
+                <div class="rubrique-title">#{msg['agenda.dialog.session.subject']}</div>
+                <div class="rubrique-text">#{event.sujets}</div>
+                <br/>
+                <div class="rubrique-title">#{msg['agenda.dialog.session.room']}</div>
+                <div class="rubrique-text">#{event.salle}</div>
+
+            </h:form>
+        </h:panelGrid>
+    </p:dialog>
+
+</ui:composition>
+</html>

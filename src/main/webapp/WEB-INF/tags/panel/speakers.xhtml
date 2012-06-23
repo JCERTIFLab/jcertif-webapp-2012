@@ -7,22 +7,7 @@
 <ui:composition>
 	<p:dataGrid var="speaker" value="#{speakers}" columns="1">  
 			
-			<div class="rubrique-title">
-				<h:outputText value="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}" />
-			</div>
-            <div class="rubrique-text">
-				<div  class="speaker-photo">
-				     <h:panelGrid columns="1" style="width:100%">    			 
-						<p:graphicImage value="#{speakerBean.speakerPhotoUrl}/#{speaker.photo}" alt="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}"/> 	
-					 </h:panelGrid>
-				</div>
-				<div class="speaker-bio">
-						<h:panelGrid columns="1" style="width:100%">  					  
-							<h:outputText value="#{speaker.bio}" /> 
-						</h:panelGrid>  
-				</div>
-				<br/>
-			</div>
+			<ui:include src="oneSpeaker.xhtml"/>
 				 
      </p:dataGrid> 
 </ui:composition>
