@@ -602,6 +602,14 @@ div[id^="event-middle"] {
     visibility: hidden;
 }
 
+.event-middle .event-details-img {
+    width: 0px;
+}
+
+.event-end .event-details-img {
+    width: 0px;
+}
+
 div[id^="event-end"] {
     visibility: hidden;
 }

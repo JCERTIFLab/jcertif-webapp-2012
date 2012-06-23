@@ -322,7 +322,7 @@
             </activation>
             <properties>
                 <pics.url>http://pics.jcertif.cloudbees.net</pics.url>
-                <facade.url>http://facade.jcertif.cloudbees.net/api</facade.url>
+                <facade.url>http://localhost:8083/api</facade.url>
             </properties>
         </profile>
         <profile>

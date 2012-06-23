@@ -16,7 +16,7 @@
             <p:commandLink styleClass="event-details" oncomplete="speakerDlg.show()" update=":speakerDetails" process="@form" actionListener="#{agendaBean.setSelectedSpeaker(speaker)}">
                 <p:graphicImage value="#{agendaBean.speakerPhotoUrl}/#{speaker.photo}"
                                 alt="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}"
-                                styleClass="event-details-img"/>
+                                styleClass="event-details-img #{line.getCSSClass(room)}"/>
             </p:commandLink>
 
 
