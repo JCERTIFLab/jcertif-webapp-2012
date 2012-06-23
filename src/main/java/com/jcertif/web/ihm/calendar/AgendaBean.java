@@ -1,152 +1,178 @@
 /****************************************************
-        Code name  jcertif-web                  
-        All right reserved 2012                  
-        DIOUFA DEV LIFE                             
+ Code name  jcertif-web
+ All right reserved 2012
+ DIOUFA DEV LIFE
  *****************************************************/
 package com.jcertif.web.ihm.calendar;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.primefaces.event.ScheduleEntrySelectEvent;
-import org.primefaces.model.DefaultScheduleEvent;
-import org.primefaces.model.DefaultScheduleModel;
-import org.primefaces.model.ScheduleModel;
+import com.jcertif.web.model.Speaker;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang.time.DateUtils;
 
 import com.jcertif.web.model.Event;
-import com.jcertif.web.model.Speaker;
 import com.jcertif.web.service.ReferentielService;
 import com.jcertif.web.service.ResourceService;
 
 /**
  * @author Mamadou
- * 
  */
 @Named
-@SessionScoped
+@RequestScoped
 public class AgendaBean implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3243371323747830221L;
 
-	private ScheduleModel eventModel;
+    private static final long serialVersionUID = 3243371323747830221L;
+    public static final int TIMELINE_INTERVALL = 15;
+    public static final String START_HOUR = "08:00";
+    public static final String END_HOUR = "18:00";
+    @Inject
+    private ReferentielService referentielService;
+    @Inject
+    private ResourceService resService;
 
-	/** Referentiel Service **/
-	@Inject
-	private ReferentielService referentielService;
-	
-	@Inject
-	private ResourceService resService;
-	
-	private Date dateDebutSchedule;
+    private Map<String, List<AgendaLine>> agendaLineByDay;
+    private Map<String, Set<String>> roomsByDay;
 
-	private Event event;
-
-	Speaker speaker;
-
-	/**
-	 * @return the speakers
-	 */
-	public List<Event> getEvents() {
-		return referentielService.getEvents();
-	}
-
-	/**
-	 * @return the dateDebutSchedule
-	 */
-	public Date getDateDebutSchedule() {
-		Date dateTmp;
-		for (Event event : referentielService.getEvents()) {
-			dateTmp = event.getDateDebut().getTime();
-			if (dateDebutSchedule == null || dateTmp.before(dateDebutSchedule))
-				dateDebutSchedule = dateTmp;
-		}
-		return dateDebutSchedule;
-	}
-
-	/**
-	 * @param dateDebutSchedule
-	 *            the dateDebutSchedule to set
-	 */
-	public void setDateDebutSchedule(Date dateDebutSchedule) {
-		this.dateDebutSchedule = dateDebutSchedule;
-	}
-
-	/**
-	 * @return the eventModel
-	 */
-	public ScheduleModel getEventModel() {
-		if (eventModel == null) {
-			eventModel = new DefaultScheduleModel();
-			for (Event event : this.getEvents()) {
-				eventModel.addEvent(new DefaultScheduleEvent(event.getNom(), event.getDateDebut()
-						.getTime(), event.getDateFin().getTime()));
-			}
-		}
-
-		return eventModel;
-	}
-
-	public AgendaBean() {
-		super();
-	}
-
-	public List<Speaker> getSpeakers() {
-		return referentielService.getSpeakers();
-	}
-	
-	public String getSpeakerPhotoUrl() {
-		return resService.getImgPicsUrl();
-	}
-
-	public void onEventSelect(ScheduleEntrySelectEvent selectEvent) {
-
-		Date dateTmp;
-		for (Event ev : referentielService.getEvents()) {
-			dateTmp = selectEvent.getScheduleEvent().getStartDate();
-			if (dateTmp.equals(ev.getDateDebut().getTime())) {
-				setEvent(ev);
-				if(ev.getSpeakersId() != null)
-					speaker = getSpeakers().get(ev.getSpeakersId().intValue());
-			}
-		}
+    private Speaker selectedSpeaker;
+    private Event selectedSession;
 
 
-	}
 
-	/**
-	 * @return the event
-	 */
-	public Event getEvent() {
-		return event;
-	}
+    private void init() throws ParseException, InvocationTargetException, IllegalAccessException {
+        long start = System.currentTimeMillis();
 
-	/**
-	 * @param event
-	 *            the event to set
-	 */
-	public void setEvent(Event event) {
-		this.event = event;
-	}
 
-	/**
-	 * @return the speaker
-	 */
-	public Speaker getSpeaker() {
-		return speaker;
-	}
+        Set<String> days = new HashSet<String>();
+        for (Event evt : referentielService.getEvents()) {
+            days.add(getFormattedDay(evt));
+        }
 
-	/**
-	 * @param speaker the speaker to set
-	 */
-	public void setSpeaker(Speaker speaker) {
-		this.speaker = speaker;
-	}
+        for(String day : days){
+            Date heurePivot = buildHour(START_HOUR);
+            while (heurePivot.before(buildHour(END_HOUR))) {
+                AgendaLine line = new AgendaLine();
+                line.setTime(heurePivot);
 
+                for (Event evt : referentielService.getEvents()) {
+
+                    if(day.equals(getFormattedDay(evt))){
+                        if (isEventMachedWithLine(line, evt)) {
+                            AgendaEvent agendaEvent = new AgendaEvent();
+                            BeanUtils.copyProperties(agendaEvent,evt);
+                            agendaEvent.setSpeaker(referentielService.getSpeaker(evt.getSpeakersId()));
+                            line.getEvents().add(agendaEvent);
+                            addRoomToDay(day, evt.getSalle());
+                        }
+                    }
+                }
+                addAgendaLineToDay(day, line);
+                heurePivot = DateUtils.addMinutes(heurePivot, TIMELINE_INTERVALL);
+            }
+        }
+
+        System.out.println("init " + (System.currentTimeMillis() -start) + " ms" );
+
+    }
+
+    private String getFormattedDay(Event evt) {
+        return new SimpleDateFormat("dd/MM").format(evt.getDateDebut().getTime());
+    }
+
+    private boolean isEventMachedWithLine(AgendaLine line, Event evt) {
+        return format(line.getTime()).equals(format(evt.getDateDebut().getTime()))
+                || format(line.getTime()).equals(format(evt.getDateFin().getTime()))
+                || (format(line.getTime()).compareTo(format(evt.getDateDebut().getTime())) > 0 && format(line.getTime()).compareTo(format(evt.getDateFin().getTime())) < 0);
+    }
+
+    private void addAgendaLineToDay(final String day, final AgendaLine line) {
+        if (agendaLineByDay == null) {
+            agendaLineByDay = new HashMap<String, List<AgendaLine>>();
+        }
+        List<AgendaLine> lines = agendaLineByDay.get(day);
+        if (lines == null) {
+            lines = new ArrayList<AgendaLine>();
+            lines.add(line);
+            agendaLineByDay.put(day, lines);
+        } else {
+            if (!lines.contains(line)) {
+                lines.add(line);
+            }
+        }
+    }
+
+    private void addRoomToDay(final String day, final String room) {
+        if (roomsByDay == null) {
+            roomsByDay = new HashMap<String, Set<String>>();
+        }
+        Set<String> rooms = roomsByDay.get(day);
+        if (rooms == null) {
+            rooms = new HashSet<String>();
+            rooms.add(room);
+            roomsByDay.put(day,rooms);
+        } else {
+           rooms.add(room);
+        }
+    }
+
+
+    private Date buildHour(String hourHHmmss) throws ParseException {
+        return new SimpleDateFormat("HH:mm").parse(hourHHmmss);
+    }
+
+    public List<AgendaLine> getLines(String day) throws ParseException, InvocationTargetException, IllegalAccessException {
+        if(agendaLineByDay == null){
+            init();
+        }
+        return agendaLineByDay.get(day);
+    }
+
+    public Set<String> getRooms(String day) throws ParseException, InvocationTargetException, IllegalAccessException {
+        if(roomsByDay == null){
+            init();
+        }
+        return roomsByDay.get(day);
+    }
+
+    public String format(Date date) {
+        if(date == null){
+            return null;
+        }
+        return new SimpleDateFormat("HH:mm").format(date);
+    }
+
+    public Collection<String> getDays() throws ParseException, InvocationTargetException, IllegalAccessException {
+        if (agendaLineByDay == null) {
+            init();
+        }
+        return agendaLineByDay.keySet();
+    }
+
+    public String getSpeakerPhotoUrl() {
+        return resService.getImgPicsUrl();
+    }
+
+    public Speaker getSelectedSpeaker() {
+        return selectedSpeaker;
+    }
+
+    public void setSelectedSpeaker(Speaker selectedSpeaker) {
+        this.selectedSpeaker = selectedSpeaker;
+    }
+
+    public Event getSelectedSession() {
+        return selectedSession;
+    }
+
+    public void setSelectedSession(Event selectedSession) {
+        this.selectedSession = selectedSession;
+    }
 }

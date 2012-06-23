@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+	xmlns:jc="http://jcertif.com/facelets">
+
+<ui:composition>
+		<div class="rubrique-title">
+				<h:outputText value="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}" />
+			</div>
+            <div class="rubrique-text">
+				<div class="speaker-photo">
+				     <h:panelGrid columns="1" style="width:100%">    			 
+						<p:graphicImage value="#{speakerBean.speakerPhotoUrl}/#{speaker.photo}" alt="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}"/> 	
+					 </h:panelGrid>
+				</div>
+				<div class="speaker-bio">
+						<h:panelGrid columns="1" style="width:100%">  					  
+							<h:outputText value="#{speaker.bio}" />
+						</h:panelGrid>  
+				</div>
+				<br/>
+			</div>
+</ui:composition>
+</html>

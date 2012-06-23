@@ -28,4 +28,8 @@
 		<tag-name>speakers</tag-name>
 		<source>tags/panel/speakers.xhtml</source>
 	</tag>
+    <tag>
+        <tag-name>oneSpeaker</tag-name>
+        <source>tags/panel/oneSpeaker.xhtml</source>
+    </tag>
 </facelet-taglib>
