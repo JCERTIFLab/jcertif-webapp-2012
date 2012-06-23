@@ -523,6 +523,11 @@ a:visited {
     width: 50px;
 }
 
+.agenda-hour {
+    font-size: 10px !important;
+    text-align: center;
+}
+
 .De-Brazza {
 background: #59875F;
 }
@@ -560,34 +565,30 @@ background: #fffacd;
 
 .event-start {
     background: #B0C4DE;
-    border-top-color: #BF0418 !important;
-    border-left-color: #BF0418 !important;
-    border-right-color: #BF0418 !important;
+    border-top-color: #B0C4DE !important;
     border-bottom-color: #B0C4DE !important;
-    border-width: 2px !important;
     font-size: 14px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding-top: 5px !important;
 }
 
 .event-middle {
     background: #B0C4DE;
     border-top-color: #C4C4C4 !important;
-    border-left-color: #BF0418 !important;
-    border-right-color: #BF0418 !important;
     border-bottom-color: #B0C4DE !important;
-    border-width: 2px !important;
 }
 
 .event-end {
     background: #B0C4DE;
-    border-bottom-color: #BF0418 !important;
-    border-left-color: #BF0418 !important;
-    border-right-color: #BF0418 !important;
     border-top-color: #B0C4DE !important;
-    border-width: 2px !important;
+    border-bottom-color: #B0C4DE !important;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .no-class {
-    border-width: 0px !important;
+
 }
 
 div[id^="no-class"] {

@@ -14,9 +14,10 @@
         <h:panelGrid id="sessionDetails" columns="2">
             <h:form>
                 <ui:param name="event" value="#{agendaBean.selectedSession}"/>
-                <h1><h:outputText value="#{event.nom}"/></h1>
+                <h2><h:outputText value="#{event.nom}"/></h2>
                 <div class="rubrique-title">#{msg['agenda.dialog.session.timing']}</div>
                 <div class="rubrique-text">#{agendaBean.format(event.dateDebut.time)} - #{agendaBean.format(event.dateFin.time)}</div>
+                <br/>
                 <div class="rubrique-title">#{msg['agenda.dialog.session.sommaire']}</div>
                 <div class="rubrique-text">#{event.sommaire}</div>
                 <br/>

@@ -3,6 +3,7 @@ package com.jcertif.web.ihm.calendar;
 
 import com.jcertif.web.model.Event;
 import com.jcertif.web.model.Speaker;
+import org.apache.commons.lang.time.DateUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 
 public class AgendaLine {
 
+    public static final int TIMELINE_INTERVALL = 15;
     public static final String EVENT_START = "event-start";
     public static final String EVENT_MIDDLE = "event-middle";
     public static final String EVENT_END = "event-end";
@@ -53,13 +55,14 @@ public class AgendaLine {
                 return EVENT_START;
             }
 
-            if (format(time).equals(format(evt.getDateFin().getTime()))) {
+            if (format(DateUtils.addMinutes(time,TIMELINE_INTERVALL)).equals(format(evt.getDateFin().getTime()))) {
                 return EVENT_END;
             }
 
             if (format(time).compareTo(format(evt.getDateDebut().getTime())) > 0 && format(time).compareTo(format(evt.getDateFin().getTime())) < 0) {
                 return EVENT_MIDDLE;
             }
+
 
 
         }

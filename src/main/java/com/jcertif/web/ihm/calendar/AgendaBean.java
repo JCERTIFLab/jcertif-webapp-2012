@@ -31,7 +31,7 @@ import com.jcertif.web.service.ResourceService;
 public class AgendaBean implements Serializable {
 
     private static final long serialVersionUID = 3243371323747830221L;
-    public static final int TIMELINE_INTERVALL = 15;
+
     public static final String START_HOUR = "08:00";
     public static final String END_HOUR = "18:00";
     @Inject
@@ -48,9 +48,6 @@ public class AgendaBean implements Serializable {
 
 
     private void init() throws ParseException, InvocationTargetException, IllegalAccessException {
-        long start = System.currentTimeMillis();
-
-
         Set<String> days = new HashSet<String>();
         for (Event evt : referentielService.getEvents()) {
             days.add(getFormattedDay(evt));
@@ -58,7 +55,7 @@ public class AgendaBean implements Serializable {
 
         for(String day : days){
             Date heurePivot = buildHour(START_HOUR);
-            while (heurePivot.before(buildHour(END_HOUR))) {
+            while (heurePivot.before(DateUtils.addMinutes(buildHour(END_HOUR),AgendaLine.TIMELINE_INTERVALL))) {
                 AgendaLine line = new AgendaLine();
                 line.setTime(heurePivot);
 
@@ -75,11 +72,9 @@ public class AgendaBean implements Serializable {
                     }
                 }
                 addAgendaLineToDay(day, line);
-                heurePivot = DateUtils.addMinutes(heurePivot, TIMELINE_INTERVALL);
+                heurePivot = DateUtils.addMinutes(heurePivot, AgendaLine.TIMELINE_INTERVALL);
             }
         }
-
-        System.out.println("init " + (System.currentTimeMillis() -start) + " ms" );
 
     }
 
@@ -89,7 +84,6 @@ public class AgendaBean implements Serializable {
 
     private boolean isEventMachedWithLine(AgendaLine line, Event evt) {
         return format(line.getTime()).equals(format(evt.getDateDebut().getTime()))
-                || format(line.getTime()).equals(format(evt.getDateFin().getTime()))
                 || (format(line.getTime()).compareTo(format(evt.getDateDebut().getTime())) > 0 && format(line.getTime()).compareTo(format(evt.getDateFin().getTime())) < 0);
     }
 
@@ -153,7 +147,7 @@ public class AgendaBean implements Serializable {
         if (agendaLineByDay == null) {
             init();
         }
-        return agendaLineByDay.keySet();
+        return new TreeSet<String>(agendaLineByDay.keySet());
     }
 
     public String getSpeakerPhotoUrl() {

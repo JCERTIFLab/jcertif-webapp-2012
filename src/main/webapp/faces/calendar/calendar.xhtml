@@ -25,7 +25,7 @@
                                 <f:facet name="header">
                                     Heure
                                 </f:facet>
-                                <h:outputText value="#{agendaBean.format(line.time)}"/>
+                                <h:outputText class="agenda-hour" value="#{agendaBean.format(line.time)}"/>
                             </p:column>
 
                             <c:forEach var="room" items="#{agendaBean.getRooms(day)}">
