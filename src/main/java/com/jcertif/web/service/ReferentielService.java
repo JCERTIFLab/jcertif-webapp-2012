@@ -152,6 +152,16 @@ public class ReferentielService implements Serializable {
 
 	}
 
+    public Speaker getSpeaker(Long id) {
+        for(Speaker speaker : getSpeakers()){
+            if(speaker.getId().equals(id)){
+                return speaker;
+            }
+        }
+        return null;
+
+    }
+
 	/**
 	 * @return the conference
 	 */
