@@ -10,7 +10,7 @@
 
 <ui:composition>
 
-    <p:dialog header="#{msg['agenda.dialog.session.header']}" widgetVar="sessionDlg" modal="true" width="800">
+    <p:dialog header="#{msg['agenda.dialog.session.header']}" widgetVar="sessionDlg" modal="true" width="800" styleClass="backgroundcolor">
         <h:panelGrid id="sessionDetails" columns="2">
             <h:form>
                 <ui:param name="event" value="#{agendaBean.selectedSession}"/>

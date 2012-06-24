@@ -7,6 +7,7 @@ package com.jcertif.web.ihm.calendar;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -83,8 +84,8 @@ public class AgendaBean implements Serializable {
     }
 
     private boolean isEventMachedWithLine(AgendaLine line, Event evt) {
-        return format(line.getTime()).equals(format(evt.getDateDebut().getTime()))
-                || (format(line.getTime()).compareTo(format(evt.getDateDebut().getTime())) > 0 && format(line.getTime()).compareTo(format(evt.getDateFin().getTime())) < 0);
+        return format(line.getTime()).equals(formatToGMT(evt.getDateDebut().getTime()))
+                || (format(line.getTime()).compareTo(formatToGMT(evt.getDateDebut().getTime())) > 0 && format(line.getTime()).compareTo(formatToGMT(evt.getDateFin().getTime())) < 0);
     }
 
     private void addAgendaLineToDay(final String day, final AgendaLine line) {
@@ -141,6 +142,15 @@ public class AgendaBean implements Serializable {
             return null;
         }
         return new SimpleDateFormat("HH:mm").format(date);
+    }
+
+    public String formatToGMT(Date date){
+        if(date == null){
+            return null;
+        }
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return dateFormat.format(date);
     }
 
     public Collection<String> getDays() throws ParseException, InvocationTargetException, IllegalAccessException {
