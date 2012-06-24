@@ -10,14 +10,14 @@
 			</div>
             <div class="rubrique-text">
 				<div class="speaker-photo">
-				     <h:panelGrid columns="1" style="width:100%">    			 
-						<p:graphicImage value="#{speakerBean.speakerPhotoUrl}/#{speaker.photo}" alt="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}"/> 	
-					 </h:panelGrid>
+
+						<p:graphicImage value="#{speakerBean.speakerPhotoUrl}/#{speaker.photo}" alt="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}" styleClass="speaker-photo"/>
+
 				</div>
 				<div class="speaker-bio">
-						<h:panelGrid columns="1" style="width:100%">  					  
+
 							<h:outputText value="#{speaker.bio}" />
-						</h:panelGrid>  
+
 				</div>
 				<br/>
 			</div>

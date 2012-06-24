@@ -5,10 +5,12 @@ import com.jcertif.web.model.Event;
 import com.jcertif.web.model.Speaker;
 import org.apache.commons.lang.time.DateUtils;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class AgendaLine {
 
@@ -51,15 +53,15 @@ public class AgendaLine {
     public String getCSSClass(String salle) {
         Event evt = getEvent(salle);
         if (evt != null) {
-            if (format(time).equals(format(evt.getDateDebut().getTime()))) {
+            if (format(time).equals(formatToGMT(evt.getDateDebut().getTime()))) {
                 return EVENT_START;
             }
 
-            if (format(DateUtils.addMinutes(time,TIMELINE_INTERVALL)).equals(format(evt.getDateFin().getTime()))) {
+            if (format(DateUtils.addMinutes(time,TIMELINE_INTERVALL)).equals(formatToGMT(evt.getDateFin().getTime()))) {
                 return EVENT_END;
             }
 
-            if (format(time).compareTo(format(evt.getDateDebut().getTime())) > 0 && format(time).compareTo(format(evt.getDateFin().getTime())) < 0) {
+            if (format(time).compareTo(formatToGMT(evt.getDateDebut().getTime())) > 0 && format(time).compareTo(formatToGMT(evt.getDateFin().getTime())) < 0) {
                 return EVENT_MIDDLE;
             }
 
@@ -72,6 +74,15 @@ public class AgendaLine {
 
     public String format(Date date) {
         return new SimpleDateFormat("HH:mm").format(date);
+    }
+
+    public String formatToGMT(Date date){
+        if(date == null){
+            return null;
+        }
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return dateFormat.format(date);
     }
 
     public Boolean isStartEvent(String room) {
