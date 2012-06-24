@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-        version="2.5">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
 
     <!-- JSF standard parameters -->
     <context-param>
@@ -12,10 +12,14 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-     <context-param>
-    <param-name>facelets.LIBRARIES</param-name>
-    <param-value>/WEB-INF/jcertif.taglib.xml</param-value>
- </context-param>
+    <context-param>
+        <param-name>facelets.LIBRARIES</param-name>
+        <param-value>/WEB-INF/jcertif.taglib.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
+        <param-value>com.sun.el.ExpressionFactoryImpl</param-value>
+    </context-param>
     <context-param>
         <description>
             If this parameter is set to true and the submitted value of a component is
@@ -26,7 +30,8 @@
     </context-param>
     <context-param>
         <description>State saving method: "client" or "server" (= default)
-            See JSF Specification 2.5.3</description>
+            See JSF Specification 2.5.3
+        </description>
         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
         <param-value>client</param-value>
     </context-param>
@@ -34,7 +39,8 @@
     <!-- MyFaces specific parameters -->
     <context-param>
         <description>Only applicable if state saving method is "server" (= default).
-            Defines the amount (default = 20) of the latest views are stored in session.</description>
+            Defines the amount (default = 20) of the latest views are stored in session.
+        </description>
         <param-name>org.apache.myfaces.NUMBER_OF_VIEWS_IN_SESSION</param-name>
         <param-value>20</param-value>
     </context-param>
@@ -42,7 +48,8 @@
         <description>Only applicable if state saving method is "server" (= default).
             If true (default) the state will be serialized to a byte stream before it
             is written to the session.
-            If false the state will not be serialized to a byte stream.</description>
+            If false the state will not be serialized to a byte stream.
+        </description>
         <param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -50,7 +57,8 @@
         <description>Only applicable if state saving method is "server" (= default) and if
             org.apache.myfaces.SERIALIZE_STATE_IN_SESSION is true (= default)
             If true (default) the serialized state will be compressed before it
-            is written to the session. If false the state will not be compressed.</description>
+            is written to the session. If false the state will not be compressed.
+        </description>
         <param-name>org.apache.myfaces.COMPRESS_STATE_IN_SESSION</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -61,7 +69,8 @@
             that submits the corresponding form.
             If javascript is not allowed, the state saving info and nested parameters
             will be added as url parameters.
-            Default: "true"</description>
+            Default: "true"
+        </description>
         <param-name>org.apache.myfaces.ALLOW_JAVASCRIPT</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -73,7 +82,8 @@
         <description>If true, rendered HTML code will be formatted, so that it is "human readable".
             i.e. additional line separators and whitespace will be written, that do not
             influence the HTML code.
-            Default: "true"</description>
+            Default: "true"
+        </description>
         <param-name>org.apache.myfaces.PRETTY_HTML</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -82,7 +92,8 @@
             former vertical scroll on every request. Convenient feature if you have pages
             with long lists and you do not want the browser page to always jump to the top
             if you trigger a link or button action that stays on the same page.
-            Default: "false"</description>
+            Default: "false"
+        </description>
         <param-name>org.apache.myfaces.AUTO_SCROLL</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -95,7 +106,7 @@
         <param-value>NzY1NDMyMTA=</param-value>
     </context-param>
 
-	<!-- Listener for OpenWebBeans configuration -->
+    <!-- Listener for OpenWebBeans configuration -->
     <listener>
         <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
     </listener>
@@ -116,16 +127,16 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
-    
+
     <!-- Error Page -->
     <error-page>
-		<exception-type>java.lang.Throwable</exception-type>
-		<location>/exception.jsp</location>
-	</error-page>
-  <error-page>
-	  <error-code>404</error-code>
-	  <location>/404.jsp</location>
-  </error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/exception.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
 
     <!-- Welcome files -->
     <welcome-file-list>
