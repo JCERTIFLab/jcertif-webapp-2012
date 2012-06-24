@@ -662,7 +662,8 @@ div[id^="event-end"] {
     width: 98%;
     margin: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
-    background-color: #eeeeee;
+    background-image: url('../resources/img/header/header_bg_menu.png');
+    background-repeat: repeat-x;
 }
 
 .rubrique-text {
@@ -673,12 +674,12 @@ div[id^="event-end"] {
 /******* Speaker ********/
 .speaker-bio {
     float: right;
-    width: 85%
+    width: 85%;
 }
 
 .speaker-photo {
     float: left;
-    width: 10%;
+    width: 100px;
 }
 
 /********** FOOTER **********/
@@ -727,4 +728,17 @@ div[id^="event-end"] {
     font-size: 18pt;
     margin-top: 20px;
     margin-left: 20px;
+}
+
+/** SURCHARGE PRIMEFACES **/
+.ui-datagrid-data {
+    background-color: #e6ecec !important;
+}
+
+.backgroundcolor {
+    background-color: #e6ecec;
+}
+
+.ui-widget-content {
+    background-color: #e6ecec !important;
 }

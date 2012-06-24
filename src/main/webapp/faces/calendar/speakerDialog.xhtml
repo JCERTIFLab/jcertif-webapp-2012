@@ -10,7 +10,7 @@
 
 <ui:composition>
 
-    <p:dialog header="#{msg['agenda.dialog.speaker.header']}" widgetVar="speakerDlg" modal="true" width="800">
+    <p:dialog header="#{msg['agenda.dialog.speaker.header']}" widgetVar="speakerDlg" modal="true" width="800" styleClass="backgroundcolor">
         <h:panelGrid id="speakerDetails"  columns="2">
             <h:form >
                 <jc:oneSpeaker speaker="#{agendaBean.selectedSpeaker}"/>
