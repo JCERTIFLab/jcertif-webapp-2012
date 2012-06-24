@@ -17,7 +17,7 @@ public class AgendaLineTest {
 
     @Test
     public void testGetCSSClassEventStart() throws ParseException {
-        AgendaLine line = getAgendaLine(10);
+        AgendaLine line = getAgendaLine(10,0);
         line.getEvents().add(getEvent(10,11));
         System.out.println(line.getTime() + " ev " + line.getEvents().iterator().next().getDateDebut().getTime());
         assertEquals(AgendaLine.EVENT_START, line.getCSSClass("Hall"));
@@ -25,22 +25,22 @@ public class AgendaLineTest {
 
     @Test
     public void testGetCSSClassEventMiddle() throws ParseException {
-        AgendaLine line = getAgendaLine(11);
+        AgendaLine line = getAgendaLine(11,0);
         line.getEvents().add(getEvent(10,15));
         assertEquals(AgendaLine.EVENT_MIDDLE, line.getCSSClass("Hall"));
     }
 
     @Test
     public void testGetCSSClassEventEnd() throws ParseException {
-        AgendaLine line = getAgendaLine(15);
-        line.getEvents().add(getEvent(10,15));
+        AgendaLine line = getAgendaLine(15,45);
+        line.getEvents().add(getEvent(10,16));
         assertEquals(AgendaLine.EVENT_END, line.getCSSClass("Hall"));
     }
 
-    private AgendaLine getAgendaLine(int hour) throws ParseException {
+    private AgendaLine getAgendaLine(int hour, int minute) throws ParseException {
         DateFormat timeFormat = new SimpleDateFormat("HH:mm");
         AgendaLine line = new AgendaLine();
-        line.setTime(timeFormat.parse(hour + ":00"));
+        line.setTime(timeFormat.parse(hour + ":" + minute));
         return line;
     }
 
