@@ -12,6 +12,13 @@
     <ui:define name="content">
         <jc:pageBanner title="#{msg['agenda.banner.title']}"/>
 
+        <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>
+
+        <p:dialog modal="true" widgetVar="statusDialog" header="#{msg['agenda.banner.title']}"
+                  draggable="false" closable="false">
+            <p:graphicImage value="../../resources/img/common/ajaxloadingbar.gif" />
+        </p:dialog>
+
 
         <p:growl id="messages" showDetail="true"/>
 
