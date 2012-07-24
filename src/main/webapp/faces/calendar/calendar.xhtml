@@ -14,8 +14,8 @@
 
         <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>
 
-        <p:dialog modal="true" widgetVar="statusDialog" header="#{msg['agenda.banner.title']}"
-                  draggable="false" closable="false">
+        <p:dialog modal="true" widgetVar="statusDialog"
+                  draggable="false" closable="false" resizable="false" showHeader="false" hideEffect="bounce"  showEffect="explode">
             <p:graphicImage value="../../resources/img/common/ajaxloadingbar.gif" />
         </p:dialog>
 
