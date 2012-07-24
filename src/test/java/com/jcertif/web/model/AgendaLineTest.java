@@ -12,28 +12,28 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 public class AgendaLineTest {
 
     @Test
     public void testGetCSSClassEventStart() throws ParseException {
         AgendaLine line = getAgendaLine(10,0);
-        line.getEvents().add(getEvent(10,11));
-        System.out.println(line.getTime() + " ev " + line.getEvents().iterator().next().getDateDebut().getTime());
+        line.getEvents().add(getEvent("10","11"));
         assertEquals(AgendaLine.EVENT_START, line.getCSSClass("Hall"));
     }
 
     @Test
     public void testGetCSSClassEventMiddle() throws ParseException {
         AgendaLine line = getAgendaLine(11,0);
-        line.getEvents().add(getEvent(10,15));
+        line.getEvents().add(getEvent("10","15"));
         assertEquals(AgendaLine.EVENT_MIDDLE, line.getCSSClass("Hall"));
     }
 
     @Test
     public void testGetCSSClassEventEnd() throws ParseException {
         AgendaLine line = getAgendaLine(15,45);
-        line.getEvents().add(getEvent(10,16));
+        line.getEvents().add(getEvent("10","16"));
         assertEquals(AgendaLine.EVENT_END, line.getCSSClass("Hall"));
     }
 
@@ -44,14 +44,16 @@ public class AgendaLineTest {
         return line;
     }
 
-    private AgendaEvent getEvent(int startHour, int endHour){
+    private AgendaEvent getEvent(String startHour, String endHour) throws ParseException{
+    	DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         AgendaEvent evt1 = new AgendaEvent();
         evt1.setNom("Java EE is good");
         Calendar dateDeb = Calendar.getInstance();
-        dateDeb.set(1,1,1,startHour,0,0);
+        dateDeb.setTime(dateFormat.parse(startHour + ":00"));
         evt1.setDateDebut(dateDeb);
         Calendar dateFin = Calendar.getInstance();
-        dateFin.set(1,1,1,endHour,0,0);
+        dateFin.setTime(dateFormat.parse(endHour + ":00"));
         evt1.setDateFin(dateFin);
         evt1.setSalle("Hall");
         return evt1;

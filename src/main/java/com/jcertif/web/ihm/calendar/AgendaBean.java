@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -28,7 +29,7 @@ import com.jcertif.web.service.ResourceService;
  * @author Mamadou
  */
 @Named
-@RequestScoped
+@SessionScoped
 public class AgendaBean implements Serializable {
 
     private static final long serialVersionUID = 3243371323747830221L;
@@ -83,7 +84,7 @@ public class AgendaBean implements Serializable {
         return new SimpleDateFormat("dd/MM").format(evt.getDateDebut().getTime());
     }
 
-    private boolean isEventMachedWithLine(AgendaLine line, Event evt) {
+    protected boolean isEventMachedWithLine(AgendaLine line, Event evt) {
         return format(line.getTime()).equals(formatToGMT(evt.getDateDebut().getTime()))
                 || (format(line.getTime()).compareTo(formatToGMT(evt.getDateDebut().getTime())) > 0 && format(line.getTime()).compareTo(formatToGMT(evt.getDateFin().getTime())) < 0);
     }
