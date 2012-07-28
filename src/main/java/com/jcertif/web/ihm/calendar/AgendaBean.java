@@ -111,7 +111,7 @@ public class AgendaBean implements Serializable {
         }
         Set<String> rooms = roomsByDay.get(day);
         if (rooms == null) {
-            rooms = new HashSet<String>();
+            rooms = new TreeSet<String>();
             rooms.add(room);
             roomsByDay.put(day,rooms);
         } else {
