@@ -12,8 +12,7 @@
 
     <div style="float: left;">
 
-
-            <p:commandLink styleClass="event-details" oncomplete="speakerDlg.show()" update=":speakerDetails" process="@form" actionListener="#{agendaBean.setSelectedSpeaker(speaker)}">
+             <p:commandLink styleClass="event-details" oncomplete="speakerDlg.show()" update=":speakerDetails" actionListener="#{agendaBean.setSelectedSpeaker(speaker)}">
                 <p:graphicImage value="#{agendaBean.speakerPhotoUrl}/#{speaker.photo}"
                                 alt="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}"
                                 styleClass="event-details-img #{line.getCSSClass(room)}"/>
@@ -22,8 +21,9 @@
 
     </div>
     <div style="float: left">
-        <ui:param name="event" value="#{line.findEvent(room)}"/>
-        <p:commandLink styleClass="event-details" oncomplete="sessionDlg.show()" value="#{event.nom}" update=":sessionDetails" process="@form" actionListener="#{agendaBean.setSelectedSession(event)}"/>
+         <ui:param name="event" value="#{line.findEvent(room)}"/>
+        <p:commandLink styleClass="event-details" oncomplete="sessionDlg.show()" value="#{event.nom}" update=":sessionDetails"  actionListener="#{agendaBean.setSelectedSession(event)}"/>
+
     </div>
 
 
