@@ -22,7 +22,7 @@
 
         <p:growl id="messages" showDetail="true"/>
 
-        <p:tabView id="tabView" effect="slide" dynamic="true" cache="true">
+        <p:tabView id="tabView" effect="slide" cache="true">
 
             <c:forEach var="day" items="#{agendaBean.days}">
                 <p:tab title="#{day}">
@@ -40,12 +40,16 @@
                                     <f:facet name="header">
                                         #{'Salle'.concat(' ').concat(room)}
                                     </f:facet>
-                                    <div>
-                                        <ui:param name="speaker" value="#{line.findSpeaker(room)}"/>
-                                        <div id="#{line.getCSSClass(room).concat(room)}">
-                                            <ui:include src="event.xhtml"/>
+                                    <p:outputPanel rendered="#{line.getCSSClass(room) eq 'event-start'}">
+                                        <div>
+                                            <ui:param name="speaker" value="#{line.findSpeaker(room)}"/>
+                                            <div id="#{line.getCSSClass(room).concat(room)}">
+
+                                                <ui:include src="event.xhtml"/>
+
+                                            </div>
                                         </div>
-                                    </div>
+                                    </p:outputPanel>
                                 </p:column>
                             </c:forEach>
                         </p:dataTable>
