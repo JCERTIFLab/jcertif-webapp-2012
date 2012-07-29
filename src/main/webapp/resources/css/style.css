@@ -537,8 +537,16 @@ margin-bottom: 5px;
     font-weight: bold;
 }
 
+.event-details:hover {
+    color: #700D1D;
+}
+
 .event-details-img {
     width: 50px;
+}
+
+.event-details-img:hover {
+    width: 60px;
 }
 
 .agenda-hour {
@@ -590,6 +598,10 @@ background: #fffacd;
     border-top-left-radius: 20px;
     padding-top: 5px !important;
     vertical-align: top;
+}
+
+.event-start-speaker:hover {
+    color: #700D1D;
 }
 
 .event-middle {
