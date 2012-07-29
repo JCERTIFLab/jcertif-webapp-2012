@@ -36,7 +36,7 @@
                             </p:column>
 
                             <c:forEach var="room" items="#{agendaBean.getRooms(day)}">
-                                <p:column styleClass="#{line.getCSSClass(room)}">
+                                <p:column styleClass="#{line.getCSSClass(room)}" valign="top">
                                     <f:facet name="header">
                                         #{'Salle'.concat(' ').concat(room)}
                                     </f:facet>

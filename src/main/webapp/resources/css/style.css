@@ -585,10 +585,11 @@ background: #fffacd;
     background: #B0C4DE;
     border-top-color: #B0C4DE !important;
     border-bottom-color: #B0C4DE !important;
-    font-size: 14px;
+    font-size: 12px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     padding-top: 5px !important;
+    vertical-align: top;
 }
 
 .event-middle {
