@@ -13,11 +13,13 @@
     <div style="float: left;">
 
              <p:commandLink oncomplete="speakerDlg.show()" update=":speakerDetails" actionListener="#{agendaBean.setSelectedSpeaker(speaker)}">
-                <p:graphicImage value="#{agendaBean.speakerPhotoUrl}/#{speaker.photo}"
+                <div  class="event-start-speaker">
+                 <p:graphicImage value="#{agendaBean.speakerPhotoUrl}/#{speaker.photo}"
                                 alt="#{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}"
                                 styleClass="event-details-img #{line.getCSSClass(room)}"/>
                  <br/>
                  #{speaker.prenom} #{speaker.nom} - #{speaker.compagnie}
+                </div>
             </p:commandLink>
 
 
