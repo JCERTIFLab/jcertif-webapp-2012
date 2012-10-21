@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -8,14 +8,22 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:jc="http://jcertif.com/facelets">
 
-<ui:composition>
+    <ui:composition>
 
-    <div class="home-rubrique-title">
-        #{msg['home.rubrique.title']}
-    </div>
-    <div class="home-rubrique-text">
-        <h:outputText value="#{msg['home.rubrique.content']}" escape="false"/>
-    </div>
+        <div class="home-rubrique-title">
+            #{msg['home.rubrique.title']}
+        </div>
+        <div class="home-rubrique-text">
+            <p:galleria  value="#{homeBean.images2012}" var="image">
+                <p:graphicImage value="#{image}"/>
+            </p:galleria>
+            <br/>
+            <h:outputLink value="https://picasaweb.google.com/101033732619256173933/" target="_blank" >#{msg['2011.university.more']}</h:outputLink> 
+            <br/>
+            <br/>
+                        <br/>
 
-</ui:composition>
+        </div>
+
+    </ui:composition>
 </html>
