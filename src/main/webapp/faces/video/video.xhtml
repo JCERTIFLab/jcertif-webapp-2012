@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jc="http://jcertif.com/facelets">
+
+   
+    <ui:composition template="/templates/template.xhtml">
+        <ui:define name="content">
+            <jc:pageBanner title="#{msg['video.banner.title']}"/>
+            <br/>
+            
+             <div class="rubrique-title">
+                <h:outputText value="#{msg['video.spot']}" />
+             </div>
+            <div class="rubrique-text" style="padding-left: 18%">
+                <p:media value="http://www.youtube.com/v/R7pDMz0zkAo" width="600" height="400" player="flash"/>
+            </div>
+            <br/>
+             <div class="rubrique-title">
+                <h:outputText value="#{msg['video.university.1']}" />
+             </div>
+            <div class="rubrique-text" style="padding-left: 18%">
+                <p:media value="http://www.youtube.com/v/mPs8kctX6BQ" width="600" height="400" player="flash"/>
+            </div>
+            <br/>
+
+            <div class="rubrique-title">
+            <h:outputText value="#{msg['video.university.2']}" />
+            </div>
+            <div class="rubrique-text" style="padding-left: 18%">
+                <p:media value="http://www.youtube.com/v/SoRKsNrrEpk" width="600" height="400" player="flash"/>
+            </div>
+            
+            <div class="rubrique-title">
+            <h:outputText value="#{msg['video.university.3']}" />
+            </div>
+            <div class="rubrique-text" style="padding-left: 18%">
+                <p:media value="http://www.youtube.com/v/qf-9VaJFw7E" width="600" height="400" player="flash"/>
+            </div>
+            
+            <div class="rubrique-title">
+            <h:outputText value="#{msg['video.tvcongo']}" />
+            </div>
+            <div class="rubrique-text" style="padding-left: 18%">
+                <p:media value="http://www.youtube.com/v/rSwx3U2ZYio" width="600" height="400" player="flash"/>
+            </div>
+     
+        </ui:define>
+    </ui:composition>
+</html>
