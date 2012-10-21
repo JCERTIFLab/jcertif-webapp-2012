@@ -32,4 +32,9 @@
         <tag-name>oneSpeaker</tag-name>
         <source>tags/panel/oneSpeaker.xhtml</source>
     </tag>
+    
+    <tag>
+        <tag-name>oneSession</tag-name>
+        <source>tags/panel/oneSession.xhtml</source>
+    </tag>
 </facelet-taglib>

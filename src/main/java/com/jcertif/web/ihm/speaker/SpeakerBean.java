@@ -41,6 +41,17 @@ public class SpeakerBean {
 	public List<Speaker> getSpeakers() {
 		return referentielService.getSpeakers();
 	}
+        
+        public Speaker getSpeaker(final String nom, final String prenom) {
+            
+            for(Speaker speaker : referentielService.getSpeakers()) {
+                if(nom.equalsIgnoreCase(speaker.getNom()) && prenom.equalsIgnoreCase(prenom)) {
+                    return speaker;
+                }
+            }
+            
+            return null;
+        }
 
 	/**
 	 * @return the speakers
