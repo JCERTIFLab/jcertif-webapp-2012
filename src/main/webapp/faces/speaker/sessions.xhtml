@@ -50,6 +50,16 @@
             </ui:define>     
             </jc:oneSession>  
             </div>
+            <div style="clear:both">
+                <br/>
+            <jc:oneSession speaker="#{speakerBean.getSpeaker('Hovi', 'Amen')}">
+                <ui:define name="session">
+                    <br/>
+                    <h:outputText value="#{msg['session.amen.googlemap']}"/> 
+                    <h:outputLink value="#{msg['session.amen.googlemap.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+            </ui:define>     
+            </jc:oneSession>  
+            </div>
              <div style="clear:both">
                 <br/>
             <jc:oneSession speaker="#{speakerBean.getSpeaker('Oddet', 'Rossi')}">
