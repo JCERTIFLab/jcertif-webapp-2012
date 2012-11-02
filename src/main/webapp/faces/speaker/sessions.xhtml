@@ -28,6 +28,16 @@
             </div>
             <div style="clear:both">
                 <br/>
+            <jc:oneSession speaker="#{speakerBean.getSpeaker('BAILEY', 'Chris')}">
+                <ui:define name="session">
+                    <br/>
+                    <h:outputText value="#{msg['session.chris.jvm']}"/> 
+                    <h:outputLink value="#{msg['session.chris.jvm.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+                 </ui:define>     
+            </jc:oneSession>  
+            </div>
+            <div style="clear:both">
+                <br/>
             <jc:oneSession speaker="#{speakerBean.getSpeaker('TOGUEM FONKOUA', 'Eric Joel')}">
                 <ui:define name="session">
                     <br/>
@@ -37,6 +47,32 @@
                     <br/>
                     <h:outputText value="#{msg['session.eric.platform']}"/> 
                     <h:outputLink value="#{msg['session.eric.platform.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+            </ui:define>     
+            </jc:oneSession>  
+            </div>
+             <div style="clear:both">
+                <br/>
+            <jc:oneSession speaker="#{speakerBean.getSpeaker('Oddet', 'Rossi')}">
+                <ui:define name="session">
+                    <br/>
+                    <h:outputText value="#{msg['session.rossi.maven']}"/> 
+                    <h:outputLink value="#{msg['session.rossi.maven.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+                    <br/>
+                    <br/>
+                    <h:outputText value="#{msg['session.rossi.scrum']}"/> 
+                    <h:outputLink value="#{msg['session.rossi.scrum.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+           			<br/>
+           			<br/>
+                    <h:outputText value="#{msg['session.rossi.jenkins']}"/> 
+                    <h:outputLink value="#{msg['session.rossi.jenkins.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+                    <br/>
+                    <br/>
+                    <h:outputText value="#{msg['session.rossi.git']}"/> 
+                    <h:outputLink value="#{msg['session.rossi.git.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+             		<br/>
+                    <br/>
+                    <h:outputText value="#{msg['session.rossi.gatling']}"/> 
+                    <h:outputLink value="#{msg['session.rossi.gatling.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
             </ui:define>     
             </jc:oneSession>  
             </div>
