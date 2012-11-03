@@ -50,6 +50,20 @@
             </ui:define>     
             </jc:oneSession>  
             </div>
+             <div style="clear:both">
+                <br/>
+            <jc:oneSession speaker="#{speakerBean.getSpeaker('Bonbhel', 'Max')}">
+                <ui:define name="session">
+                    <br/>
+                    <h:outputText value="#{msg['session.max.android']}"/> 
+                    <h:outputLink value="#{msg['session.max.android.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+                    <br/>
+                    <br/>
+                    <h:outputText value="#{msg['session.max.webservices']}"/> 
+                    <h:outputLink value="#{msg['session.max.webservices.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+            </ui:define>     
+            </jc:oneSession>  
+            </div>
             <div style="clear:both">
                 <br/>
             <jc:oneSession speaker="#{speakerBean.getSpeaker('Hovi', 'Amen')}">
