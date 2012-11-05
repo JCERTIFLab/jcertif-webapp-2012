@@ -66,6 +66,20 @@
             </div>
             <div style="clear:both">
                 <br/>
+            <jc:oneSession speaker="#{speakerBean.getSpeaker('DIAKUBAMA', 'Noé')}">
+                <ui:define name="session">
+                    <br/>
+                    <h:outputText value="#{msg['session.noe.googlemap']}"/> 
+                    <h:outputLink value="#{msg['session.noe.googlemap.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+            		<br/><br/>
+            		<h:outputText value="#{msg['session.noe.googlemap.video']}"/> 
+                    <h:outputLink value="#{msg['session.noe.googlemap.video.url']}" target="_blank">#{msg['session.noe.googlemap.video.url']}</h:outputLink>
+            
+            </ui:define>     
+            </jc:oneSession>  
+            </div>
+            <div style="clear:both">
+                <br/>
             <jc:oneSession speaker="#{speakerBean.getSpeaker('Hovi', 'Amen')}">
                 <ui:define name="session">
                     <br/>
