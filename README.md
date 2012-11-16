@@ -5,10 +5,10 @@ JCertif Web Application
 Ce projet consiste à développer le site web de référence de l'événement JCertif : www.jcertif.com.
 
 Chaque année le projet est recommencée avec une nouvelle technologie : <br/>
-+ 2011 : Vaadin, Jersey Client<br/>
-+ 2012 : JSF 2, CDI, Jersey CLient<br/>
++ 2011 : Vaadin, Jersey Client, Maven<br/>
++ 2012 : JSF 2, MyFaces, Primefaces, CDI, Jersey CLient, Maven<br/>
 + 2013 : En cours de sélection<br/>
 
-
+<img src="https://raw.github.com/JCERTIFLab/jcertif-webapp/master/wiki/img/jcertif_web_2012.gif" />
 
 
