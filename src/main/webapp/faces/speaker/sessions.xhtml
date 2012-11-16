@@ -66,6 +66,24 @@
             </div>
             <div style="clear:both">
                 <br/>
+            <jc:oneSession speaker="#{speakerBean.getSpeaker('Bashizi', 'Patrick')}">
+                <ui:define name="session">
+                    <br/>
+                    <h:outputText value="#{msg['session.patrick.android.jellybean']}"/> 
+                    <h:outputLink value="#{msg['session.patrick.android.jellybean.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+            		<br/><br/>
+            		<h:outputText value="#{msg['session.patrick.android.bestpractices']}"/> 
+                    <h:outputLink value="#{msg['session.patrick.android.bestpractices.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+            		<br/><br/>
+            		<h:outputText value="#{msg['session.patrick.android.java']}"/> 
+                    <h:outputLink value="#{msg['session.patrick.android.java.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
+            		<br/><br/>
+            </ui:define>     
+            </jc:oneSession>  
+            </div>
+            
+            <div style="clear:both">
+                <br/>
             <jc:oneSession speaker="#{speakerBean.getSpeaker('DIAKUBAMA', 'Noé')}">
                 <ui:define name="session">
                     <br/>
@@ -78,6 +96,7 @@
             </ui:define>     
             </jc:oneSession>  
             </div>
+            
             <div style="clear:both">
                 <br/>
             <jc:oneSession speaker="#{speakerBean.getSpeaker('Hovi', 'Amen')}">
