@@ -1,138 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:jc="http://jcertif.com/facelets">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jc="http://jcertif.com/facelets">
 
-   
-    <ui:composition template="/templates/template.xhtml">
-        <ui:define name="content">
-            <jc:pageBanner title="#{msg['session.banner.title']}"/>
-            <br/>
-   
-            <div>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('Mbiandou', 'Douglas')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.douglas.performance']}"/> 
-                    <h:outputLink value="#{msg['session.douglas.performance.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-                    <br/>
-                    <br/>
-                    <h:outputText value="#{msg['session.douglas.securite']}"/> 
-                    <h:outputLink value="#{msg['session.douglas.securite.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            </ui:define>     
-            </jc:oneSession> 
-            </div>
-            <div style="clear:both">
-                <br/>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('BAILEY', 'Chris')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.chris.jvm']}"/> 
-                    <h:outputLink value="#{msg['session.chris.jvm.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-                 </ui:define>     
-            </jc:oneSession>  
-            </div>
-            <div style="clear:both">
-                <br/>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('TOGUEM FONKOUA', 'Eric Joel')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.eric.ussd']}"/> 
-                    <h:outputLink value="#{msg['session.eric.ussd.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-                    <br/>
-                    <br/>
-                    <h:outputText value="#{msg['session.eric.platform']}"/> 
-                    <h:outputLink value="#{msg['session.eric.platform.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            </ui:define>     
-            </jc:oneSession>  
-            </div>
-             <div style="clear:both">
-                <br/>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('Bonbhel', 'Max')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.max.android']}"/> 
-                    <h:outputLink value="#{msg['session.max.android.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-                    <br/>
-                    <br/>
-                    <h:outputText value="#{msg['session.max.webservices']}"/> 
-                    <h:outputLink value="#{msg['session.max.webservices.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            </ui:define>     
-            </jc:oneSession>  
-            </div>
-            <div style="clear:both">
-                <br/>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('Bashizi', 'Patrick')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.patrick.android.jellybean']}"/> 
-                    <h:outputLink value="#{msg['session.patrick.android.jellybean.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            		<br/><br/>
-            		<h:outputText value="#{msg['session.patrick.android.bestpractices']}"/> 
-                    <h:outputLink value="#{msg['session.patrick.android.bestpractices.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            		<br/><br/>
-            		<h:outputText value="#{msg['session.patrick.android.java']}"/> 
-                    <h:outputLink value="#{msg['session.patrick.android.java.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            		<br/><br/>
-            </ui:define>     
-            </jc:oneSession>  
-            </div>
-            
-            <div style="clear:both">
-                <br/>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('DIAKUBAMA', 'Noé')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.noe.googlemap']}"/> 
-                    <h:outputLink value="#{msg['session.noe.googlemap.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            		<br/><br/>
-            		<h:outputText value="#{msg['session.noe.googlemap.video']}"/> 
-                    <h:outputLink value="#{msg['session.noe.googlemap.video.url']}" target="_blank">#{msg['session.noe.googlemap.video.url']}</h:outputLink>
-            
-            </ui:define>     
-            </jc:oneSession>  
-            </div>
-            
-            <div style="clear:both">
-                <br/>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('Hovi', 'Amen')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.amen.googlemap']}"/> 
-                    <h:outputLink value="#{msg['session.amen.googlemap.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            </ui:define>     
-            </jc:oneSession>  
-            </div>
-             <div style="clear:both">
-                <br/>
-            <jc:oneSession speaker="#{speakerBean.getSpeaker('Oddet', 'Rossi')}">
-                <ui:define name="session">
-                    <br/>
-                    <h:outputText value="#{msg['session.rossi.maven']}"/> 
-                    <h:outputLink value="#{msg['session.rossi.maven.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-                    <br/>
-                    <br/>
-                    <h:outputText value="#{msg['session.rossi.scrum']}"/> 
-                    <h:outputLink value="#{msg['session.rossi.scrum.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-           			<br/>
-           			<br/>
-                    <h:outputText value="#{msg['session.rossi.jenkins']}"/> 
-                    <h:outputLink value="#{msg['session.rossi.jenkins.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-                    <br/>
-                    <br/>
-                    <h:outputText value="#{msg['session.rossi.git']}"/> 
-                    <h:outputLink value="#{msg['session.rossi.git.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-             		<br/>
-                    <br/>
-                    <h:outputText value="#{msg['session.rossi.gatling']}"/> 
-                    <h:outputLink value="#{msg['session.rossi.gatling.url']}" target="_blank">#{msg['session.download']}</h:outputLink>
-            </ui:define>     
-            </jc:oneSession>  
-            </div>
-        </ui:define>
-    </ui:composition>
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="content">
+		<jc:pageBanner title="#{msg['session.banner.title']}" />
+		<br />
+
+		<h:outputLink value="https://github.com/JCERTIFLab/JCertif-2012" target="_blank">
+			<h:outputText value="#{msg['session.github']}" />
+		</h:outputLink>
+
+
+	</ui:define>
+</ui:composition>
 </html>
