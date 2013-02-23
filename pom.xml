@@ -327,8 +327,8 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <pics.url>http://68.169.48.10:8080/jcertif-pics</pics.url>
-                <facade.url>http://68.169.48.10:8080/jcertif-facade/api</facade.url>
+                <pics.url>http://pics.jcertif.cloudbees.net</pics.url>
+             <facade.url>http://facade.jcertif.cloudbees.net/api</facade.url>
             </properties>
         </profile>
         <profile>
