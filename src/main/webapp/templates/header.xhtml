@@ -17,7 +17,12 @@
 					</span> <span id="header-title-date-event-text2"> <h:outputText
 							value="#{msg['header.date.event2']}" />
 					</span>
+					<br/>
+					<c:if test="#{sessionScope.connectedUser == null}">
+						<p:commandButton value="#{msg['header.register']}" action="/faces/join/join.jsf" style="background-color:red; color:white"/> 
+					</c:if>
 				</div>
+				
 				<c:choose>
 					<c:when test="#{sessionScope.connectedUser != null}">
 						<div id="header-user">#{sessionScope.connectedUser.prenom}
@@ -48,6 +53,9 @@
 				</div>
 
 			</div>
+			
+			
+				
 
 			<div id="header-menu">
 				<div id="header-menu-group-button">

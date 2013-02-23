@@ -41,9 +41,9 @@ a:visited {
 }
 
 #header-title {
-    background-image: url('../resources/img/header/logo_jcertif_2012.png');
+    background-image: url('../resources/img/header/logo_jcertif_conference.gif');
     background-repeat: no-repeat;
-    height: 80px;
+    height: 150px;
 }
 
 #header-title-date-event {

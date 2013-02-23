@@ -37,8 +37,6 @@ public class AgendaBean implements Serializable {
     public static final String START_HOUR = "08:00";
     public static final String END_HOUR = "18:00";
     @Inject
-    private ReferentielService referentielService;
-    @Inject
     private ResourceService resService;
 
     private Map<String, List<AgendaLine>> agendaLineByDay;
@@ -50,29 +48,19 @@ public class AgendaBean implements Serializable {
 
 
     private void init() throws ParseException, InvocationTargetException, IllegalAccessException {
-        Set<String> days = new HashSet<String>();
-        for (Event evt : referentielService.getEvents()) {
-            days.add(getFormattedDay(evt));
-        }
+        Collection<String> days = getDays();
+    
 
         for(String day : days){
             Date heurePivot = buildHour(START_HOUR);
+            addRoomToDay(day, "IHEMA");
+            addRoomToDay(day, "IHEM1");
+            addRoomToDay(day, "IHEM2");
+            addRoomToDay(day, "IHEM3");
+            
             while (heurePivot.before(DateUtils.addMinutes(buildHour(END_HOUR),AgendaLine.TIMELINE_INTERVALL))) {
                 AgendaLine line = new AgendaLine();
                 line.setTime(heurePivot);
-
-                for (Event evt : referentielService.getEvents()) {
-
-                    if(day.equals(getFormattedDay(evt))){
-                        if (isEventMachedWithLine(line, evt)) {
-                            AgendaEvent agendaEvent = new AgendaEvent();
-                            BeanUtils.copyProperties(agendaEvent,evt);
-                            agendaEvent.setSpeaker(referentielService.getSpeaker(evt.getSpeakersId()));
-                            line.getEvents().add(agendaEvent);
-                            addRoomToDay(day, evt.getSalle());
-                        }
-                    }
-                }
                 addAgendaLineToDay(day, line);
                 heurePivot = DateUtils.addMinutes(heurePivot, AgendaLine.TIMELINE_INTERVALL);
             }
@@ -155,10 +143,17 @@ public class AgendaBean implements Serializable {
     }
 
     public Collection<String> getDays() throws ParseException, InvocationTargetException, IllegalAccessException {
-        if (agendaLineByDay == null) {
-            init();
-        }
-        return new TreeSet<String>(agendaLineByDay.keySet());
+        final Collection<String> days = new ArrayList<String>();
+        days.add("09/09");
+        days.add("10/09");
+        days.add("11/09");
+        days.add("12/09");
+        days.add("13/09");
+        days.add("14/09");
+        days.add("15/09");
+      
+        
+        return days;
     }
 
     public String getSpeakerPhotoUrl() {

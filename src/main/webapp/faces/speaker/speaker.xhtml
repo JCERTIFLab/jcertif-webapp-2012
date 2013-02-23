@@ -9,10 +9,9 @@
 
 <ui:composition template="/templates/template.xhtml">
 	<ui:define name="content">
-		<jc:pageBanner title="#{msg['speaker.banner.title']}"/>
-		
-		 <br/>
-		<jc:speakers speakers="#{speakerBean.speakers}"/>
+		<jc:pageBanner title="#{msg['bientot']}"/>
+		<br/>
+		#{msg['speaker.text']}
 		
 	</ui:define>
 </ui:composition>

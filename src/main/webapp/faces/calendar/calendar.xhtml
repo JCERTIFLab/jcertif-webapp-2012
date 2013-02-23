@@ -11,7 +11,10 @@
 <ui:composition template="/templates/template.xhtml">
     <ui:define name="content">
         <jc:pageBanner title="#{msg['agenda.banner.title']}"/>
-
+        <br/>
+       
+        #{msg['agenda.text']}
+ <br/>
         <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>
 
         <p:dialog modal="true" widgetVar="statusDialog"
