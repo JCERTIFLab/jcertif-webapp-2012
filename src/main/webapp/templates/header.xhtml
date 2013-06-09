@@ -51,9 +51,9 @@
 				</div>
 				<div style="margin-left:42%;font-size:21px">
 					<c:if test="#{sessionScope.connectedUser == null}">
-						<p:commandButton value="#{msg['warid.annonce']}" action="/faces/warid/warid.jsf" style="background-color:red; color:white"/> 
+						<h:link value="#{msg['warid.annonce']}" outcome="/faces/warid/warid.jsf" style="background-color:red; color:white"/>
 					</c:if>
-				
+
 				</div>
 			</div>
 			

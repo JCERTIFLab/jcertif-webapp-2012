@@ -24,11 +24,24 @@
 		</h:outputLink>
 		<br/>
 		<br/>
-		<h:form id="warid" enctype="multipart/form-data">
+        <h:form enctype="multipart/form-data" colspan="2">
+            <h:outputText id="uploadMsg" value="#{waridBean.fileText}" />
+            <p:fileUpload fileUploadListener="#{waridBean.handleFileUpload}"
+                          mode="advanced"
+                          update="uploadMsg"
+                          auto="true"
+                          sizeLimit="10000000"
+                          allowTypes="/(\.|\/)(doc|docx)$/"/>
+
+        </h:form>
+
+
+
+        <h:form id="warid">
 			<h:panelGrid columns="2" columnClasses="label, value" styleClass="grid" >
 
 				<h:outputText value="#{msg['warid.group.name']}" />
-				<p:inputText value="#{waridBean.groupName}" />
+				<p:inputText value="#{waridBean.groupName}" required="true" requiredMessage="#{msg['warid.group.name']} #{msg['warid.mandatory']}"/>
 
 				<h:outputText value="#{msg['warid.project.name']} *" />
 				<p:inputText value="#{waridBean.projectName}" required="true" requiredMessage="#{msg['warid.project.name']} #{msg['warid.mandatory']}"/>
@@ -44,11 +57,11 @@
 
 				<h:outputText value="#{msg['warid.project.lead.email']}" />
 				<p:inputText value="#{waridBean.email}" required="true" requiredMessage="#{msg['warid.project.lead.email']} #{msg['warid.mandatory']}"/>
-				
-				<h:outputText value="#{msg['warid.file']}" />
-               	<p:fileUpload value="#{fileUploadController.file}" mode="simple" required="true" requiredMessage="#{msg['warid.file']} #{msg['warid.mandatory']}"/> 
-               
-				<p:commandButton value="#{msg['warid.register']}" update="warid" actionListener="#{waridBean.register}"  disabled="true"/>
+
+
+
+
+                <p:commandButton value="#{msg['warid.register']}" update="warid" actionListener="#{waridBean.register}" />
 				<p:messages/>
 				
 			</h:panelGrid>

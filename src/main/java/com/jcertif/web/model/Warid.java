@@ -2,7 +2,9 @@ package com.jcertif.web.model;
 
 import org.primefaces.model.UploadedFile;
 
-public class Warid {
+import java.io.Serializable;
+
+public class Warid implements Serializable {
 
 	private String groupName;
 	private String projectName;

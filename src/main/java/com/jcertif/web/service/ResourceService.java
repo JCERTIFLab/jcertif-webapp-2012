@@ -2,6 +2,7 @@ package com.jcertif.web.service;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -198,5 +199,42 @@ public class ResourceService implements Serializable {
 	public String getPhotoConfEvent2011Url() {
 		return getWebappProps().getString("pics.url.img.2011.conf");
 	}
+
+    public String getMailHost() {
+        return getWebappProps().getString("mail.host");
+    }
+
+    public Integer getMailPort() {
+        return Integer.valueOf(getWebappProps().getString("mail.port"));
+    }
+
+    public String getMailUser() {
+        return getWebappProps().getString("mail.user");
+    }
+
+    public String getMailPassword() {
+        return getWebappProps().getString("mail.pass");
+    }
+
+    public String getMailDiffusion() {
+        return getWebappProps().getString("mail.diffusion");
+    }
+
+    public String get() {
+        return getWebappProps().getString("mail.filename");
+    }
+
+    public String getMailTempDir() {
+        return getWebappProps().getString("mail.temp.dir");
+    }
+
+    public String getWaridMailTemplate() {
+        StringBuilder htmlTemplate = new StringBuilder();
+        Scanner sc = new Scanner(Thread.currentThread().getContextClassLoader().getResourceAsStream("mail/waridTemplate.html"));
+        while(sc.hasNext()){
+            htmlTemplate.append(sc.nextLine());
+        }
+        return htmlTemplate.toString();
+    }
 
 }
