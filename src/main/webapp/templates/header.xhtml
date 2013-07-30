@@ -49,11 +49,11 @@
 						immediate="true" />
 				</h:form>
 				</div>
-				<div style="margin-left:42%;font-size:21px">
+<div style="margin-left:42%;font-size:21px">
 					<c:if test="#{sessionScope.connectedUser == null}">
-						<h:link value="#{msg['warid.annonce']}" outcome="/faces/warid/warid.jsf" style="background-color:red; color:white"/>
+						<p:commandButton value="#{msg['header.register']}" action="/faces/join/join.jsf" style="background-color:red; color:white"/> 
 					</c:if>
-
+				
 				</div>
 			</div>
 			
@@ -63,11 +63,12 @@
 			<div id="header-menu">
 				<div id="header-menu-group-button">
 					<jc:headerMenuButton text="#{msg['header.menu.home']}" url="/faces/home/home.jsf"></jc:headerMenuButton>
-					<jc:headerMenuButton text="#{msg['header.register']}" url="/faces/join/join.jsf"></jc:headerMenuButton>
-                    <jc:headerMenuButton text="#{msg['header.menu.speaker']}" url="/faces/speaker/speaker.jsf"></jc:headerMenuButton>
-                    <jc:headerMenuButton text="#{msg['header.menu.session']}" url="/faces/speaker/sessions.jsf"></jc:headerMenuButton>
-                    <jc:headerMenuButton text="#{msg['header.menu.video']}" url="/faces/video/video.jsf"></jc:headerMenuButton>
+                                        <jc:headerMenuButton text="#{msg['header.menu.speaker']}" url="/faces/speaker/speaker.jsf"></jc:headerMenuButton>
+                                         <jc:headerMenuButton text="#{msg['header.menu.session']}" url="/faces/speaker/sessions.jsf"></jc:headerMenuButton>
+                                          <jc:headerMenuButton text="#{msg['header.menu.video']}" url="/faces/video/video.jsf"></jc:headerMenuButton>
 					<jc:headerMenuButton text="#{msg['header.menu.calendar']}" url="/faces/calendar/calendar.jsf"></jc:headerMenuButton>
+					
+                                       
 					<jc:headerMenuButton text="#{msg['header.menu.contact']}" url="/faces/contact/contact.jsf"></jc:headerMenuButton>
 				</div>
 			</div>
